@@ -1,6 +1,11 @@
 backend:
-name: github
-repo: YOUR_USERNAME/chalkboard-cozy-enhanced
+  name: github
+  repo:     Cortinarius-I/LHLC_deCAP
+  branch: main
+  base_url: https://api.github.com
+  auth_endpoint: oauth
+  client_id: Ov23liw55fJZez53oOlt
+  client_secret: 5515c0f3bf88940d7f35569b29093ee1233122bd
 
 media_folder: "assets/media"
 public_folder: "/assets/media"
