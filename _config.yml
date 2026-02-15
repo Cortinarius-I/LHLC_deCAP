@@ -4,6 +4,7 @@ url: "https://cortinarius-i.github.io"
 baseurl: "/LHLC_deCAP"
 
 markdown: kramdown
+permalink: pretty
 
 collections:
   programs:
