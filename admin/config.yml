@@ -1,38 +1,35 @@
 backend:
   name: github
-  repo:     Cortinarius-I/LHLC_deCAP
-  branch: main
-  base_url: https://api.github.com
-  auth_endpoint: oauth
-  client_id: Ov23liw55fJZez53oOlt
-  client_secret: 5515c0f3bf88940d7f35569b29093ee1233122bd
+  repo: Cortinarius-I/LHLC_deCAP
+  branch: master
+  auth_type: pkce
 
 media_folder: "assets/media"
 public_folder: "/assets/media"
 
 collections:
-- name: pages
-label: Pages
-files:
-- label: Home
-name: home
-file: index.md
-fields:
-- { label: Title, name: title, widget: string }
-- label: Hero
-name: hero
-widget: object
-fields:
-- { label: Title, name: title, widget: string }
-- { label: Subtitle, name: subtitle, widget: text }
-- { label: Image, name: image, widget: image, required: false }
-- { label: Video, name: video, widget: file, required: false }
+  - name: pages
+    label: Pages
+    files:
+      - label: Home
+        name: home
+        file: index.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Video, name: video, widget: file, required: false }
 
-- name: programs
-label: Programs
-folder: _programs
-create: true
-fields:
-- { label: Title, name: title, widget: string }
-- { label: Age Range, name: age_range, widget: string }
-- { label: Body, name: body, widget: markdown }
+  - name: programs
+    label: Programs
+    folder: _programs
+    create: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Age Range, name: age_range, widget: string }
+      - { label: Body, name: body, widget: markdown }
