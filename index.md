@@ -4,7 +4,7 @@ hero:
   title: Little Hearts Learning Centre
   subtitle: "An initiative of Dhristi Foundation, creating enabling spaces to realize the educational and functional needs of children. We follow an inclusive approach in all learning experiences, working with children aged 3 to 15 years."
   image: /assets/media/hero.jpg
-  video: https://docs.google.com/videos/d/1STrFAMIdPjYuymKBxrB65d1fRhk7-eBR6OViyQyeVJE/
+  video: https://drive.google.com/uc?export=download&id=1STrFAMIdPjYuymKBxrB65d1fRhk7-eBR6OViyQyeVJE
   cta_text: Join Us
   cta_link: /join-us/
 stats:
