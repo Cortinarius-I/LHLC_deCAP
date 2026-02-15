@@ -1,5 +1,5 @@
-title: Little Hearts Learning Collective
-description: Cozy, curiosity-led learning
+title: Little Hearts Learning Centre
+description: Creating enabling spaces to realize the educational and functional needs of children
 url: "https://cortinarius-i.github.io"
 baseurl: "/LHLC_deCAP"
 
@@ -9,6 +9,9 @@ collections:
   programs:
     output: true
     permalink: /programs/:name/
+  activities:
+    output: true
+    permalink: /activities/:name/
 
 defaults:
   - scope:

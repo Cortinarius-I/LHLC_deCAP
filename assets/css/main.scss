@@ -236,6 +236,266 @@ h1, h2, h3 {
   font-family: 'Patrick Hand', cursive;
 }
 
+/* ── Stats bar ── */
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid $divider;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2rem;
+  color: $accent;
+}
+
+.stat-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+
+.stat-desc {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.65;
+}
+
+/* ── Highlights ── */
+
+.highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid $divider;
+  margin-bottom: 1rem;
+}
+
+.highlight-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $divider;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.highlight-card h3 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  color: $accent;
+  margin: 0 0 0.4rem;
+}
+
+.highlight-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* ── Team grid ── */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid $divider;
+  margin-bottom: 0.5rem;
+}
+
+.team-card h3 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.1rem;
+  margin: 0;
+  color: $accent;
+}
+
+.team-card p {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ── FAQ ── */
+
+.faq-list {
+  max-width: 700px;
+}
+
+.faq-item {
+  border-bottom: 1px solid $divider;
+  padding: 1rem 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  list-style: none;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.2rem;
+  color: $accent;
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  margin: 0.75rem 0 0;
+  opacity: 0.85;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ── Gallery ── */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0 2rem;
+}
+
+.gallery-item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ── Activities grid ── */
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+}
+
+.activity-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $divider;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  color: $chalk;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.activity-card:hover,
+.activity-card:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.activity-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-card-body {
+  padding: 1rem 1.25rem;
+}
+
+.activity-card h3 {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.15rem;
+  margin: 0 0 0.3rem;
+  color: $accent;
+}
+
+.activity-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(246, 216, 140, 0.15);
+  color: $accent;
+  padding: 0.15rem 0.6rem;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* ── Back link ── */
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: $accent;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Page body content ── */
+
+.page h2 {
+  color: $accent;
+  margin-top: 2rem;
+}
+
+.page p {
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.page a {
+  color: $accent;
+}
+
 /* ── Footer ── */
 
 .footer {
@@ -243,8 +503,21 @@ h1, h2, h3 {
   padding: 2.5rem 2rem;
   margin-top: 3rem;
   border-top: 1px solid $divider;
-  opacity: 0.6;
   font-size: 0.85rem;
+}
+
+.footer p {
+  margin: 0.25rem 0;
+  opacity: 0.6;
+}
+
+.footer-contact a {
+  color: $accent;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
 }
 
 /* ── Responsive ── */
@@ -270,11 +543,31 @@ h1, h2, h3 {
     padding: 1rem 1.5rem;
   }
 
+  .nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
   main {
     padding: 0 1.5rem;
   }
 
   .content-section {
     padding: 1.5rem 0;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .team-photo {
+    width: 90px;
+    height: 90px;
   }
 }

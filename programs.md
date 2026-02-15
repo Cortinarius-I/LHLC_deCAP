@@ -1,5 +1,5 @@
 ---
-title: Curriculum
+title: Our Programs
 layout: page
 ---
 
@@ -7,8 +7,8 @@ layout: page
 {% for program in site.programs %}
   <a href="{{ program.url | relative_url }}" class="program-card">
     <h3>{{ program.title }}</h3>
-    {% if program.age_range %}
-      <p>Ages {{ program.age_range }}</p>
+    {% if program.excerpt %}
+      <p>{{ program.excerpt }}</p>
     {% endif %}
   </a>
 {% endfor %}

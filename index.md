@@ -1,13 +1,31 @@
 ---
 title: Home
 hero:
-  title: Little Hearts Learning Collective
-  subtitle: Learning rooted in curiosity and care
+  title: Little Hearts Learning Centre
+  subtitle: "An initiative of Dhristi Foundation, creating enabling spaces to realize the educational and functional needs of children. We follow an inclusive approach in all learning experiences, working with children aged 3 to 15 years."
   image: /assets/media/hero.jpg
   cta_text: Join Us
-  cta_link: /contact/
+  cta_link: /join-us/
+stats:
+  - label: Founded
+    value: "2009"
+    description: Began in a garage with 6 students and parent volunteers
+  - label: Students
+    value: "51"
+    description: 12 girls and 39 boys
+  - label: Location
+    value: Chembur, Mumbai
+    description: A peaceful suburb in Mumbai
+  - label: Teacher-Student Ratio
+    value: "1:5"
+    description: Individual attention for faster learning
+highlights:
+  - title: Great Teachers
+    text: We work with dedicated professionals specializing in special education and therapy.
+  - title: Healthy Meals
+    text: Balanced nutrition suitable for each child.
+  - title: Excellent Programmes
+    text: Stories, games, quizzes, and worksheets designed for engaging lessons.
+  - title: Satisfied Parents
+    text: Parents trust our service and our commitment to their children.
 ---
-
-{% include section.html title="Our Philosophy" text="We believe learning should feel warm, playful, and deeply human." %}
-
-{% include section.html title="Community" text="Children, families, and mentors learning together." %}

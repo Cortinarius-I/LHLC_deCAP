@@ -11,7 +11,30 @@
 <a class="skip-link" href="#main">Skip to content</a>
 {% include nav.html %}
 {% if page.hero %}{% include hero.html %}{% endif %}
-<main id="main">{{ content }}</main>
+<main id="main">
+{% if page.stats %}
+<section class="stats-bar">
+{% for stat in page.stats %}
+<div class="stat">
+<span class="stat-value">{{ stat.value }}</span>
+<span class="stat-label">{{ stat.label }}</span>
+<span class="stat-desc">{{ stat.description }}</span>
+</div>
+{% endfor %}
+</section>
+{% endif %}
+{% if page.highlights %}
+<section class="highlights">
+{% for item in page.highlights %}
+<div class="highlight-card">
+<h3>{{ item.title }}</h3>
+<p>{{ item.text }}</p>
+</div>
+{% endfor %}
+</section>
+{% endif %}
+{{ content }}
+</main>
 {% include footer.html %}
 </body>
 </html>
