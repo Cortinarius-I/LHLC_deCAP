@@ -11,9 +11,7 @@
 <img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
 {% endif %}
 {% if page.hero.video %}
-<video class="hero-video" autoplay loop muted playsinline onloadeddata="this.classList.add('loaded')">
-<source src="{{ page.hero.video }}" type="video/mp4">
-</video>
+<iframe src="{{ page.hero.video }}" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" onload="this.classList.add('loaded')"></iframe>
 {% endif %}
 </div>
 </section>

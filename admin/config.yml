@@ -24,7 +24,7 @@ collections:
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: text }
               - { label: Image, name: image, widget: image, required: false }
-              - { label: Video URL, name: video, widget: string, required: false, hint: "Google Drive or YouTube embed URL" }
+              - { label: Video URL, name: video, widget: string, required: false, hint: "YouTube embed URL, e.g. https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&playlist=VIDEO_ID" }
               - { label: Button Text, name: cta_text, widget: string, required: false }
               - { label: Button Link, name: cta_link, widget: string, required: false }
           - label: Stats
