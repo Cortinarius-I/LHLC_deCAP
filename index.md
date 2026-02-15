@@ -4,6 +4,8 @@ hero:
   title: Little Hearts Learning Collective
   subtitle: Learning rooted in curiosity and care
   image: /assets/media/hero.jpg
+  cta_text: Join Us
+  cta_link: /contact/
 ---
 
 {% include section.html title="Our Philosophy" text="We believe learning should feel warm, playful, and deeply human." %}
