@@ -1,0 +1,17 @@
+title: Little Hearts Learning Collective
+description: Cozy, curiosity-led learning
+url: ""
+baseurl: ""
+
+markdown: kramdown
+
+collections:
+  programs:
+    output: true
+    permalink: /programs/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page

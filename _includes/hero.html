@@ -1,0 +1,17 @@
+<section class="hero" role="banner">
+<div class="hero-text">
+<h1>{{ page.hero.title }}</h1>
+<p>{{ page.hero.subtitle }}</p>
+</div>
+{% if page.hero.video %}
+<div class="hero-media">
+<video autoplay muted loop playsinline aria-hidden="true">
+<source src="{{ page.hero.video }}" type="video/mp4">
+</video>
+</div>
+{% elsif page.hero.image %}
+<div class="hero-media">
+<img src="{{ page.hero.image }}" alt="">
+</div>
+{% endif %}
+</section>

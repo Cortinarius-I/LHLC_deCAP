@@ -1,0 +1,33 @@
+backend:
+name: github
+repo: YOUR_USERNAME/chalkboard-cozy-enhanced
+
+media_folder: "assets/media"
+public_folder: "/assets/media"
+
+collections:
+- name: pages
+label: Pages
+files:
+- label: Home
+name: home
+file: index.md
+fields:
+- { label: Title, name: title, widget: string }
+- label: Hero
+name: hero
+widget: object
+fields:
+- { label: Title, name: title, widget: string }
+- { label: Subtitle, name: subtitle, widget: text }
+- { label: Image, name: image, widget: image, required: false }
+- { label: Video, name: video, widget: file, required: false }
+
+- name: programs
+label: Programs
+folder: _programs
+create: true
+fields:
+- { label: Title, name: title, widget: string }
+- { label: Age Range, name: age_range, widget: string }
+- { label: Body, name: body, widget: markdown }

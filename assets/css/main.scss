@@ -1,0 +1,104 @@
+---
+---
+$slate: #1e2226;
+$chalk: #f5f5f2;
+$accent: #f6d88c;
+
+body {
+background: radial-gradient(circle at top, #2a2f34, $slate);
+color: $chalk;
+font-family: 'Nunito', sans-serif;
+margin: 0;
+}
+
+.skip-link {
+position: absolute;
+left: -999px;
+}
+.skip-link:focus {
+left: 10px;
+top: 10px;
+background: $accent;
+color: black;
+padding: 0.5rem;
+}
+
+.nav-inner {
+display: flex;
+justify-content: space-between;
+padding: 1.5rem 3rem;
+}
+
+.nav a {
+color: $chalk;
+text-decoration: none;
+margin-left: 1.5rem;
+position: relative;
+}
+
+.nav a::after {
+content: "";
+position: absolute;
+width: 0%;
+height: 2px;
+bottom: -4px;
+left: 0;
+background: $chalk;
+transition: width 0.3s ease;
+}
+
+.nav a:hover::after,
+.nav a:focus::after {
+width: 100%;
+}
+
+.hero {
+display: grid;
+grid-template-columns: 1fr 1fr;
+padding: 4rem;
+align-items: center;
+}
+
+.hero-media img,
+.hero-media video {
+width: 100%;
+border-radius: 16px;
+transition: transform 0.4s ease;
+}
+
+.hero-media img:hover,
+.hero-media video:hover {
+transform: scale(1.03);
+}
+
+.program-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 2rem;
+padding: 2rem 0;
+}
+
+.program-card {
+background: rgba(255,255,255,0.05);
+padding: 2rem;
+border-radius: 12px;
+text-decoration: none;
+color: $chalk;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover,
+.program-card:focus {
+transform: translateY(-6px);
+box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+h1, h2, h3 {
+font-family: 'Patrick Hand', cursive;
+}
+
+.footer {
+text-align: center;
+padding: 2rem;
+opacity: 0.7;
+}
