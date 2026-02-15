@@ -1,7 +1,7 @@
 title: Little Hearts Learning Collective
 description: Cozy, curiosity-led learning
-url: "https://cortinarius-i.github.io/LHLC_deCAP"
-baseurl: "/LHLC_deCAP"
+url: "/LHLC_deCAP"
+baseurl: "https://cortinarius-i.github.io/LHLC_deCAP"
 
 markdown: kramdown
 
