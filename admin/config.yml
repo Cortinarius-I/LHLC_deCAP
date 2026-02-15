@@ -2,7 +2,8 @@ backend:
   name: github
   repo: Cortinarius-I/LHLC_deCAP
   branch: master
-  auth_type: pkce
+  base_url: https://api.netlify.com
+  auth_endpoint: auth/done
 
 media_folder: "assets/media"
 public_folder: "/assets/media"
