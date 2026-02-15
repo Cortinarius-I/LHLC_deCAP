@@ -6,15 +6,12 @@
 <a href="{{ page.hero.cta_link | default: '#main' }}" class="btn">{{ page.hero.cta_text }}</a>
 {% endif %}
 </div>
-{% if page.hero.video %}
 <div class="hero-media">
-<video autoplay muted loop playsinline aria-hidden="true">
-<source src="{{ page.hero.video | relative_url }}" type="video/mp4">
-</video>
-</div>
-{% elsif page.hero.image %}
-<div class="hero-media">
-<img src="{{ page.hero.image | relative_url }}" alt="">
-</div>
+{% if page.hero.image %}
+<img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
 {% endif %}
+{% if page.hero.video %}
+<iframe src="{{ page.hero.video }}" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" onload="this.classList.add('loaded')"></iframe>
+{% endif %}
+</div>
 </section>
