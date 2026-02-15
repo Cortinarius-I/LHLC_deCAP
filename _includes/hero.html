@@ -6,12 +6,12 @@
 {% if page.hero.video %}
 <div class="hero-media">
 <video autoplay muted loop playsinline aria-hidden="true">
-<source src="{{ page.hero.video }}" type="video/mp4">
+<source src="{{ page.hero.video | relative_url }}" type="video/mp4">
 </video>
 </div>
 {% elsif page.hero.image %}
 <div class="hero-media">
-<img src="{{ page.hero.image }}" alt="">
+<img src="{{ page.hero.image | relative_url }}" alt="">
 </div>
 {% endif %}
 </section>
