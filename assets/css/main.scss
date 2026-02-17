@@ -213,16 +213,17 @@ h1, h2, h3 {
 .hero-media {
   position: relative;
   overflow: visible;
-  // Use chalk-mask SVG for irregular chalk-erased edges
-  // Mask is sized smaller than container to create inset effect
-  mask-image: url('../media/chalk-mask.svg');
-  -webkit-mask-image: url('../media/chalk-mask.svg');
-  mask-size: 115% 115%;
-  -webkit-mask-size: 115% 115%;
+  // Irregular scribble-edge mask from overlay PNG
+  mask-image: url('../media/hero-overlay.png');
+  -webkit-mask-image: url('../media/hero-overlay.png');
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
   mask-position: center;
   -webkit-mask-position: center;
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
+  mask-mode: luminance;
+  -webkit-mask-mode: luminance;
 }
 
 .hero-fallback {
