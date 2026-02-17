@@ -11,7 +11,8 @@
 <img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
 {% endif %}
 {% if page.hero.video %}
-<iframe src="{{ page.hero.video }}" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" onload="this.classList.add('loaded')"></iframe>
+<iframe src="{{ page.hero.video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1" loading="lazy" onload="this.classList.add('loaded')"></iframe>
+<div class="hero-video-shield" aria-hidden="true"></div>
 {% endif %}
 </div>
 </section>

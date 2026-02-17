@@ -1,28 +1,105 @@
 ---
 ---
-$slate: #2b3035;
-$slate-dark: #1e2226;
-$chalk: #f5f5f2;
-$accent: #f6d88c;
-$accent-hover: #f0c85a;
-$divider: rgba(245, 245, 242, 0.15);
+// ── Chalk color palette ──
+$board:         #2a3a2e;
+$board-dark:    #223228;
+$chalk:         #f5f5f2;
+$chalk-yellow:  #e8d590;
+$chalk-pink:    #d4a0a0;
+$chalk-blue:    #8fb8c9;
+$chalk-green:   #8cc9a1;
+$chalk-purple:  #b8a0cc;
+$chalk-orange:  #d4b088;
+$divider:       rgba(245, 245, 242, 0.15);
+
+// Keep $accent as alias for primary chalk color
+$accent: $chalk-yellow;
+
+// ── Hand-drawn chalk line SVG ──
+$chalk-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='8' viewBox='0 0 400 8'%3E%3Cpath d='M0,4 C20,2 40,6 60,4 S100,2 120,4 S160,6 180,4 S220,2 240,4 S280,6 300,4 S340,2 360,4 S400,6 400,4' stroke='rgba(245,245,242,0.25)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
+// ── Chalk divider mixin ──
+@mixin chalk-divider($position: top) {
+  border-#{$position}: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    #{$position}: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-image: $chalk-line;
+    background-repeat: repeat-x;
+    background-size: 400px 8px;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
 
 * {
   box-sizing: border-box;
 }
 
+// ── Body / Chalkboard background ──
+
 body {
-  background: $slate-dark;
+  background-color: $board-dark;
   background-image:
-    radial-gradient(ellipse at 20% 0%, rgba(60, 65, 72, 0.6) 0%, transparent 70%),
-    radial-gradient(ellipse at 80% 100%, rgba(50, 55, 62, 0.4) 0%, transparent 70%);
+    radial-gradient(ellipse at 15% 20%, rgba(255,255,255,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.025) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.02) 0%, transparent 45%),
+    linear-gradient(180deg, $board 0%, $board-dark 100%);
   color: $chalk;
   font-family: 'Nunito', sans-serif;
   margin: 0;
   min-height: 100vh;
 }
 
-/* ── Skip link ── */
+// Chalk dust grain overlay
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  filter: url(#chalkboard-noise);
+  background: white;
+}
+
+// All content above the grain layer
+.skip-link,
+.nav,
+.hero,
+main,
+.footer,
+svg[aria-hidden] {
+  position: relative;
+  z-index: 1;
+}
+
+// ── Chalk text effects ──
+
+body {
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.05),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2, h3 {
+  font-family: 'Patrick Hand', cursive;
+  filter: url(#chalk-text-heading);
+  text-shadow:
+    0 0 5px rgba(255, 255, 255, 0.07),
+    0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+// ── Skip link ──
 
 .skip-link {
   position: absolute;
@@ -31,14 +108,14 @@ body {
 .skip-link:focus {
   left: 10px;
   top: 10px;
-  background: $accent;
-  color: $slate-dark;
+  background: $chalk-yellow;
+  color: $board-dark;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   z-index: 100;
 }
 
-/* ── Navigation ── */
+// ── Navigation ──
 
 .nav {
   position: relative;
@@ -88,11 +165,14 @@ body {
   content: "";
   position: absolute;
   width: 0%;
-  height: 2px;
-  bottom: 0;
+  height: 6px;
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  background: $accent;
+  background-image: $chalk-line;
+  background-repeat: no-repeat;
+  background-size: 100% 6px;
+  background-position: center;
   transition: width 0.3s ease;
 }
 
@@ -101,7 +181,7 @@ body {
   width: 60%;
 }
 
-/* ── Hero ── */
+// ── Hero ──
 
 .hero {
   display: grid;
@@ -131,32 +211,34 @@ body {
 .btn {
   display: inline-block;
   padding: 0.65rem 1.8rem;
-  border: 2px solid $chalk;
-  color: $chalk;
+  border: 2px solid $chalk-yellow;
+  color: $chalk-yellow;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
   border-radius: 4px;
   transition: background 0.2s ease, color 0.2s ease;
+  filter: url(#chalk-text-heading);
 }
 
 .btn:hover,
 .btn:focus {
-  background: $chalk;
-  color: $slate-dark;
+  background: $chalk-yellow;
+  color: $board-dark;
 }
 
 .hero-media {
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  // Irregular chalk-erased edge fade
+  mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 60%, transparent 100%);
+  filter: url(#chalk-eraser-mask);
 }
 
 .hero-fallback {
   width: 100%;
   display: block;
-  border-radius: 12px;
 }
 
 .hero-video {
@@ -166,7 +248,6 @@ body {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 12px;
   opacity: 0;
   transition: opacity 0.6s ease;
 }
@@ -175,7 +256,17 @@ body {
   opacity: 1;
 }
 
-/* ── Content sections ── */
+.hero-video-shield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: default;
+}
+
+// ── Content sections ──
 
 main {
   max-width: 1100px;
@@ -191,19 +282,28 @@ main {
 
 .content-section {
   padding: 2.5rem 0;
-  border-top: 1px solid $divider;
+  @include chalk-divider(top);
+  border-top: none;
 }
 
 .content-section:first-child {
-  border-top: none;
+  &::before {
+    display: none;
+  }
 }
 
 .content-section h2 {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.6rem;
-  color: $accent;
+  color: $chalk-yellow;
   margin: 0 0 0.5rem;
 }
+
+// Rotate heading colors per section
+.content-section:nth-child(4n+1) h2 { color: $chalk-yellow; }
+.content-section:nth-child(4n+2) h2 { color: $chalk-blue; }
+.content-section:nth-child(4n+3) h2 { color: $chalk-pink; }
+.content-section:nth-child(4n) h2 { color: $chalk-green; }
 
 .content-section p {
   font-size: 1.05rem;
@@ -213,7 +313,7 @@ main {
   max-width: 650px;
 }
 
-/* ── Program cards ── */
+// ── Program cards ──
 
 .program-grid {
   display: grid;
@@ -223,8 +323,11 @@ main {
 }
 
 .program-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid $divider;
+  background: rgba(255, 255, 255, 0.04);
+  border: none;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(245, 245, 242, 0.1),
+    inset 1px 0 0 0 rgba(245, 245, 242, 0.05);
   padding: 2rem;
   border-radius: 12px;
   text-decoration: none;
@@ -235,15 +338,17 @@ main {
 .program-card:hover,
 .program-card:focus {
   transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1.5px rgba(245, 245, 242, 0.15);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .program-card h3 {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.3rem;
   margin: 0 0 0.4rem;
-  color: $accent;
+  color: $chalk-blue;
 }
 
 .program-card p {
@@ -252,20 +357,15 @@ main {
   font-size: 0.95rem;
 }
 
-/* ── Headings ── */
-
-h1, h2, h3 {
-  font-family: 'Patrick Hand', cursive;
-}
-
-/* ── Stats bar ── */
+// ── Stats bar ──
 
 .stats-bar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   padding: 2.5rem 0;
-  border-bottom: 1px solid $divider;
+  @include chalk-divider(bottom);
+  border-bottom: none;
   margin-bottom: 1rem;
 }
 
@@ -277,7 +377,7 @@ h1, h2, h3 {
   display: block;
   font-family: 'Patrick Hand', cursive;
   font-size: 2rem;
-  color: $accent;
+  color: $chalk-yellow;
 }
 
 .stat-label {
@@ -293,20 +393,22 @@ h1, h2, h3 {
   opacity: 0.65;
 }
 
-/* ── Highlights ── */
+// ── Highlights ──
 
 .highlights {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 2.5rem 0;
-  border-bottom: 1px solid $divider;
+  @include chalk-divider(bottom);
+  border-bottom: none;
   margin-bottom: 1rem;
 }
 
 .highlight-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid $divider;
+  background: rgba(255, 255, 255, 0.03);
+  border: none;
+  box-shadow: inset 0 0 0 1.5px rgba(245, 245, 242, 0.08);
   border-radius: 10px;
   padding: 1.5rem;
 }
@@ -314,7 +416,7 @@ h1, h2, h3 {
 .highlight-card h3 {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.2rem;
-  color: $accent;
+  color: $chalk-green;
   margin: 0 0 0.4rem;
 }
 
@@ -325,7 +427,7 @@ h1, h2, h3 {
   line-height: 1.5;
 }
 
-/* ── Team grid ── */
+// ── Team grid ──
 
 .team-grid {
   display: grid;
@@ -351,7 +453,7 @@ h1, h2, h3 {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.1rem;
   margin: 0;
-  color: $accent;
+  color: $chalk-pink;
 }
 
 .team-card p {
@@ -360,14 +462,15 @@ h1, h2, h3 {
   opacity: 0.7;
 }
 
-/* ── FAQ ── */
+// ── FAQ ──
 
 .faq-list {
   max-width: 700px;
 }
 
 .faq-item {
-  border-bottom: 1px solid $divider;
+  @include chalk-divider(bottom);
+  border-bottom: none;
   padding: 1rem 0;
 }
 
@@ -386,7 +489,7 @@ h1, h2, h3 {
   right: 0;
   top: 0;
   font-size: 1.2rem;
-  color: $accent;
+  color: $chalk-purple;
   transition: transform 0.2s ease;
 }
 
@@ -401,7 +504,7 @@ h1, h2, h3 {
   font-size: 0.95rem;
 }
 
-/* ── Gallery ── */
+// ── Gallery ──
 
 .gallery-grid {
   display: grid;
@@ -435,7 +538,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* ── Activities grid ── */
+// ── Activities grid ──
 
 .activities-grid {
   display: grid;
@@ -446,7 +549,8 @@ h1, h2, h3 {
 
 .activity-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid $divider;
+  border: none;
+  box-shadow: inset 0 0 0 1.5px rgba(245, 245, 242, 0.08);
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
@@ -457,7 +561,9 @@ h1, h2, h3 {
 .activity-card:hover,
 .activity-card:focus {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1.5px rgba(245, 245, 242, 0.12);
 }
 
 .activity-card img {
@@ -475,25 +581,25 @@ h1, h2, h3 {
   font-family: 'Patrick Hand', cursive;
   font-size: 1.15rem;
   margin: 0 0 0.3rem;
-  color: $accent;
+  color: $chalk-orange;
 }
 
 .activity-tag {
   display: inline-block;
   font-size: 0.75rem;
-  background: rgba(246, 216, 140, 0.15);
-  color: $accent;
+  background: rgba($chalk-orange, 0.15);
+  color: $chalk-orange;
   padding: 0.15rem 0.6rem;
   border-radius: 3px;
   font-weight: 600;
 }
 
-/* ── Back link ── */
+// ── Back link ──
 
 .back-link {
   display: inline-block;
   margin-top: 2rem;
-  color: $accent;
+  color: $chalk-yellow;
   text-decoration: none;
   font-size: 0.9rem;
 }
@@ -502,10 +608,10 @@ h1, h2, h3 {
   text-decoration: underline;
 }
 
-/* ── Page body content ── */
+// ── Page body content ──
 
 .page h2 {
-  color: $accent;
+  color: $chalk-yellow;
   margin-top: 2rem;
 }
 
@@ -515,16 +621,17 @@ h1, h2, h3 {
 }
 
 .page a {
-  color: $accent;
+  color: $chalk-yellow;
 }
 
-/* ── Footer ── */
+// ── Footer ──
 
 .footer {
   text-align: center;
   padding: 2.5rem 2rem;
   margin-top: 3rem;
-  border-top: 1px solid $divider;
+  @include chalk-divider(top);
+  border-top: none;
   font-size: 0.85rem;
 }
 
@@ -534,7 +641,7 @@ h1, h2, h3 {
 }
 
 .footer-contact a {
-  color: $accent;
+  color: $chalk-yellow;
   text-decoration: none;
 }
 
@@ -542,7 +649,7 @@ h1, h2, h3 {
   text-decoration: underline;
 }
 
-/* ── Responsive ── */
+// ── Responsive ──
 
 @media (max-width: 768px) {
   .hero {
@@ -591,5 +698,17 @@ h1, h2, h3 {
   .team-photo {
     width: 90px;
     height: 90px;
+  }
+
+  // Reduce filter intensity on mobile for performance
+  h1, h2, h3 {
+    filter: none;
+    text-shadow:
+      0 0 3px rgba(255, 255, 255, 0.06),
+      0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .hero-media {
+    filter: none;
   }
 }
