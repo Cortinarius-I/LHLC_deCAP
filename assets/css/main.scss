@@ -15,11 +15,15 @@ $divider:       rgba(245, 245, 242, 0.15);
 // Keep $accent as alias for primary chalk color
 $accent: $chalk-yellow;
 
-// ── Hand-drawn chalk line SVG ──
-$chalk-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='8' viewBox='0 0 400 8'%3E%3Cpath d='M0,4 C20,2 40,6 60,4 S100,2 120,4 S160,6 180,4 S220,2 240,4 S280,6 300,4 S340,2 360,4 S400,6 400,4' stroke='rgba(245,245,242,0.25)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+// ── Hand-drawn chalk line SVG for dividers ──
+// A wavy chalk stroke line (thin, irregular)
+$chalk-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='12' viewBox='0 0 600 12'%3E%3Cpath d='M0,6 C8,3 16,8 30,5 C44,2 56,9 72,6 C88,3 100,8 118,5 C136,2 150,9 168,6 C186,3 200,8 220,5 C240,2 258,9 278,6 C298,3 318,8 340,5 C362,2 382,9 404,6 C426,3 448,8 470,5 C492,2 514,9 536,6 C558,3 576,8 594,5 L600,6' stroke='rgba(245,245,242,0.22)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
+// A thicker chalk stroke for prominent dividers
+$chalk-line-thick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='16' viewBox='0 0 600 16'%3E%3Cpath d='M2,8 C15,4 30,11 50,7 C70,3 90,12 115,8 C140,4 160,11 185,7 C210,3 235,12 260,8 C285,4 310,11 340,7 C370,3 395,12 420,8 C445,4 470,11 495,7 C520,3 545,12 570,8 L598,7' stroke='rgba(245,245,242,0.18)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 
 // ── Chalk divider mixin ──
-@mixin chalk-divider($position: top) {
+@mixin chalk-divider($position: top, $thick: false) {
   border-#{$position}: none;
   position: relative;
 
@@ -29,11 +33,11 @@ $chalk-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' w
     #{$position}: 0;
     left: 0;
     width: 100%;
-    height: 8px;
-    background-image: $chalk-line;
+    height: if($thick, 16px, 12px);
+    background-image: if($thick, $chalk-line-thick, $chalk-line);
     background-repeat: repeat-x;
-    background-size: 400px 8px;
-    opacity: 0.7;
+    background-size: 600px if($thick, 16px, 12px);
+    opacity: 0.8;
     pointer-events: none;
   }
 }
@@ -46,18 +50,18 @@ $chalk-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' w
 
 body {
   background-color: $board-dark;
-  background-image:
-    radial-gradient(ellipse at 15% 20%, rgba(255,255,255,0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 80%, rgba(255,255,255,0.025) 0%, transparent 40%),
-    radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.02) 0%, transparent 45%),
-    linear-gradient(180deg, $board 0%, $board-dark 100%);
+  background-image: url('../media/chalkboard-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: $chalk;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Patrick Hand', cursive;
   margin: 0;
   min-height: 100vh;
 }
 
-// Chalk dust grain overlay
+// Chalk dust texture overlay (adds grain on top of background photo)
 body::before {
   content: '';
   position: fixed;
@@ -67,9 +71,11 @@ body::before {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.05;
-  filter: url(#chalkboard-noise);
-  background: white;
+  background-image: url('../media/chalk-texture.png');
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  opacity: 0.03;
+  mix-blend-mode: overlay;
 }
 
 // All content above the grain layer
@@ -77,26 +83,26 @@ body::before {
 .nav,
 .hero,
 main,
-.footer,
-svg[aria-hidden] {
+.footer {
   position: relative;
   z-index: 1;
 }
 
-// ── Chalk text effects ──
+// ── Chalk text effects (no SVG filters - just text-shadow) ──
 
 body {
   text-shadow:
-    0 0 1px rgba(255, 255, 255, 0.05),
-    0.5px 0.5px 0px rgba(0, 0, 0, 0.2);
+    0 0 1px rgba(255, 255, 255, 0.04),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15);
 }
 
 h1, h2, h3 {
-  font-family: 'Patrick Hand', cursive;
-  filter: url(#chalk-text-heading);
+  font-family: 'Cabin Sketch', cursive;
+  font-weight: 700;
   text-shadow:
-    0 0 5px rgba(255, 255, 255, 0.07),
-    0 0 1px rgba(255, 255, 255, 0.12);
+    0 0 8px rgba(255, 255, 255, 0.06),
+    0 0 2px rgba(255, 255, 255, 0.1),
+    1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 // ── Skip link ──
@@ -153,25 +159,26 @@ h1, h2, h3 {
 .nav li a {
   color: $chalk;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
   padding: 0.4rem 0.9rem;
   border-radius: 4px;
   transition: background 0.2s ease;
   position: relative;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 .nav li a::after {
   content: "";
   position: absolute;
   width: 0%;
-  height: 6px;
+  height: 8px;
   bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
   background-image: $chalk-line;
   background-repeat: no-repeat;
-  background-size: 100% 6px;
+  background-size: 100% 8px;
   background-position: center;
   transition: width 0.3s ease;
 }
@@ -194,7 +201,7 @@ h1, h2, h3 {
 }
 
 .hero-text h1 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 3rem;
   line-height: 1.15;
   margin: 0 0 0.75rem;
@@ -216,9 +223,9 @@ h1, h2, h3 {
   text-decoration: none;
   font-weight: 700;
   font-size: 0.95rem;
+  font-family: 'Cabin Sketch', cursive;
   border-radius: 4px;
   transition: background 0.2s ease, color 0.2s ease;
-  filter: url(#chalk-text-heading);
 }
 
 .btn:hover,
@@ -230,10 +237,13 @@ h1, h2, h3 {
 .hero-media {
   position: relative;
   overflow: hidden;
-  // Irregular chalk-erased edge fade
-  mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 60%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 95% 90% at 50% 50%, black 60%, transparent 100%);
-  filter: url(#chalk-eraser-mask);
+  // Use chalk-mask SVG for irregular chalk-erased edges
+  mask-image: url('../media/chalk-mask.svg');
+  -webkit-mask-image: url('../media/chalk-mask.svg');
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
 }
 
 .hero-fallback {
@@ -275,7 +285,7 @@ main {
 }
 
 .page > h1 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 2.2rem;
   margin: 2rem 0 1rem;
 }
@@ -293,7 +303,7 @@ main {
 }
 
 .content-section h2 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 1.6rem;
   color: $chalk-yellow;
   margin: 0 0 0.5rem;
@@ -345,7 +355,7 @@ main {
 }
 
 .program-card h3 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 1.3rem;
   margin: 0 0 0.4rem;
   color: $chalk-blue;
@@ -364,7 +374,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
   padding: 2.5rem 0;
-  @include chalk-divider(bottom);
+  @include chalk-divider(bottom, true);
   border-bottom: none;
   margin-bottom: 1rem;
 }
@@ -375,7 +385,7 @@ main {
 
 .stat-value {
   display: block;
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 2rem;
   color: $chalk-yellow;
 }
@@ -400,7 +410,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
   padding: 2.5rem 0;
-  @include chalk-divider(bottom);
+  @include chalk-divider(bottom, true);
   border-bottom: none;
   margin-bottom: 1rem;
 }
@@ -414,7 +424,7 @@ main {
 }
 
 .highlight-card h3 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 1.2rem;
   color: $chalk-green;
   margin: 0 0 0.4rem;
@@ -450,7 +460,7 @@ main {
 }
 
 .team-card h3 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 1.1rem;
   margin: 0;
   color: $chalk-pink;
@@ -578,7 +588,7 @@ main {
 }
 
 .activity-card h3 {
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Cabin Sketch', cursive;
   font-size: 1.15rem;
   margin: 0 0 0.3rem;
   color: $chalk-orange;
@@ -630,7 +640,7 @@ main {
   text-align: center;
   padding: 2.5rem 2rem;
   margin-top: 3rem;
-  @include chalk-divider(top);
+  @include chalk-divider(top, true);
   border-top: none;
   font-size: 0.85rem;
 }
@@ -700,15 +710,7 @@ main {
     height: 90px;
   }
 
-  // Reduce filter intensity on mobile for performance
-  h1, h2, h3 {
-    filter: none;
-    text-shadow:
-      0 0 3px rgba(255, 255, 255, 0.06),
-      0 0 1px rgba(255, 255, 255, 0.1);
-  }
-
-  .hero-media {
-    filter: none;
+  body {
+    background-attachment: scroll;
   }
 }

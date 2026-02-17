@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="f" cx="50%" cy="50%" r="55%" fx="50%" fy="50%">
+      <stop offset="55%" stop-color="white" stop-opacity="1"/>
+      <stop offset="85%" stop-color="white" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M48,22 C58,8 88,16 118,10 C148,4 175,14 208,7 C241,0 270,12 305,6
+           C340,0 370,10 405,5 C440,0 472,12 502,7 C532,2 552,12 565,22
+           C580,36 574,68 577,102 C580,136 575,168 578,202
+           C581,236 576,270 579,304 C582,338 575,362 562,378
+           C548,394 518,384 488,390 C458,396 428,386 398,392
+           C368,398 338,388 308,394 C278,400 248,390 218,396
+           C188,402 158,392 128,397 C98,402 68,392 48,382
+           C30,368 36,340 32,306 C28,272 34,238 30,204
+           C26,170 34,136 30,102 C26,68 32,38 48,22 Z"
+        fill="url(#f)"/>
+</svg>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }} · {{ site.title }}</title>
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 </head>
 <body>
@@ -36,20 +36,5 @@
 {{ content }}
 </main>
 {% include footer.html %}
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<defs>
-<filter id="chalk-text-heading" x="-5%" y="-5%" width="110%" height="110%">
-<feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" result="noise"/>
-<feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
-</filter>
-<filter id="chalkboard-noise">
-<feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-</filter>
-<filter id="chalk-eraser-mask">
-<feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
-<feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G"/>
-</filter>
-</defs>
-</svg>
 </body>
 </html>
