@@ -150,7 +150,7 @@ h1, h2, h3 {
 }
 
 .logo-img {
-  width: min(460px, 42vw);
+  width: min(322px, 29vw);
   height: auto;
 }
 
@@ -208,6 +208,14 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   max-width: 1100px;
   margin: 0 auto;
   align-items: center;
+}
+
+.hero-text h1 {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 3rem;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+  color: $chalk;
 }
 
 .hero-subtitle {
@@ -713,6 +721,10 @@ main {
     grid-template-columns: 1fr;
     padding: 1.5rem;
     text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
   }
 
   .hero-media {

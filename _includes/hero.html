@@ -1,5 +1,6 @@
 <section class="hero" role="banner">
 <div class="hero-text">
+<h1>{{ page.hero.title }}</h1>
 <p class="hero-subtitle">{{ page.hero.subtitle }}</p>
 {% if page.hero.cta_text %}
 <a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn">{{ page.hero.cta_text }}</a>
