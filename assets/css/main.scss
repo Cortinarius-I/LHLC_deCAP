@@ -150,7 +150,7 @@ h1, h2, h3 {
 }
 
 .logo-img {
-  height: 90px;
+  height: 130px;
   width: auto;
 }
 
@@ -178,22 +178,19 @@ h1, h2, h3 {
 .nav li a::after {
   content: "";
   position: absolute;
-  height: 8px;
-  bottom: -2px;
-  left: 10%;
-  right: 10%;
-  background-image: $chalk-line;
-  background-repeat: no-repeat;
-  background-size: 100% 8px;
-  background-position: center;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.35s ease-out;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  background: rgba(245, 245, 242, 0.6);
+  border-radius: 2px;
+  transition: width 0.35s ease-out, left 0.35s ease-out;
 }
 
 .nav li a:hover::after,
 .nav li a:focus::after {
-  transform: scaleX(1);
+  width: 70%;
+  left: 15%;
 }
 
 // ── Hero ──
@@ -540,10 +537,11 @@ main {
 }
 
 .gallery-item figcaption {
-  padding: 0.5rem 0.75rem;
-  font-size: 1.05rem;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.3rem;
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.8;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 // ── Lightbox ──
