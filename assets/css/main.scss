@@ -150,7 +150,7 @@ h1, h2, h3 {
 }
 
 .logo-img {
-  height: 50px;
+  height: 90px;
   width: auto;
 }
 
@@ -174,34 +174,26 @@ h1, h2, h3 {
   font-family: 'Cabin Sketch', cursive;
 }
 
-// Chalk stroke underline animation
-@keyframes chalk-draw {
-  0% {
-    clip-path: inset(0 100% 0 0);
-  }
-  100% {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
+// Chalk stroke underline — draws in from left on hover
 .nav li a::after {
   content: "";
   position: absolute;
-  width: 80%;
   height: 8px;
   bottom: -2px;
   left: 10%;
+  right: 10%;
   background-image: $chalk-line;
   background-repeat: no-repeat;
   background-size: 100% 8px;
   background-position: center;
-  clip-path: inset(0 100% 0 0);
-  transition: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s ease-out;
 }
 
 .nav li a:hover::after,
 .nav li a:focus::after {
-  animation: chalk-draw 0.4s ease-out forwards;
+  transform: scaleX(1);
 }
 
 // ── Hero ──
@@ -214,14 +206,6 @@ h1, h2, h3 {
   max-width: 1100px;
   margin: 0 auto;
   align-items: center;
-}
-
-.hero-text h1 {
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 3rem;
-  line-height: 1.15;
-  margin: 0 0 0.75rem;
-  color: $chalk;
 }
 
 .hero-subtitle {
@@ -557,7 +541,7 @@ main {
 
 .gallery-item figcaption {
   padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   text-align: center;
   opacity: 0.7;
 }
@@ -726,10 +710,6 @@ main {
     grid-template-columns: 1fr;
     padding: 1.5rem;
     text-align: center;
-  }
-
-  .hero-text h1 {
-    font-size: 2.2rem;
   }
 
   .hero-media {
