@@ -147,8 +147,9 @@ h1, h2, h3 {
 
 .nav-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 0;
   padding: 1rem 2.5rem;
   max-width: 1100px;
   margin: 0 auto;
@@ -172,7 +173,7 @@ h1, h2, h3 {
   list-style: none;
   display: flex;
   gap: 0.25rem;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
 }
 
@@ -214,25 +215,17 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 .theme-toggle {
   background: none;
-  border: 1.5px solid rgba($chalk, 0.45);
+  border: none;
   color: $chalk;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
+  padding: 0.4rem 0.5rem;
   cursor: pointer;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 0.75rem;
   flex-shrink: 0;
-  transition: border-color 0.2s, background 0.2s;
+  transition: text-shadow 0.2s;
 
   &:hover {
-    border-color: $chalk;
-    background: rgba($chalk, 0.08);
+    text-shadow: 0 0 10px rgba($chalk, 0.8), 0 0 4px rgba($chalk, 0.5);
   }
 }
 
@@ -838,9 +831,6 @@ main {
     background-attachment: scroll;
   }
 
-  .theme-toggle {
-    margin-left: 0;
-  }
 }
 
 // ── Light mode ──
@@ -885,12 +875,10 @@ main {
   }
 
   .theme-toggle {
-    border-color: rgba($lm-pink, 0.5);
     color: $lm-text;
 
     &:hover {
-      border-color: $lm-pink;
-      background: rgba($lm-pink, 0.07);
+      text-shadow: 0 0 8px rgba($lm-pink, 0.6), 0 0 3px rgba($lm-pink, 0.3);
     }
   }
 
