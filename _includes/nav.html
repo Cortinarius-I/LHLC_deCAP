@@ -1,7 +1,8 @@
 <nav class="nav" aria-label="Main Navigation">
 <div class="nav-inner">
 <a class="logo" href="{{ "/" | relative_url }}">
-<img src="{{ "/assets/media/logo.png" | relative_url }}" alt="{{ site.title }}" class="logo-img">
+<img src="{{ "/assets/media/logo.png" | relative_url }}" alt="{{ site.title }}" class="logo-img logo-dark">
+<img src="{{ "/assets/media/pink_lhlc_logo.png" | relative_url }}" alt="{{ site.title }}" class="logo-img logo-light">
 </a>
 <ul>
 <li><a href="{{ "/about/" | relative_url }}">About</a></li>
@@ -10,5 +11,6 @@
 <li><a href="{{ "/gallery/" | relative_url }}">Gallery</a></li>
 <li><a href="{{ "/contact/" | relative_url }}">Contact</a></li>
 </ul>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle colour theme">Light mode</button>
 </div>
 </nav>

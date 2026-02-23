@@ -6,6 +6,9 @@
 <title>{{ page.title }} · {{ site.title }}</title>
 <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+<script>
+(function(){var t=localStorage.getItem('lhlc-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
+</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -36,5 +39,22 @@
 {{ content }}
 </main>
 {% include footer.html %}
+<script>
+function toggleTheme(){
+  var html=document.documentElement;
+  var next=html.getAttribute('data-theme')==='light'?'dark':'light';
+  html.setAttribute('data-theme',next);
+  localStorage.setItem('lhlc-theme',next);
+  var btn=document.querySelector('.theme-toggle');
+  if(btn)btn.textContent=next==='light'?'Dark mode':'Light mode';
+}
+(function(){
+  var btn=document.querySelector('.theme-toggle');
+  if(btn){
+    var t=document.documentElement.getAttribute('data-theme');
+    btn.textContent=t==='light'?'Dark mode':'Light mode';
+  }
+})();
+</script>
 </body>
 </html>

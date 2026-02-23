@@ -26,6 +26,17 @@ $chalk-line-thick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/
 // An imperfect rectangle with wobbly chalk-like edges, designed for border-image 9-slice
 $chalk-border: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='none'%3E%3Cpath d='M8,5 C15,3 25,6 35,4 C45,2 55,6 65,4 C75,2 85,5 92,6 C96,10 95,20 96,30 C97,40 95,50 96,60 C97,70 95,80 94,90 C93,95 88,96 80,95 C70,97 60,94 50,96 C40,98 30,94 20,96 C10,98 6,95 5,92 C3,85 5,75 4,65 C3,55 5,45 4,35 C3,25 5,15 6,8 Z' stroke='rgba(245,245,242,0.2)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
 
+// ── Light mode SVG variants (pink strokes) ──
+$chalk-line-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='12' viewBox='0 0 600 12'%3E%3Cpath d='M0,6 C8,3 16,8 30,5 C44,2 56,9 72,6 C88,3 100,8 118,5 C136,2 150,9 168,6 C186,3 200,8 220,5 C240,2 258,9 278,6 C298,3 318,8 340,5 C362,2 382,9 404,6 C426,3 448,8 470,5 C492,2 514,9 536,6 C558,3 576,8 594,5 L600,6' stroke='rgba(212,79,122,0.35)' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+$chalk-line-thick-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='16' viewBox='0 0 600 16'%3E%3Cpath d='M2,8 C15,4 30,11 50,7 C70,3 90,12 115,8 C140,4 160,11 185,7 C210,3 235,12 260,8 C285,4 310,11 340,7 C370,3 395,12 420,8 C445,4 470,11 495,7 C520,3 545,12 570,8 L598,7' stroke='rgba(212,79,122,0.3)' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+$chalk-border-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='none'%3E%3Cpath d='M8,5 C15,3 25,6 35,4 C45,2 55,6 65,4 C75,2 85,5 92,6 C96,10 95,20 96,30 C97,40 95,50 96,60 C97,70 95,80 94,90 C93,95 88,96 80,95 C70,97 60,94 50,96 C40,98 30,94 20,96 C10,98 6,95 5,92 C3,85 5,75 4,65 C3,55 5,45 4,35 C3,25 5,15 6,8 Z' stroke='rgba(212,79,122,0.35)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+$chalk-underline-pink: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='6' viewBox='0 0 200 6' preserveAspectRatio='none'%3E%3Cpath d='M0,3 C5,1 12,5 22,3 C32,1 42,4.5 55,2.5 C68,0.5 78,5 92,3 C106,1 118,4.5 132,2.8 C146,1.2 158,4 172,2.5 C186,1 194,4 200,3' stroke='rgba(212,79,122,0.8)' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+
+// ── Light mode palette ──
+$lm-pink:  #d44f7a;
+$lm-text:  #444;
+$lm-muted: #777;
+
 // ── Chalk divider mixin ──
 @mixin chalk-divider($position: top, $thick: false) {
   border-#{$position}: none;
@@ -154,6 +165,9 @@ h1, h2, h3 {
   height: auto;
 }
 
+.logo-light { display: none; }
+.logo-dark  { display: block; }
+
 .nav ul {
   list-style: none;
   display: flex;
@@ -196,6 +210,25 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .nav li a:hover::after,
 .nav li a:focus::after {
   width: 90%;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1.5px solid rgba($chalk, 0.45);
+  color: $chalk;
+  border-radius: 20px;
+  padding: 0.2rem 0.75rem;
+  cursor: pointer;
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
+  margin-left: 0.75rem;
+  transition: border-color 0.2s, background 0.2s;
+
+  &:hover {
+    border-color: $chalk;
+    background: rgba($chalk, 0.08);
+  }
 }
 
 // ── Hero ──
@@ -799,4 +832,186 @@ main {
   body {
     background-attachment: scroll;
   }
+
+  .theme-toggle {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+}
+
+// ── Light mode ──
+
+[data-theme="light"] {
+  body {
+    background-color: #fff;
+    background-image: none;
+    color: $lm-text;
+    text-shadow: none;
+  }
+
+  h1, h2, h3 {
+    color: $lm-pink;
+    text-shadow: none;
+  }
+
+  // Logo swap
+  .logo-dark  { display: none; }
+  .logo-light { display: block; }
+
+  // Nav
+  .nav {
+    border-bottom: 1px solid rgba($lm-pink, 0.15);
+  }
+
+  .nav li a {
+    color: $lm-text;
+  }
+
+  .nav li a::after {
+    background-image: $chalk-underline-pink;
+  }
+
+  .theme-toggle {
+    border-color: rgba($lm-pink, 0.5);
+    color: $lm-text;
+
+    &:hover {
+      border-color: $lm-pink;
+      background: rgba($lm-pink, 0.07);
+    }
+  }
+
+  // Polaroid frame — outer strokes are white in SVG, override to grey for white background
+  // Paths 1–8 = outer chalk frame; paths 17–20 = corner ticks
+  .hero-frame path:nth-child(-n+8),
+  .hero-frame path:nth-child(17),
+  .hero-frame path:nth-child(18),
+  .hero-frame path:nth-child(19),
+  .hero-frame path:nth-child(20) {
+    stroke: rgba(70, 60, 55, 0.65);
+    stroke-width: 3;
+  }
+
+  // Hero
+  .hero-text h1 { color: $lm-pink; }
+
+  .hero-subtitle {
+    color: $lm-text;
+    opacity: 1;
+  }
+
+  .btn {
+    border-color: $lm-pink;
+    color: $lm-pink;
+
+    &:hover, &:focus {
+      background: $lm-pink;
+      color: #fff;
+    }
+  }
+
+  // Dividers — thin
+  .content-section::before,
+  .faq-item::before {
+    background-image: $chalk-line-pink;
+  }
+
+  // Dividers — thick
+  .stats-bar::before,
+  .highlights::before,
+  .footer::before {
+    background-image: $chalk-line-thick-pink;
+  }
+
+  // Section headings (all nth-child variants → pink)
+  .content-section h2,
+  .content-section:nth-child(4n+1) h2,
+  .content-section:nth-child(4n+2) h2,
+  .content-section:nth-child(4n+3) h2,
+  .content-section:nth-child(4n) h2 {
+    color: $lm-pink;
+  }
+
+  // Program cards
+  .program-card {
+    border-image-source: $chalk-border-pink;
+    background: rgba($lm-pink, 0.03);
+    color: $lm-text;
+
+    &:hover, &:focus {
+      background: rgba($lm-pink, 0.07);
+    }
+
+    h3 { color: $lm-pink; }
+    p  { color: $lm-muted; opacity: 1; }
+  }
+
+  // Stats
+  .stat {
+    border-image-source: $chalk-border-pink;
+    background: rgba($lm-pink, 0.02);
+  }
+
+  .stat-value { color: $lm-pink; }
+  .stat-label { color: $lm-text; }
+  .stat-desc  { color: $lm-muted; }
+
+  // Highlights
+  .highlight-card {
+    border-image-source: $chalk-border-pink;
+    background: rgba($lm-pink, 0.03);
+
+    h3 { color: $lm-pink; }
+    p  { color: $lm-muted; opacity: 1; }
+  }
+
+  // Team
+  .team-photo {
+    border-color: rgba($lm-pink, 0.3);
+  }
+
+  .team-card {
+    h3 { color: $lm-pink; }
+    p  { color: $lm-muted; opacity: 1; }
+  }
+
+  // FAQ
+  .faq-item summary::after { color: $lm-pink; }
+  .faq-item p { color: $lm-text; opacity: 1; }
+
+  // Gallery
+  .gallery-item figcaption { color: $lm-muted; }
+
+  // Activities
+  .activity-card {
+    border-image-source: $chalk-border-pink;
+    background: rgba($lm-pink, 0.03);
+    color: $lm-text;
+
+    h3 { color: $lm-pink; }
+  }
+
+  .activity-tag {
+    background: rgba($lm-pink, 0.1);
+    color: $lm-pink;
+  }
+
+  // Misc
+  .back-link { color: $lm-pink; }
+  .page h2  { color: $lm-pink; }
+  .page > h1 { color: $lm-pink; }
+  .page a   { color: $lm-pink; }
+
+  .footer-contact a { color: $lm-pink; }
+  .footer p { color: $lm-muted; opacity: 1; }
+
+  .skip-link:focus {
+    background: $lm-pink;
+    color: #fff;
+  }
+
+  // Lightbox stays dark (intentional)
+  .lightbox { background: rgba(0, 0, 0, 0.92); }
+  .lightbox-caption { color: $chalk; }
+  .lightbox-close   { color: $chalk; }
 }
