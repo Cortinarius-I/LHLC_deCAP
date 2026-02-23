@@ -7,7 +7,7 @@ hero:
     inclusive approach in all learning experiences, working with children aged 3
     to 15 years.
   image: /assets/media/hero_img.png
-  video: ""
+  video: https://www.youtube.com/embed/6i-LbkTyjvA?autoplay=1&mute=1&loop=1&controls=0&playlist=6i-LbkTyjvA
   cta_text: Join Us
   cta_link: /join-us/
 stats:
