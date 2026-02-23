@@ -248,6 +248,9 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .hero-media {
   position: relative;
   overflow: visible;
+}
+
+.hero-media--polaroid {
   background: #f0ebe0;
   padding: 14px 14px 54px;
   transform: rotate(-1.5deg);
@@ -747,6 +750,9 @@ main {
 
   .hero-media {
     order: -1;
+  }
+
+  .hero-media--polaroid {
     transform: rotate(0deg);
   }
 

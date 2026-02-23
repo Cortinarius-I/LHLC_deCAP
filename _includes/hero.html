@@ -6,7 +6,7 @@
 <a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn">{{ page.hero.cta_text }}</a>
 {% endif %}
 </div>
-<div class="hero-media">
+<div class="hero-media{% if page.hero.video %} hero-media--polaroid{% endif %}">
 <div class="hero-media-inner">
 {% if page.hero.image %}
 <img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
@@ -16,6 +16,7 @@
 <div class="hero-video-shield" aria-hidden="true"></div>
 {% endif %}
 </div>
+{% if page.hero.video %}
 <svg class="hero-frame" viewBox="0 0 400 277" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <!-- Outer chalk strokes (light, on dark chalkboard background) -->
   <path d="M7,7 C80,5 165,8 245,6 C320,4.5 380,7 393,7" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
@@ -44,5 +45,6 @@
   <path d="M148,248 L252,248" stroke="rgba(55,40,25,0.18)" stroke-width="1.8" stroke-linecap="round"/>
   <path d="M165,256 L235,256" stroke="rgba(55,40,25,0.12)" stroke-width="1.2" stroke-linecap="round"/>
 </svg>
+{% endif %}
 </div>
 </section>
