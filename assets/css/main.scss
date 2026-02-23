@@ -216,13 +216,18 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   background: none;
   border: 1.5px solid rgba($chalk, 0.45);
   color: $chalk;
-  border-radius: 20px;
-  padding: 0.2rem 0.75rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
   cursor: pointer;
-  font-family: 'Cabin Sketch', cursive;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
+  font-size: 1.05rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-left: 0.75rem;
+  flex-shrink: 0;
   transition: border-color 0.2s, background 0.2s;
 
   &:hover {
@@ -835,7 +840,6 @@ main {
 
   .theme-toggle {
     margin-left: 0;
-    margin-top: 0.5rem;
   }
 }
 
@@ -861,6 +865,15 @@ main {
   // Nav
   .nav {
     border-bottom: 1px solid rgba($lm-pink, 0.15);
+  }
+
+  .nav-inner {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .logo-img {
+    width: min(140px, 14vw);
   }
 
   .nav li a {
@@ -953,8 +966,8 @@ main {
   }
 
   .stat-value { color: $lm-pink; }
-  .stat-label { color: $lm-text; }
-  .stat-desc  { color: $lm-muted; }
+  .stat-label { color: $lm-text; opacity: 1; }
+  .stat-desc  { color: $lm-muted; opacity: 1; font-size: 0.85rem; }
 
   // Highlights
   .highlight-card {
@@ -980,7 +993,7 @@ main {
   .faq-item p { color: $lm-text; opacity: 1; }
 
   // Gallery
-  .gallery-item figcaption { color: $lm-muted; }
+  .gallery-item figcaption { color: $lm-muted; opacity: 1; }
 
   // Activities
   .activity-card {

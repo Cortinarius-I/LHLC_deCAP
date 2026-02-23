@@ -46,13 +46,14 @@ function toggleTheme(){
   html.setAttribute('data-theme',next);
   localStorage.setItem('lhlc-theme',next);
   var btn=document.querySelector('.theme-toggle');
-  if(btn)btn.textContent=next==='light'?'Dark mode':'Light mode';
+  if(btn){btn.textContent=next==='light'?'☽':'☀';btn.setAttribute('aria-label',next==='light'?'Switch to dark mode':'Switch to light mode');}
 }
 (function(){
   var btn=document.querySelector('.theme-toggle');
   if(btn){
     var t=document.documentElement.getAttribute('data-theme');
-    btn.textContent=t==='light'?'Dark mode':'Light mode';
+    btn.textContent=t==='light'?'☽':'☀';
+    btn.setAttribute('aria-label',t==='light'?'Switch to dark mode':'Switch to light mode');
   }
 })();
 </script>
