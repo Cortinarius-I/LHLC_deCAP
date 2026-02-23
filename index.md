@@ -2,9 +2,12 @@
 title: Home
 hero:
   title: Little Hearts Learning Centre
-  subtitle: "An initiative of Dhristi Foundation, creating enabling spaces to realize the educational and functional needs of children. We follow an inclusive approach in all learning experiences, working with children aged 3 to 15 years."
-  image: /assets/media/activities/fundraising-event.jpg
-  video: https://www.youtube.com/embed/6i-LbkTyjvA?autoplay=1&mute=1&loop=1&controls=0&playlist=6i-LbkTyjvA
+  subtitle: An initiative of Dhristi Foundation, creating enabling spaces to
+    realize the educational and functional needs of children. We follow an
+    inclusive approach in all learning experiences, working with children aged 3
+    to 15 years.
+  image: /assets/media/hero_img.png
+  video: ""
   cta_text: Join Us
   cta_link: /join-us/
 stats:
@@ -18,11 +21,12 @@ stats:
     value: Chembur, Mumbai
     description: A peaceful suburb in Mumbai
   - label: Teacher-Student Ratio
-    value: "1:5"
+    value: 1:5
     description: Individual attention for faster learning
 highlights:
   - title: Great Teachers
-    text: We work with dedicated professionals specializing in special education and therapy.
+    text: We work with dedicated professionals specializing in special education and
+      therapy.
   - title: Healthy Meals
     text: Balanced nutrition suitable for each child.
   - title: Excellent Programmes
