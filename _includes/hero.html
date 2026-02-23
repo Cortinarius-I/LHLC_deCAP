@@ -1,3 +1,4 @@
+{% assign hero_video = page.hero.video | strip %}
 <section class="hero" role="banner">
 <div class="hero-text">
 <h1>{{ page.hero.title }}</h1>
@@ -6,17 +7,17 @@
 <a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn">{{ page.hero.cta_text }}</a>
 {% endif %}
 </div>
-<div class="hero-media{% if page.hero.video %} hero-media--polaroid{% endif %}">
+<div class="hero-media{% if hero_video != "" %} hero-media--polaroid{% endif %}">
 <div class="hero-media-inner">
 {% if page.hero.image %}
 <img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
 {% endif %}
-{% if page.hero.video %}
-<iframe src="{{ page.hero.video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1" loading="lazy" onload="this.classList.add('loaded')"></iframe>
+{% if hero_video != "" %}
+<iframe src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1" loading="lazy" onload="this.classList.add('loaded')"></iframe>
 <div class="hero-video-shield" aria-hidden="true"></div>
 {% endif %}
 </div>
-{% if page.hero.video %}
+{% if hero_video != "" %}
 <svg class="hero-frame" viewBox="0 0 400 277" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <!-- Outer chalk strokes (light, on dark chalkboard background) -->
   <path d="M7,7 C80,5 165,8 245,6 C320,4.5 380,7 393,7" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
