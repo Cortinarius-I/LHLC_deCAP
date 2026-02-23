@@ -248,9 +248,30 @@ $chalk-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .hero-media {
   position: relative;
   overflow: visible;
-  @include overlay-mask;
-  mask-size: 95% 100%;
-  -webkit-mask-size: 95% 100%;
+  // Polaroid frame
+  background: #f0ebe0;
+  padding: 14px 14px 54px;
+  transform: rotate(-1.5deg);
+  box-shadow:
+    4px 10px 30px rgba(0, 0, 0, 0.6),
+    1px 2px 6px rgba(0, 0, 0, 0.3);
+
+  // Chalk strokes drawn around the outer edge of the polaroid
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    pointer-events: none;
+    z-index: 3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none' fill='none'%3E%3Cpath d='M6,7 C20,5.5 40,8 60,6.5 C80,5 93,7.5 94,7' stroke='rgba(245,245,242,0.75)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M8,9.5 C22,8 42,10.5 62,9 C82,7.5 92,9.5 94,9.5' stroke='rgba(245,245,242,0.35)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M93,7 C95,22 93.5,42 94,62 C95,80 93,93 93,94' stroke='rgba(245,245,242,0.75)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M91,9 C93,24 91.5,44 92,64 C93,82 91,92 91,94' stroke='rgba(245,245,242,0.35)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M94,94 C78,95.5 58,93.5 38,95 C20,96.5 7,94 6,94' stroke='rgba(245,245,242,0.75)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M94,91.5 C76,93 56,91 36,92.5 C18,94 8,91.5 6,91.5' stroke='rgba(245,245,242,0.35)' stroke-width='1.2' stroke-linecap='round'/%3E%3Cpath d='M7,94 C5,78 6.5,58 6,38 C5,20 7,7 7,6' stroke='rgba(245,245,242,0.75)' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M9,94 C7,76 8.5,56 8,36 C7,18 9,8 9,6' stroke='rgba(245,245,242,0.35)' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero-media-inner {
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-fallback {
@@ -729,6 +750,7 @@ main {
 
   .hero-media {
     order: -1;
+    transform: rotate(0deg);
   }
 
   .nav-inner {
