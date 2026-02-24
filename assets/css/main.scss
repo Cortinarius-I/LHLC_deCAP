@@ -602,40 +602,77 @@ main {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  padding: 0 0 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1.75rem 1.25rem;
+  padding: 0.5rem 0 1.5rem;
 }
 
 .gallery-item {
   margin: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .gallery-link {
   display: block;
-  @include overlay-mask;
   cursor: zoom-in;
+}
+
+.gallery-polaroid {
+  position: relative;
+  background: #f0ebe0;
+  padding: 7px 7px 44px;
+  overflow: visible;
+  box-shadow:
+    3px 7px 22px rgba(0, 0, 0, 0.55),
+    1px 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+// Slight alternating rotations for natural polaroid scatter
+.gallery-item:nth-child(3n+1) .gallery-polaroid { transform: rotate(-1.4deg); }
+.gallery-item:nth-child(3n+2) .gallery-polaroid { transform: rotate(1.1deg); }
+.gallery-item:nth-child(3n)   .gallery-polaroid { transform: rotate(-0.5deg); }
+
+.gallery-item:hover .gallery-polaroid {
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow:
+    5px 14px 30px rgba(0, 0, 0, 0.65),
+    2px 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 .gallery-item img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
   display: block;
-  transition: transform 0.35s ease;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.06);
-}
-
-.gallery-item figcaption {
-  padding: 0.5rem 0.5rem;
-  font-size: 1.1rem;
+.gallery-polaroid-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  margin: 0;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 0.78rem;
+  color: rgba(55, 40, 25, 0.65);
   text-align: center;
-  opacity: 0.75;
-  font-family: 'Cabin Sketch', cursive;
+  line-height: 1.2;
+}
+
+.gallery-frame {
+  position: absolute;
+  inset: -7px;
+  width: calc(100% + 14px);
+  height: calc(100% + 14px);
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
 }
 
 // ── Lightbox ──
@@ -1041,7 +1078,7 @@ main {
   .faq-item p { color: $lm-text; opacity: 1; }
 
   // Gallery
-  .gallery-item figcaption { color: $lm-muted; opacity: 1; }
+  .gallery-frame path:nth-child(-n+4) { stroke: rgba(70,60,55,0.65); stroke-width: 3; }
 
   .gallery-section:nth-child(4n+1) .gallery-section-title,
   .gallery-section:nth-child(4n+2) .gallery-section-title,
