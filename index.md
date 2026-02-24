@@ -21,7 +21,7 @@ stats:
     value: Chembur, Mumbai
     description: A peaceful suburb in Mumbai
   - label: Teacher-Student Ratio
-    value: 1:5
+    value: "1 : 5"
     description: Individual attention for faster learning
 highlights:
   - title: Great Teachers
