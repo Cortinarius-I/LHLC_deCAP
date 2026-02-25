@@ -2,13 +2,19 @@
 <section class="hero" role="banner">
   <div class="hero-bg" id="hero-bg">
     {% if hero_video != "" %}
+      {% if page.hero.bg_images[0].id %}
+      <img id="hero-video-fallback"
+        src="https://drive.google.com/thumbnail?id={{ page.hero.bg_images[0].id }}&sz=w1600"
+        alt="" loading="eager" class="active">
+      {% endif %}
       <iframe
         src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&fs=0&playsinline=1"
         allow="autoplay; encrypted-media"
         tabindex="-1"
         aria-hidden="true"
         loading="eager"
-        class="hero-video"></iframe>
+        class="hero-video"
+        onload="var f=document.getElementById('hero-video-fallback');if(f){f.style.transition='opacity 1s ease';f.style.opacity='0';}"></iframe>
     {% else %}
       {% for img in page.hero.bg_images %}
         <img

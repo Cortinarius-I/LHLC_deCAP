@@ -3,13 +3,13 @@
 // ── Palette ──
 $primary:      #e04d8a;
 $primary-dark: #c0316d;
-$accent:       #5a1e8c;
-$purple:       #3d1464;
+$accent:       #4a0e7a;
+$purple:       #1e0838;
 $text:         #3d3d3d;
 $muted:        #888;
 $bg:           #fefcf9;
 $card-bg:      #ffffff;
-$border:       #f0e4ec;
+$border:       #c8a8d8;
 
 // ── Reset ──
 
@@ -62,7 +62,7 @@ h1, h2, h3, h4 {
   top: 0;
   z-index: 100;
   background: #fff;
-  box-shadow: 0 2px 14px rgba($primary, 0.18);
+  box-shadow: 0 3px 16px rgba($primary, 0.30);
 }
 
 .nav-inner {
@@ -87,11 +87,11 @@ h1, h2, h3, h4 {
 
 .logo-title {
   font-family: 'Fredoka', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: $primary;
   line-height: 1.2;
-  max-width: 180px;
+  white-space: nowrap;
 }
 
 .nav ul {
@@ -253,8 +253,8 @@ main {
   padding: 1.5rem 1rem;
   background: $card-bg;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid $border;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
+  border: 1.5px solid $border;
 }
 
 .stat-value {
@@ -296,8 +296,8 @@ main {
   background: $card-bg;
   border-radius: 12px;
   padding: 1.75rem 1.5rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  border: 1px solid $border;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
+  border: 1.5px solid $border;
   border-top: 4px solid $primary;
 }
 
@@ -361,8 +361,8 @@ main {
   padding: 2rem;
   text-decoration: none;
   color: $text;
-  border: 1px solid $border;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid $border;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
 }
@@ -370,7 +370,7 @@ main {
 .program-card:hover,
 .program-card:focus {
   transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
 }
 
 .program-card h3 {
@@ -496,15 +496,15 @@ main {
   margin: 0;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.16);
   background: $card-bg;
-  border: 1px solid $border;
+  border: 1.5px solid $border;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .gallery-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.26);
 }
 
 .gallery-link {
@@ -633,8 +633,8 @@ main {
   overflow: hidden;
   text-decoration: none;
   color: $text;
-  border: 1px solid $border;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1.5px solid $border;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
 }
@@ -642,7 +642,7 @@ main {
 .activity-card:hover,
 .activity-card:focus {
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
 }
 
 .activity-card img {
@@ -748,7 +748,8 @@ main {
 
   .logo-title {
     font-size: 0.88rem;
-    max-width: 140px;
+    white-space: normal;
+    max-width: 130px;
   }
 
   main {
