@@ -1,16 +1,21 @@
 ---
-title: Our Team
+title: Meet The Team!
 layout: page
 team:
   - name: Reshmy Nikith
     role: Founder & Director
     section: leadership
-    bio: ""
+    bio: "Reshmy Nikith is Ipsa aspernatur aut eum qui. Non aspernatur et sunt
+      rerum. Omnis suscipit repellat dolores. Ut est laborum velit dolorem
+      inventore. Dolorem illum qui recusandae dolores. Mollitia et consequatur
+      fuga sed "
     photo: /assets/media/staff/reshmy-nikith.jpg
   - name: Gowri Ramesh
     role: Founder & Director
     section: leadership
-    bio: ""
+    bio: "Gowri Ramesh is Ipsa aspernatur aut eum qui. Non aspernatur et sunt rerum.
+      Omnis suscipit repellat dolores. Ut est laborum velit dolorem inventore.
+      Dolorem illum qui recusandae dolores. Mollitia et consequatur fuga sed "
     photo: /assets/media/staff/gowri-ramesh.jpg
   - name: Mamta Arora
     role: Admin
