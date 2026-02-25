@@ -23,18 +23,124 @@
 {% endfor %}
 </section>
 {% endif %}
-{% if page.highlights %}
-<section class="highlights">
-{% for item in page.highlights %}
-<div class="highlight-card">
-<h3>{{ item.title }}</h3>
-<p>{{ item.text }}</p>
+
+{% if page.locations %}
+<section class="locations-section" id="about">
+<div class="locations-grid">
+{% for loc in page.locations %}
+<div class="location-card">
+<h3 class="location-name">{{ loc.name }}</h3>
+<p class="location-ages">{{ loc.ages }}</p>
+<p class="location-address">{{ loc.address }}</p>
 </div>
 {% endfor %}
+</div>
 </section>
 {% endif %}
+
+{% if page.about %}
+{% assign journey = page.about.journey | strip %}
+{% assign why = page.about.why | strip %}
+{% if journey != "" or why != "" %}
+<section class="about-section">
+{% if journey != "" %}
+<div class="about-block">
+<h2>Our Journey</h2>
+<p>{{ journey }}</p>
+</div>
+{% endif %}
+{% if why != "" %}
+<div class="about-block about-block--why">
+<h2>Why Little Hearts Learning Centre?</h2>
+<p>{{ why }}</p>
+</div>
+{% endif %}
+</section>
+{% endif %}
+{% endif %}
+
+{% if page.testimonials and page.testimonials.size > 0 %}
+<section class="testimonials-section">
+<h2 class="testimonials-heading">What People Say</h2>
+<div class="testimonials-slider" aria-label="Testimonials">
+<div class="testimonials-track">
+{% for t in page.testimonials %}
+<div class="testimonial-card" role="group" aria-label="Testimonial {{ forloop.index }} of {{ page.testimonials.size }}">
+<div class="testimonial-quote-mark">&ldquo;</div>
+<p class="testimonial-text">{{ t.quote }}</p>
+<div class="testimonial-author">
+<strong class="testimonial-name">{{ t.name }}</strong>
+<span class="testimonial-role testimonial-role--{{ t.role }}">{{ t.role | capitalize }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+<div class="testimonials-dots" role="tablist">
+{% for t in page.testimonials %}
+<button class="testimonial-dot{% if forloop.first %} active{% endif %}" role="tab" aria-label="Go to testimonial {{ forloop.index }}"></button>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
+
+{% if page.about %}
+{% assign vision = page.about.vision | strip %}
+{% assign mission = page.about.mission | strip %}
+{% if vision != "" or mission != "" %}
+<section class="vision-section">
+{% if vision != "" %}
+<div class="vision-box">
+<h2>Vision</h2>
+<p>{{ vision }}</p>
+</div>
+{% endif %}
+{% if mission != "" %}
+<div class="mission-box">
+<h2>Mission</h2>
+<p>{{ mission }}</p>
+</div>
+{% endif %}
+</section>
+{% endif %}
+{% endif %}
+
 {{ content }}
 </main>
 {% include footer.html %}
+{% if page.testimonials and page.testimonials.size > 0 %}
+<script>
+(function () {
+  var track = document.querySelector('.testimonials-track');
+  if (!track) return;
+  var cards = Array.from(track.children);
+  var dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+  var current = 0;
+  var total = cards.length;
+  var timer;
+
+  function go(n) {
+    current = ((n % total) + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+  }
+
+  function start() { timer = setInterval(function () { go(current + 1); }, 5000); }
+  function stop() { clearInterval(timer); }
+
+  dots.forEach(function (d, i) {
+    d.addEventListener('click', function () { stop(); go(i); start(); });
+  });
+
+  var slider = document.querySelector('.testimonials-slider');
+  if (slider) {
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+  }
+
+  start();
+})();
+</script>
+{% endif %}
 </body>
 </html>

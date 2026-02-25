@@ -41,12 +41,34 @@ collections:
               - { label: Label, name: label, widget: string }
               - { label: Value, name: value, widget: string }
               - { label: Description, name: description, widget: string }
-          - label: Highlights
-            name: highlights
+          - label: Locations
+            name: locations
             widget: list
             fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text }
+              - { label: Centre Name, name: name, widget: string }
+              - { label: Age Range, name: ages, widget: string, hint: "e.g. Ages 3–15" }
+              - { label: Address, name: address, widget: string }
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - { label: Our Journey, name: journey, widget: text }
+              - { label: Why Little Hearts?, name: why, widget: text }
+              - { label: Vision, name: vision, widget: string }
+              - { label: Mission, name: mission, widget: text }
+          - label: Testimonials
+            name: testimonials
+            widget: list
+            fields:
+              - { label: Quote, name: quote, widget: text }
+              - { label: Name, name: name, widget: string }
+              - label: Role
+                name: role
+                widget: select
+                options:
+                  - { label: Parent, value: parent }
+                  - { label: Donor, value: donor }
+                  - { label: Volunteer, value: volunteer }
 
       - label: About
         name: about

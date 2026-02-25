@@ -281,37 +281,213 @@ main {
   color: $muted;
 }
 
-// ── Highlights ──
+// ── Locations ──
 
-.highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.25rem;
-  padding: 3rem 0;
+.locations-section {
+  padding: 2.5rem 0 1rem;
   border-bottom: 2px solid $border;
-  margin-bottom: 0.5rem;
 }
 
-.highlight-card {
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.location-card {
   background: $card-bg;
   border-radius: 12px;
-  padding: 1.75rem 1.5rem;
-  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
+  padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.12);
   border: 1.5px solid $border;
-  border-top: 4px solid $primary;
+  border-top: 4px solid $accent;
+  text-align: center;
 }
 
-.highlight-card h3 {
-  font-size: 1.25rem;
+.location-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.3rem;
+  color: $accent;
+  margin: 0 0 0.35rem;
+}
+
+.location-ages {
+  font-weight: 700;
+  font-size: 1rem;
   color: $primary;
   margin: 0 0 0.5rem;
 }
 
-.highlight-card p {
-  margin: 0;
-  font-size: 0.92rem;
+.location-address {
+  font-size: 0.9rem;
   color: $muted;
-  line-height: 1.6;
+  margin: 0;
+}
+
+// ── About section ──
+
+.about-section {
+  padding: 3rem 0;
+  border-bottom: 2px solid $border;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.about-block h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  color: $accent;
+  margin: 0 0 0.85rem;
+}
+
+.about-block p {
+  font-size: 0.97rem;
+  color: $muted;
+  line-height: 1.75;
+  margin: 0;
+}
+
+// ── Testimonials ──
+
+.testimonials-section {
+  margin: 0 -2.5rem;
+  padding: 3.5rem 2.5rem;
+  background: $accent;
+  overflow: hidden;
+}
+
+.testimonials-heading {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.testimonials-slider {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.testimonials-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.testimonial-card {
+  min-width: 100%;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.testimonial-quote-mark {
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.testimonial-name {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.testimonial-role {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2em 0.75em;
+  border-radius: 99px;
+}
+
+.testimonial-role--parent  { background: $primary; color: #fff; }
+.testimonial-role--donor   { background: #fff; color: $accent; }
+.testimonial-role--volunteer { background: #5bbf8a; color: #fff; }
+
+.testimonials-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.testimonial-dot.active {
+  background: #fff;
+  transform: scale(1.25);
+}
+
+// ── Vision / Mission ──
+
+.vision-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 0;
+  border-bottom: 2px solid $border;
+}
+
+.vision-box,
+.mission-box {
+  background: $card-bg;
+  border-radius: 12px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.1);
+  border: 1.5px solid $border;
+}
+
+.vision-box { border-top: 4px solid $primary; }
+.mission-box { border-top: 4px solid $accent; }
+
+.vision-box h2,
+.mission-box h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  margin: 0 0 0.65rem;
+}
+
+.vision-box h2 { color: $primary; }
+.mission-box h2 { color: $accent; }
+
+.vision-box p,
+.mission-box p {
+  font-size: 0.95rem;
+  color: $muted;
+  line-height: 1.7;
+  margin: 0;
 }
 
 // ── Content sections ──
@@ -917,7 +1093,25 @@ body.page-team .team-section--leadership .team-section-title {
     padding: 2rem 0;
   }
 
-  .highlights {
+  .locations-section {
+    padding: 1.75rem 0 0.75rem;
+  }
+
+  .about-section {
+    padding: 2rem 0;
+    gap: 1.75rem;
+  }
+
+  .testimonials-section {
+    margin: 0 -1.25rem;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+  }
+
+  .vision-section {
     padding: 2rem 0;
   }
 
