@@ -365,6 +365,7 @@ main {
   box-shadow: 0 3px 16px rgba(0, 0, 0, 0.14);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: block;
+  text-align: center;
 }
 
 .program-card:hover,
@@ -386,10 +387,11 @@ main {
 }
 
 .program-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 66%;
+  height: auto;
+  max-width: 120px;
   display: block;
-  margin-bottom: 1rem;
+  margin: 0 auto 1.25rem;
   color: $accent;
   opacity: 0.85;
   transition: opacity 0.25s ease;
