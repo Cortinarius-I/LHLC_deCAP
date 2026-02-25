@@ -8,8 +8,8 @@ hero:
     to 30 years.
   image: /assets/media/hero_img.png
   video: https://www.youtube.com/embed/6i-LbkTyjvA?autoplay=1&mute=1&loop=1&controls=0&playlist=6i-LbkTyjvA
-  cta_text: Join Us
-  cta_link: /join-us/
+  cta_text: Support our work!
+  cta_link: /support/
 stats:
   - label: Founded
     value: "2009"
