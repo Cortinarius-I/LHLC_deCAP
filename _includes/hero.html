@@ -21,7 +21,6 @@
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content">
-    <h1>{{ page.hero.title }}</h1>
     <p class="hero-subtitle">{{ page.hero.subtitle }}</p>
     {% if page.hero.cta_text %}
     <a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn btn-hero">{{ page.hero.cta_text }}</a>

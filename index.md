@@ -1,5 +1,6 @@
 ---
 title: Home
+layout: default
 hero:
   title: Little Hearts Learning Centre
   subtitle: An initiative of Dhristi Foundation, creating enabling spaces to
