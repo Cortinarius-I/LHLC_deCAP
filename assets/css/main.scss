@@ -418,7 +418,8 @@ body.page-team .page > h1 {
   margin-bottom: 2.5rem;
 }
 
-.team-section-title {
+// .page h2 { color: $primary } is more specific, so we scope to body.page-team
+body.page-team .team-section-title {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.5rem;
   color: #fff;
@@ -437,7 +438,7 @@ body.page-team .page > h1 {
   margin-bottom: 3rem;
 }
 
-.team-section--leadership .team-section-title {
+body.page-team .team-section--leadership .team-section-title {
   color: $primary;
   border-bottom-color: $border;
 }
@@ -459,12 +460,10 @@ body.page-team .page > h1 {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: top;
-  border-radius: 0;
-  border: none;
+  border-radius: 12px;
+  border: 4px solid $accent;
   display: block;
   margin: 0 auto 1rem;
-  mask-image: radial-gradient(ellipse 82% 80% at 50% 48%, black 42%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 82% 80% at 50% 48%, black 42%, transparent 100%);
 }
 
 .leader-name {
@@ -492,17 +491,19 @@ body.page-team .page > h1 {
 // All other sections – polaroid cards
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 140px));
   gap: 1.5rem;
   padding: 0.25rem 0 0.75rem;
-  justify-items: stretch;
+  justify-content: center;
 }
 
 .team-card {
   background: #fff;
   padding: 7px 7px 0;
-  box-shadow: 2px 4px 14px rgba(0,0,0,0.20);
-  border-radius: 2px;
+  border: 3px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 2px 4px 14px rgba(0,0,0,0.18);
   text-align: left;
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
@@ -519,10 +520,8 @@ body.page-team .page > h1 {
   object-fit: cover;
   object-position: top;
   display: block;
-  border: none;
-  border-radius: 0;
-  mask-image: radial-gradient(ellipse 90% 88% at 50% 46%, black 48%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 90% 88% at 50% 46%, black 48%, transparent 100%);
+  border: 2px solid #d0d0d0;
+  border-radius: 4px;
 }
 
 .team-card h3 {
