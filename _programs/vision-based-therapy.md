@@ -1,6 +1,7 @@
 ---
 title: Vision Based Therapy
 excerpt: Enhancing visual abilities including eye teaming, focusing, and perception.
+icon: eye
 layout: program
 ---
 

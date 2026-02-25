@@ -1,6 +1,7 @@
 ---
 title: Spider and Movement Therapy
 excerpt: Specialized techniques for gross motor development and functional mobility.
+icon: movement
 layout: program
 ---
 

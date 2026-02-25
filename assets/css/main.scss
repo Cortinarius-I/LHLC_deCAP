@@ -385,6 +385,21 @@ main {
   color: $muted;
 }
 
+.program-card-icon {
+  width: 44px;
+  height: 44px;
+  display: block;
+  margin-bottom: 1rem;
+  color: $accent;
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+
+.program-card:hover .program-card-icon,
+.program-card:focus .program-card-icon {
+  opacity: 1;
+}
+
 // ── Team grid ──
 
 .team-grid {

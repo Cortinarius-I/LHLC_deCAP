@@ -1,6 +1,7 @@
 ---
 title: Sensory Integration & Occupational Therapy
 excerpt: Helping children achieve independence through fine motor and sensory processing skills.
+icon: sensory
 layout: program
 ---
 

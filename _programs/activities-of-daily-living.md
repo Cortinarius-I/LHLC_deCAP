@@ -1,6 +1,7 @@
 ---
 title: Activities of Daily Living
 excerpt: Building independence in brushing, grooming, kitchen skills, and toileting.
+icon: home
 layout: program
 ---
 

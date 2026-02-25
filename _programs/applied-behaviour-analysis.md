@@ -1,6 +1,7 @@
 ---
 title: Applied Behaviour Analysis (ABA)
 excerpt: Structured approach to teach play, communication, self-care, and social skills.
+icon: puzzle
 layout: program
 ---
 

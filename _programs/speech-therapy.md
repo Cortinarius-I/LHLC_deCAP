@@ -1,6 +1,7 @@
 ---
 title: Speech Therapy
 excerpt: Screening, assessment, and programs for speech-related needs.
+icon: speech
 layout: program
 ---
 

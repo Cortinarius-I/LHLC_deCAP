@@ -1,6 +1,7 @@
 ---
 title: Pratham / NIOS
 excerpt: Board examinations (10th & 12th) for eligible students.
+icon: graduation
 layout: program
 ---
 

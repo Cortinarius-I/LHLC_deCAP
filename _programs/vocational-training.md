@@ -1,6 +1,7 @@
 ---
 title: Vocational Training
 excerpt: Skills for employability, independence, and social inclusion.
+icon: briefcase
 layout: program
 ---
 

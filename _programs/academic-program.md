@@ -1,6 +1,7 @@
 ---
 title: Academic Program
 excerpt: Functional curriculum for English, Math, and Science through concrete activities.
+icon: book
 layout: program
 ---
 

@@ -1,0 +1,74 @@
+{% case include.icon %}
+
+{% when "book" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M6 38V14a2 2 0 0 1 2-2h12v28H8a2 2 0 0 1-2-2z"/>
+  <path d="M42 38V14a2 2 0 0 0-2-2H28v28h12a2 2 0 0 0 2-2z"/>
+  <line x1="20" y1="12" x2="28" y2="12"/>
+  <line x1="20" y1="38" x2="28" y2="38"/>
+</svg>
+
+{% when "graduation" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <polygon points="24,8 44,20 24,32 4,20"/>
+  <path d="M14 26v8a10 10 0 0 0 20 0v-8"/>
+  <line x1="44" y1="20" x2="44" y2="32"/>
+  <circle cx="44" cy="33" r="2" fill="currentColor" stroke="none"/>
+</svg>
+
+{% when "puzzle" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M8 8h12v4a4 4 0 0 0 8 0V8h12v12h-4a4 4 0 0 0 0 8h4v12H28v-4a4 4 0 0 0-8 0v4H8V28h4a4 4 0 0 0 0-8H8z"/>
+</svg>
+
+{% when "sensory" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="24" cy="24" r="7"/>
+  <line x1="24" y1="5" x2="24" y2="14"/>
+  <line x1="24" y1="34" x2="24" y2="43"/>
+  <line x1="5" y1="24" x2="14" y2="24"/>
+  <line x1="34" y1="24" x2="43" y2="24"/>
+  <line x1="10" y1="10" x2="17" y2="17"/>
+  <line x1="31" y1="31" x2="38" y2="38"/>
+  <line x1="38" y1="10" x2="31" y2="17"/>
+  <line x1="17" y1="31" x2="10" y2="38"/>
+</svg>
+
+{% when "briefcase" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <rect x="6" y="18" width="36" height="24" rx="3"/>
+  <path d="M16 18v-4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"/>
+  <line x1="6" y1="30" x2="42" y2="30"/>
+  <line x1="24" y1="27" x2="24" y2="33"/>
+</svg>
+
+{% when "speech" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M8 10h32a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H26l-6 8v-8H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z"/>
+  <line x1="14" y1="19" x2="34" y2="19"/>
+  <line x1="14" y1="25" x2="25" y2="25"/>
+</svg>
+
+{% when "movement" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <circle cx="24" cy="9" r="5"/>
+  <line x1="24" y1="14" x2="24" y2="32"/>
+  <line x1="6" y1="22" x2="42" y2="22"/>
+  <line x1="24" y1="32" x2="14" y2="44"/>
+  <line x1="24" y1="32" x2="34" y2="44"/>
+</svg>
+
+{% when "home" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M6 25L24 8l18 17"/>
+  <path d="M10 21v19h10V30h8v10h10V21"/>
+</svg>
+
+{% when "eye" %}
+<svg class="program-card-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d="M4 24s8-14 20-14 20 14 20 14-8 14-20 14S4 24 4 24z"/>
+  <circle cx="24" cy="24" r="6"/>
+  <circle cx="24" cy="24" r="2.5" fill="currentColor" stroke="none"/>
+</svg>
+
+{% endcase %}
