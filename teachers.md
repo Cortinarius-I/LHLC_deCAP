@@ -1,5 +1,6 @@
 ---
 title: Meet The Team!
+body_class: page-team
 layout: page
 team:
   - name: Reshmy Nikith
@@ -131,7 +132,7 @@ team:
   {% if sec_members.size > 0 %}
   {% assign sec_label = section_labels[forloop.index0] %}
 
-<section class="team-section">
+<section class="team-section team-section--{{ sec }}">
 <h2 class="team-section-title">{{ sec_label }}</h2>
 
 {% if sec == "leadership" %}
