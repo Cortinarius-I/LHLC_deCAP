@@ -152,8 +152,10 @@ team:
   {% for member in sec_members %}
   <div class="team-card">
     <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="team-photo">
-    <h3>{{ member.name }}</h3>
-    <p>{{ member.role }}</p>
+    <div class="team-card-caption">
+      <h3>{{ member.name }}</h3>
+      <p>{{ member.role }}</p>
+    </div>
   </div>
   {% endfor %}
 </div>
