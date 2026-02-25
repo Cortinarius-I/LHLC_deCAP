@@ -17,14 +17,21 @@ collections:
         file: index.md
         fields:
           - { label: Title, name: title, widget: string }
+          - { label: Layout, name: layout, widget: hidden, default: default }
           - label: Hero
             name: hero
             widget: object
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Subtitle, name: subtitle, widget: text }
-              - { label: Image, name: image, widget: image, required: false }
-              - { label: Video URL, name: video, widget: string, required: false, hint: "YouTube embed URL, e.g. https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&playlist=VIDEO_ID" }
+              - { label: Video URL, name: video, widget: string, required: false, hint: "YouTube embed URL with autoplay params. Leave blank to use rotating background images instead." }
+              - label: Background Images (when no video)
+                name: bg_images
+                widget: list
+                required: false
+                hint: "Up to 5 images that rotate in the hero background. Paste the Google Drive file ID for each (found in the sharing link)."
+                fields:
+                  - { label: Drive File ID, name: id, widget: string }
               - { label: Button Text, name: cta_text, widget: string, required: false }
               - { label: Button Link, name: cta_link, widget: string, required: false }
           - label: Stats
@@ -98,12 +105,17 @@ collections:
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Layout, name: layout, widget: hidden, default: page }
-          - label: Images
-            name: gallery
+          - label: Gallery Sections
+            name: gallery_sections
             widget: list
             fields:
-              - { label: Image, name: image, widget: image }
-              - { label: Caption, name: caption, widget: string }
+              - { label: Section Title, name: title, widget: string }
+              - label: Images
+                name: images
+                widget: list
+                fields:
+                  - { label: Drive File ID, name: id, widget: string, hint: "Google Drive file ID from the sharing link" }
+                  - { label: Caption, name: caption, widget: string, required: false }
 
   - name: programs
     label: Programs
@@ -122,6 +134,7 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Category, name: category, widget: select, options: ["Activities", "Workshops"] }
-      - { label: Image, name: image, widget: image, required: false }
+      - { label: "Image (upload)", name: image, widget: image, required: false, hint: "Upload an image directly. Used if no Drive ID is set below." }
+      - { label: "Image (Drive ID)", name: drive_id, widget: string, required: false, hint: "Google Drive file ID. Right-click the file → Share → Copy link. The ID is the long string between /d/ and /view in the URL. Takes priority over uploaded image." }
       - { label: Layout, name: layout, widget: hidden, default: page }
       - { label: Body, name: body, widget: markdown }
