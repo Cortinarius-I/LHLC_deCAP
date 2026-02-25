@@ -8,13 +8,14 @@
         alt="" loading="eager" class="active">
       {% endif %}
       <iframe
-        src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&fs=0&playsinline=1"
+        id="hero-iframe"
+        src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&fs=0&playsinline=1&enablejsapi=1"
         allow="autoplay; encrypted-media"
         tabindex="-1"
         aria-hidden="true"
         loading="eager"
         class="hero-video"
-        onload="var f=document.getElementById('hero-video-fallback');if(f){f.style.transition='opacity 1s ease';f.style.opacity='0';}"></iframe>
+        style="opacity:0;transition:opacity 1.2s ease"></iframe>
     {% else %}
       {% for img in page.hero.bg_images %}
         <img
@@ -46,5 +47,29 @@
     cur = (cur + 1) % imgs.length;
     imgs[cur].classList.add('active');
   }, 6000);
+})();
+
+// Show hero video only after playback starts — avoids buffering spinner
+(function() {
+  if (!document.getElementById('hero-iframe')) return;
+  var prev = window.onYouTubeIframeAPIReady;
+  window.onYouTubeIframeAPIReady = function() {
+    if (typeof prev === 'function') prev();
+    new YT.Player('hero-iframe', {
+      events: {
+        onStateChange: function(e) {
+          if (e.data === 1 /* PLAYING */) {
+            var f = document.getElementById('hero-iframe');
+            if (f) f.style.opacity = '1';
+            var fb = document.getElementById('hero-video-fallback');
+            if (fb) { fb.style.transition = 'opacity 1.2s ease'; fb.style.opacity = '0'; }
+          }
+        }
+      }
+    });
+  };
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
 })();
 </script>
