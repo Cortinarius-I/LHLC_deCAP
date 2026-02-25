@@ -1,51 +1,45 @@
 {% assign hero_video = page.hero.video | strip %}
 <section class="hero" role="banner">
-<div class="hero-text">
-<h1>{{ page.hero.title }}</h1>
-<p class="hero-subtitle">{{ page.hero.subtitle }}</p>
-{% if page.hero.cta_text %}
-<a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn">{{ page.hero.cta_text }}</a>
-{% endif %}
-</div>
-<div class="hero-media{% if hero_video != "" %} hero-media--polaroid{% endif %}">
-<div class="hero-media-inner">
-{% if page.hero.image %}
-<img src="{{ page.hero.image | relative_url }}" alt="" class="hero-fallback">
-{% endif %}
-{% if hero_video != "" %}
-<iframe src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3" class="hero-video" allow="autoplay; encrypted-media" allowfullscreen tabindex="-1" loading="lazy" onload="this.classList.add('loaded')"></iframe>
-<div class="hero-video-shield" aria-hidden="true"></div>
-{% endif %}
-</div>
-{% if hero_video != "" %}
-<svg class="hero-frame" viewBox="0 0 400 277" preserveAspectRatio="none" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-  <!-- Outer chalk strokes (light, on dark chalkboard background) -->
-  <path d="M7,7 C80,5 165,8 245,6 C320,4.5 380,7 393,7" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M6,11 C85,9 170,12 250,10 C325,8.5 382,11 394,11.5" stroke="rgba(245,245,242,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M393,7 C395,75 393,145 394,200 C395,240 393,260 393,269" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M389,8 C391,77 389,147 390,202 C391,242 389,261 389,270" stroke="rgba(245,245,242,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M393,269 C315,271.5 235,269 155,271 C80,273 22,270 7,269" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M394,265 C314,267.5 234,265 154,267 C79,269 21,266 6,265.5" stroke="rgba(245,245,242,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M7,269 C5,200 7,135 6,80 C5,38 7,12 7,7" stroke="rgba(245,245,242,0.75)" stroke-width="2.6" stroke-linecap="round"/>
-  <path d="M11,268 C9,199 11,134 10,79 C9,37 11,13 11,8" stroke="rgba(245,245,242,0.38)" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Inner photo boundary (dark pencil strokes on cream paper) -->
-  <path d="M18,18 C95,16 190,19.5 270,17.5 C345,16 374,18.5 382,18" stroke="rgba(55,40,25,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M18,22 C100,20 195,23.5 275,21.5 C348,20 375,22.5 382,22.5" stroke="rgba(55,40,25,0.3)" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M382,18 C384,70 382,125 383,170 C384,205 382,224 382,228" stroke="rgba(55,40,25,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M378,18.5 C380,72 378,127 379,172 C380,207 378,225 378,228" stroke="rgba(55,40,25,0.3)" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M382,228 C305,230 220,227.5 145,229.5 C75,231.5 32,228.5 18,228" stroke="rgba(55,40,25,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M382,224 C303,226 218,223.5 143,225.5 C73,227.5 30,224.5 18,224" stroke="rgba(55,40,25,0.3)" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M18,228 C16,178 18,128 17,80 C16,40 18,20 18,18" stroke="rgba(55,40,25,0.62)" stroke-width="2.8" stroke-linecap="round"/>
-  <path d="M22,227.5 C20,177 22,127 21,79 C20,39 22,21 22,18.5" stroke="rgba(55,40,25,0.3)" stroke-width="1.6" stroke-linecap="round"/>
-  <!-- Corner ticks connecting inner to outer -->
-  <path d="M18,18 L7,7" stroke="rgba(245,245,242,0.65)" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M382,18 L393,7" stroke="rgba(245,245,242,0.65)" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M382,228 L393,269" stroke="rgba(245,245,242,0.55)" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M18,228 L7,269" stroke="rgba(245,245,242,0.55)" stroke-width="2.2" stroke-linecap="round"/>
-  <!-- Subtle lines in the bottom white strip -->
-  <path d="M148,248 L252,248" stroke="rgba(55,40,25,0.18)" stroke-width="1.8" stroke-linecap="round"/>
-  <path d="M165,256 L235,256" stroke="rgba(55,40,25,0.12)" stroke-width="1.2" stroke-linecap="round"/>
-</svg>
-{% endif %}
-</div>
+  <div class="hero-bg" id="hero-bg">
+    {% if hero_video != "" %}
+      <iframe
+        src="{{ hero_video }}&modestbranding=1&showinfo=0&rel=0&disablekb=1&iv_load_policy=3&fs=0&playsinline=1"
+        allow="autoplay; encrypted-media"
+        tabindex="-1"
+        aria-hidden="true"
+        loading="eager"
+        class="hero-video"></iframe>
+    {% else %}
+      {% for img in page.hero.bg_images %}
+        <img
+          src="https://drive.google.com/thumbnail?id={{ img.id }}&sz=w1600"
+          alt=""
+          loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+          {% if forloop.first %}class="active"{% endif %}>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1>{{ page.hero.title }}</h1>
+    <p class="hero-subtitle">{{ page.hero.subtitle }}</p>
+    {% if page.hero.cta_text %}
+    <a href="{{ page.hero.cta_link | default: '#main' | relative_url }}" class="btn btn-hero">{{ page.hero.cta_text }}</a>
+    {% endif %}
+  </div>
 </section>
+
+<script>
+(function() {
+  var bg = document.getElementById('hero-bg');
+  if (!bg) return;
+  var imgs = bg.querySelectorAll('img');
+  if (imgs.length < 2) return;
+  var cur = 0;
+  setInterval(function() {
+    imgs[cur].classList.remove('active');
+    cur = (cur + 1) % imgs.length;
+    imgs[cur].classList.add('active');
+  }, 6000);
+})();
+</script>

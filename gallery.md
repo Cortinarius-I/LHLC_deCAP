@@ -186,11 +186,10 @@ gallery_sections:
          data-caption="{{ image.caption }}"
          data-section="{{ section_index }}"
          data-index="{{ forloop.index0 }}">
-        <div class="gallery-polaroid">
+        <div class="gallery-card">
           <img src="https://drive.google.com/thumbnail?id={{ image.id }}&sz=w600"
                alt="{{ image.caption | default: section.title }}" loading="lazy">
-          <p class="gallery-polaroid-caption">{{ image.caption }}</p>
-          {% include gallery-frame.html %}
+          <p class="gallery-card-caption">{{ image.caption }}</p>
         </div>
       </a>
     </figure>

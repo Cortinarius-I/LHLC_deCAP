@@ -4,11 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title }} · {{ site.title }}</title>
-<link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-<script>
-(function(){var t=localStorage.getItem('lhlc-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();
-</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -39,23 +36,5 @@
 {{ content }}
 </main>
 {% include footer.html %}
-<script>
-function toggleTheme(){
-  var html=document.documentElement;
-  var next=html.getAttribute('data-theme')==='light'?'dark':'light';
-  html.setAttribute('data-theme',next);
-  localStorage.setItem('lhlc-theme',next);
-  var btn=document.querySelector('.theme-toggle');
-  if(btn){btn.textContent=next==='light'?'☽':'☀';btn.setAttribute('aria-label',next==='light'?'Switch to dark mode':'Switch to light mode');}
-}
-(function(){
-  var btn=document.querySelector('.theme-toggle');
-  if(btn){
-    var t=document.documentElement.getAttribute('data-theme');
-    btn.textContent=t==='light'?'☽':'☀';
-    btn.setAttribute('aria-label',t==='light'?'Switch to dark mode':'Switch to light mode');
-  }
-})();
-</script>
 </body>
 </html>
