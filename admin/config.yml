@@ -97,7 +97,18 @@ collections:
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
-              - { label: Photo, name: photo, widget: image }
+              - label: Section
+                name: section
+                widget: select
+                options:
+                  - { label: Leadership, value: leadership }
+                  - { label: Administration, value: administration }
+                  - { label: Education, value: education }
+                  - { label: Therapy, value: therapy }
+                  - { label: Vocational Training, value: vocational-training }
+                  - { label: Support, value: support }
+              - { label: Bio, name: bio, widget: text, required: false, hint: "Optional — shown for leadership only." }
+              - { label: Photo, name: photo, widget: image, required: false }
 
       - label: Gallery
         name: gallery
