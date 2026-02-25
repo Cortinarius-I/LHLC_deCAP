@@ -490,14 +490,18 @@ body.page-team .team-section--leadership .team-section-title {
 
 // All other sections – polaroid cards
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 140px));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   padding: 0.25rem 0 0.75rem;
-  justify-content: center;
 }
 
 .team-card {
+  width: 140px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   padding: 7px 7px 0;
   border: 3px solid #ccc;
@@ -527,19 +531,20 @@ body.page-team .team-section--leadership .team-section-title {
 .team-card-caption {
   background: #d8c8e8;
   margin: 6px -7px 0;
-  padding: 7px 8px 9px;
+  padding: 0;
+  flex: 1;
 }
 
 .team-card h3 {
   font-size: 0.82rem;
-  margin: 0 0 2px;
+  margin: 7px 6px 2px;
   color: #2a1a3a;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .team-card p {
-  margin: 0;
+  margin: 0 6px 7px;
   font-size: 0.7rem;
   color: #4a3060;
   font-weight: 600;
@@ -934,7 +939,10 @@ body.page-team .team-section--leadership .team-section-title {
   }
 
   .team-grid {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 1rem;
+  }
+
+  .team-card {
+    width: 120px;
   }
 }
