@@ -1,5 +1,5 @@
 ---
-title: Join Us
+title: Support Us
 layout: page
 ---
 

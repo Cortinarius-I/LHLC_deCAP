@@ -56,9 +56,9 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: page }
           - { label: Body, name: body, widget: markdown }
 
-      - label: Join Us
-        name: join-us
-        file: join-us.md
+      - label: Support Us
+        name: support
+        file: support.md
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Layout, name: layout, widget: hidden, default: page }
