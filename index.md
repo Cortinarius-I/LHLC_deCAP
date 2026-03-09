@@ -78,4 +78,26 @@ faqs:
       is one of our goals. Our team provides the academic foundation, social
       skills training, and confidence building needed for a successful
       transition, along with recommendations and support during the process.
+  - question: Is LHLC a residential or day school?
+    answer: Little Hearts Learning Centre is a day school.
+  - question: What grades or certifications are offered?
+    answer: We offer the Pratham curriculum and NIOS (National Institute of Open
+      Schooling) at the 10th and 12th grade levels.
+  - question: What are the school timings?
+    answer: "Little Hearts Learning Centre runs from 9:30 AM to 2:00 PM, Monday to
+      Friday. The Udaan Vocational Centre runs from 9:30 AM to 3:00 PM, Monday
+      to Friday."
+  - question: What therapy services are available?
+    answer: We provide physiotherapy, occupational therapy (including sensory
+      integration), speech therapy, and special education as part of each
+      student's individualised programme.
+  - question: How many students are enrolled?
+    answer: We currently support 65+ students across our two centres.
+  - question: What is the average class size?
+    answer: Classes typically have 6 to 7 students, maintaining our 1:4
+      teacher-to-student ratio for individual attention.
+  - question: How can I get in touch?
+    answer: "You can reach us by phone at 9967707505 / 9930978354, or by email at
+      littlehearts2009@gmail.com. You can also use the contact form on our
+      Contact page."
 ---

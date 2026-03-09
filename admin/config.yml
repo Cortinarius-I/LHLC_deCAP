@@ -65,14 +65,6 @@ collections:
               - { label: Question, name: question, widget: string }
               - { label: Answer, name: answer, widget: text }
 
-      - label: About
-        name: about
-        file: about.md
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Layout, name: layout, widget: hidden, default: page }
-          - { label: Body, name: body, widget: markdown }
-
       - label: Support Us
         name: support
         file: support.md
@@ -88,19 +80,6 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: Layout, name: layout, widget: hidden, default: page }
           - { label: Body, name: body, widget: markdown }
-
-      - label: FAQ
-        name: faq
-        file: faq.md
-        fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Layout, name: layout, widget: hidden, default: page }
-          - label: Questions
-            name: faq
-            widget: list
-            fields:
-              - { label: Question, name: question, widget: string }
-              - { label: Answer, name: answer, widget: text }
 
       - label: Our Team
         name: teachers
