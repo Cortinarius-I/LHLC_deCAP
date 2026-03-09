@@ -287,7 +287,7 @@ main {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.9rem;
   color: $primary;
-  text-align: left;
+  text-align: center;
   margin: 0 0 1.25rem;
 }
 
@@ -326,25 +326,27 @@ main {
 }
 
 .location-ages {
-  display: inline-block;
+  display: block;
   background: $accent;
   color: #fff;
   font-weight: 700;
   font-size: 0.8rem;
   padding: 0.2em 0.75em;
   border-radius: 50px;
-  margin: 0 0 0.4rem;
+  margin: 0 auto 0.4rem;
+  width: fit-content;
 }
 
 .location-timing {
-  display: inline-block;
+  display: block;
   background: rgba($primary, 0.12);
   color: $primary;
   font-size: 0.8rem;
   font-weight: 700;
   padding: 0.2em 0.75em;
   border-radius: 50px;
-  margin: 0 0 0.5rem;
+  margin: 0 auto 0.5rem;
+  width: fit-content;
 }
 
 .location-address {
@@ -397,17 +399,20 @@ main {
 }
 
 .admissions-intro {
-  max-width: 700px;
   font-size: 0.97rem;
   line-height: 1.75;
   color: $text;
   margin: 0 0 2.5rem;
+  text-align: center;
 }
 
 .admissions-timeline {
   position: relative;
   padding-left: 3.25rem;
   margin-bottom: 2.5rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .admissions-timeline::before {
@@ -467,6 +472,7 @@ main {
   font-size: 1.05rem;
   color: $text;
   margin: 0;
+  text-align: center;
 }
 
 .admissions-link {
@@ -512,6 +518,32 @@ main {
 
 .life-section .activities-grid {
   padding: 0;
+}
+
+.activity-card--more {
+  display: none;
+}
+
+.life-more-wrap {
+  text-align: center;
+  margin-top: 1.75rem;
+}
+
+.life-more-btn {
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.65rem 2.25rem;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.life-more-btn:hover {
+  background: $primary-dark;
 }
 
 // ── FAQ section (home) ──
@@ -980,7 +1012,7 @@ body.page-team .team-section--leadership .team-section-title {
 // ── FAQ ──
 
 .faq-list {
-  max-width: 720px;
+  width: 100%;
 }
 
 .faq-item {

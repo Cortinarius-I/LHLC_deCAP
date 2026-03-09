@@ -13,36 +13,6 @@
 {% if page.hero %}{% include hero.html %}{% endif %}
 <main id="main">
 {% assign all_testimonials = site.testimonials %}
-{% if page.url == "/" and all_testimonials.size > 0 %}
-<section class="testimonials-section">
-<h2 class="testimonials-heading">What People Say</h2>
-<div class="testimonials-widget">
-<div class="testimonials-slider" aria-label="Testimonials">
-<button class="testimonials-arrow testimonials-arrow--prev" aria-label="Previous testimonial">&#8249;</button>
-<div class="testimonials-track-wrapper">
-<div class="testimonials-track">
-{% for t in all_testimonials %}
-<div class="testimonial-card" role="group" aria-label="Testimonial {{ forloop.index }} of {{ all_testimonials.size }}">
-<div class="testimonial-quote-mark">&ldquo;</div>
-<a href="{{ t.url | relative_url }}" class="testimonial-text">{{ t.excerpt }}</a>
-<div class="testimonial-author">
-<strong class="testimonial-name">{{ t.parent_name }}</strong>
-<span class="testimonial-role testimonial-role--{{ t.role }}">{{ t.role | capitalize }}</span>
-</div>
-</div>
-{% endfor %}
-</div>
-</div>
-<button class="testimonials-arrow testimonials-arrow--next" aria-label="Next testimonial">&#8250;</button>
-</div>
-<div class="testimonials-dots" role="tablist">
-{% for t in all_testimonials %}
-<button class="testimonial-dot{% if forloop.first %} active{% endif %}" role="tab" aria-label="Go to testimonial {{ forloop.index }}"></button>
-{% endfor %}
-</div>
-</div>
-</section>
-{% endif %}
 
 {% if page.stats %}
 <section class="stats-bar">
@@ -118,6 +88,36 @@
 {% endif %}
 
 {% if page.url == "/" %}
+{% if all_testimonials.size > 0 %}
+<section class="testimonials-section">
+<h2 class="testimonials-heading">What People Say</h2>
+<div class="testimonials-widget">
+<div class="testimonials-slider" aria-label="Testimonials">
+<button class="testimonials-arrow testimonials-arrow--prev" aria-label="Previous testimonial">&#8249;</button>
+<div class="testimonials-track-wrapper">
+<div class="testimonials-track">
+{% for t in all_testimonials %}
+<div class="testimonial-card" role="group" aria-label="Testimonial {{ forloop.index }} of {{ all_testimonials.size }}">
+<div class="testimonial-quote-mark">&ldquo;</div>
+<a href="{{ t.url | relative_url }}" class="testimonial-text">{{ t.excerpt }}</a>
+<div class="testimonial-author">
+<strong class="testimonial-name">{{ t.parent_name }}</strong>
+<span class="testimonial-role testimonial-role--{{ t.role }}">{{ t.role | capitalize }}</span>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+<button class="testimonials-arrow testimonials-arrow--next" aria-label="Next testimonial">&#8250;</button>
+</div>
+<div class="testimonials-dots" role="tablist">
+{% for t in all_testimonials %}
+<button class="testimonial-dot{% if forloop.first %} active{% endif %}" role="tab" aria-label="Go to testimonial {{ forloop.index }}"></button>
+{% endfor %}
+</div>
+</div>
+</section>
+{% endif %}
 <section class="admissions-section" id="admissions">
 <h2 class="section-title">Admissions</h2>
 <p class="admissions-intro">The admission process is designed to be straightforward and supportive, ensuring the best fit for your child within our learning environment. It begins with a thoughtful, non-binding initial assessment to gain a clear understanding of your child's current academic and developmental standing. Following this assessment, a detailed discussion is held with the parents to align expectations and answer any questions. There is absolutely no fee associated with this initial assessment or the subsequent consultation.</p>
@@ -168,10 +168,11 @@
 </section>
 
 <section class="life-section" id="life">
-<h2 class="section-title">Life at LHLC</h2>
+<h2 class="section-title">Life @ LHLC</h2>
 <div class="activities-grid">
 {% for activity in site.activities %}
-<a href="{{ activity.url | relative_url }}" class="activity-card">
+{% if activity.drive_id and activity.drive_id != "" %}{% assign act_has_img = true %}{% elsif activity.image and activity.image != "" %}{% assign act_has_img = true %}{% else %}{% assign act_has_img = false %}{% endif %}
+<a href="{{ activity.url | relative_url }}" class="activity-card{% unless act_has_img %} activity-card--more{% endunless %}">
 {% if activity.drive_id and activity.drive_id != "" %}
 <img src="https://drive.google.com/thumbnail?id={{ activity.drive_id }}&sz=w600" alt="{{ activity.title }}" loading="lazy">
 {% elsif activity.image and activity.image != "" %}
@@ -185,6 +186,9 @@
 </div>
 </a>
 {% endfor %}
+</div>
+<div class="life-more-wrap">
+<button class="life-more-btn" id="life-more-btn">See more</button>
 </div>
 </section>
 
@@ -206,43 +210,52 @@
 {{ content }}
 </main>
 {% include footer.html %}
-{% if page.url == "/" and all_testimonials.size > 0 %}
+{% if page.url == "/" %}
 <script>
 (function () {
+  // Testimonials slider
   var wrapper = document.querySelector('.testimonials-track-wrapper');
   var track = document.querySelector('.testimonials-track');
-  if (!wrapper || !track) return;
-  var cards = Array.from(track.children);
-  var dots = Array.from(document.querySelectorAll('.testimonial-dot'));
-  var prevBtn = document.querySelector('.testimonials-arrow--prev');
-  var nextBtn = document.querySelector('.testimonials-arrow--next');
-  var current = 0;
-  var total = cards.length;
-
-  function cardWidth() { return wrapper.offsetWidth; }
-
-  function setLayout() {
-    var w = cardWidth();
-    cards.forEach(function (c) { c.style.width = w + 'px'; });
-    track.style.transition = 'none';
-    track.style.transform = 'translateX(-' + (current * w) + 'px)';
-    requestAnimationFrame(function () { track.style.transition = ''; });
+  if (wrapper && track) {
+    var cards = Array.from(track.children);
+    var dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+    var prevBtn = document.querySelector('.testimonials-arrow--prev');
+    var nextBtn = document.querySelector('.testimonials-arrow--next');
+    var current = 0;
+    var total = cards.length;
+    function cardWidth() { return wrapper.offsetWidth; }
+    function setLayout() {
+      var w = cardWidth();
+      cards.forEach(function (c) { c.style.width = w + 'px'; });
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      requestAnimationFrame(function () { track.style.transition = ''; });
+    }
+    function go(n) {
+      current = ((n % total) + total) % total;
+      track.style.transform = 'translateX(-' + (current * cardWidth()) + 'px)';
+      dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+    }
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { go(current + 1); });
+    window.addEventListener('resize', setLayout);
+    setLayout();
   }
 
-  function go(n) {
-    current = ((n % total) + total) % total;
-    track.style.transform = 'translateX(-' + (current * cardWidth()) + 'px)';
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
+  // Life @ LHLC "See more"
+  var moreBtn = document.getElementById('life-more-btn');
+  if (moreBtn) {
+    var moreCards = Array.from(document.querySelectorAll('.activity-card--more'));
+    if (moreCards.length === 0) {
+      moreBtn.parentElement.style.display = 'none';
+    } else {
+      moreBtn.addEventListener('click', function () {
+        moreCards.forEach(function (c) { c.classList.remove('activity-card--more'); });
+        moreBtn.parentElement.style.display = 'none';
+      });
+    }
   }
-
-  dots.forEach(function (d, i) {
-    d.addEventListener('click', function () { go(i); });
-  });
-  if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { go(current + 1); });
-
-  window.addEventListener('resize', setLayout);
-  setLayout();
 })();
 </script>
 {% endif %}
