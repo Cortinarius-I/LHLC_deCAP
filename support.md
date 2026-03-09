@@ -16,4 +16,4 @@ You can volunteer with us and contribute your time and skills. Volunteers play a
 
 - - -
 
-To get involved, please \[contact us]({{ "/contact/" | relative_url }}).
+To get involved, please [contact us](/LHLC_deCAP/contact/)
