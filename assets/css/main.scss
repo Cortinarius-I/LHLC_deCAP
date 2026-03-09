@@ -17,6 +17,10 @@ $border:       #c8a8d8;
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 // ── Body ──
 
 body {
