@@ -13,6 +13,9 @@ collections:
   activities:
     output: true
     permalink: /activities/:name/
+  testimonials:
+    output: true
+    permalink: /testimonials/:name/
 
 defaults:
   - scope:

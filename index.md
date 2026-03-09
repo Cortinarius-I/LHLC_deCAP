@@ -54,20 +54,4 @@ about:
   mission: To increase social acceptance of special children in the educational
     system and advocate equal rights for education through interventions that
     develop their skills and maximize their potentials.
-testimonials:
-  - quote: Little Hearts has transformed our son's life. The dedicated team works
-      tirelessly to help every child reach their potential. We are so grateful
-      to have found such a nurturing and professional environment.
-    name: Priya Sharma
-    role: parent
-  - quote: Supporting Little Hearts Learning Centre has been one of the most
-      fulfilling decisions we have made. The impact these educators have on
-      children's lives is truly remarkable and measurable.
-    name: Rajesh Mehta
-    role: donor
-  - quote: Volunteering at Little Hearts has been one of the most rewarding
-      experiences of my life. Every child here has something unique and
-      wonderful to offer the world. The staff's dedication is inspiring.
-    name: Ananya Krishnan
-    role: volunteer
 ---

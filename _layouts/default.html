@@ -59,24 +59,31 @@
 {% endif %}
 {% endif %}
 
-{% if page.testimonials and page.testimonials.size > 0 %}
+{% assign all_testimonials = site.testimonials %}
+{% if all_testimonials.size > 0 %}
 <section class="testimonials-section">
 <h2 class="testimonials-heading">What People Say</h2>
+<div class="testimonials-widget">
 <div class="testimonials-slider" aria-label="Testimonials">
+<button class="testimonials-arrow testimonials-arrow--prev" aria-label="Previous testimonial">&#8249;</button>
+<div class="testimonials-track-wrapper">
 <div class="testimonials-track">
-{% for t in page.testimonials %}
-<div class="testimonial-card" role="group" aria-label="Testimonial {{ forloop.index }} of {{ page.testimonials.size }}">
+{% for t in all_testimonials %}
+<div class="testimonial-card" role="group" aria-label="Testimonial {{ forloop.index }} of {{ all_testimonials.size }}">
 <div class="testimonial-quote-mark">&ldquo;</div>
-<p class="testimonial-text">{{ t.quote }}</p>
+<a href="{{ t.url | relative_url }}" class="testimonial-text">{{ t.excerpt }}</a>
 <div class="testimonial-author">
-<strong class="testimonial-name">{{ t.name }}</strong>
+<strong class="testimonial-name">{{ t.parent_name }}</strong>
 <span class="testimonial-role testimonial-role--{{ t.role }}">{{ t.role | capitalize }}</span>
 </div>
 </div>
 {% endfor %}
 </div>
+</div>
+<button class="testimonials-arrow testimonials-arrow--next" aria-label="Next testimonial">&#8250;</button>
+</div>
 <div class="testimonials-dots" role="tablist">
-{% for t in page.testimonials %}
+{% for t in all_testimonials %}
 <button class="testimonial-dot{% if forloop.first %} active{% endif %}" role="tab" aria-label="Go to testimonial {{ forloop.index }}"></button>
 {% endfor %}
 </div>
@@ -108,15 +115,17 @@
 {{ content }}
 </main>
 {% include footer.html %}
-{% if page.testimonials and page.testimonials.size > 0 %}
+{% assign all_testimonials = site.testimonials %}
+{% if all_testimonials.size > 0 %}
 <script>
 (function () {
   var track = document.querySelector('.testimonials-track');
   if (!track) return;
-  var cards = Array.from(track.children);
   var dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+  var prevBtn = document.querySelector('.testimonials-arrow--prev');
+  var nextBtn = document.querySelector('.testimonials-arrow--next');
   var current = 0;
-  var total = cards.length;
+  var total = dots.length;
   var timer;
 
   function go(n) {
@@ -131,11 +140,13 @@
   dots.forEach(function (d, i) {
     d.addEventListener('click', function () { stop(); go(i); start(); });
   });
+  if (prevBtn) prevBtn.addEventListener('click', function () { stop(); go(current - 1); start(); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { stop(); go(current + 1); start(); });
 
-  var slider = document.querySelector('.testimonials-slider');
-  if (slider) {
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
+  var widget = document.querySelector('.testimonials-widget');
+  if (widget) {
+    widget.addEventListener('mouseenter', stop);
+    widget.addEventListener('mouseleave', start);
   }
 
   start();

@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<section class="page testimonial-page">
+<a href="{{ "/" | relative_url }}#about" class="back-link">&larr; Back to home</a>
+<div class="testimonial-full">
+<div class="testimonial-full-header">
+<span class="testimonial-role testimonial-role--{{ page.role }}">{{ page.role | capitalize }}</span>
+<h1>{{ page.parent_name }}</h1>
+<p class="testimonial-meta">Parent of <strong>{{ page.student_name }}</strong>{% assign joined = page.date_joined | strip %}{% if joined != "" %} &middot; Joined {{ joined }}{% endif %}</p>
+</div>
+<blockquote class="testimonial-full-body">
+{{ content }}
+</blockquote>
+</div>
+</section>

@@ -171,3 +171,24 @@ collections:
       - { label: "Image (Drive ID)", name: drive_id, widget: string, required: false, hint: "Google Drive file ID. Right-click the file → Share → Copy link. The ID is the long string between /d/ and /view in the URL. Takes priority over uploaded image." }
       - { label: Layout, name: layout, widget: hidden, default: page }
       - { label: Body, name: body, widget: markdown }
+
+  - name: testimonials
+    label: Testimonials
+    folder: _testimonials
+    create: true
+    slug: "{{fields.parent_name | slugify}}"
+    fields:
+      - { label: Layout, name: layout, widget: hidden, default: testimonial }
+      - { label: Title, name: title, widget: string, hint: "e.g. Testimonial — Supriya Anchan" }
+      - { label: Parent / Author Name, name: parent_name, widget: string }
+      - { label: Student Name, name: student_name, widget: string }
+      - { label: Date Joined, name: date_joined, widget: string, required: false, hint: "e.g. June 2017" }
+      - label: Role
+        name: role
+        widget: select
+        options:
+          - { label: Parent, value: parent }
+          - { label: Donor, value: donor }
+          - { label: Volunteer, value: volunteer }
+      - { label: Excerpt, name: excerpt, widget: text, hint: "One or two sentences shown on the home page slider. Clicking it opens this full page." }
+      - { label: Full Testimonial, name: body, widget: markdown }
