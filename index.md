@@ -55,4 +55,27 @@ about:
   mission: To increase social acceptance of special children in the educational
     system and advocate equal rights for education through interventions that
     develop their skills and maximize their potentials.
+faqs:
+  - question: What age groups does Little Hearts Learning Centre cater to?
+    answer: Little Hearts Learning Centre caters to children aged 3 to 15 years,
+      while our Udaan Vocational Centre serves young adults aged 15 to 30 years.
+  - question: What conditions or needs does the school support?
+    answer: We support children with a wide range of developmental, learning, and
+      physical needs including autism spectrum disorder, Down syndrome, cerebral
+      palsy, sensory processing disorder, speech and language delays, and
+      intellectual disabilities, among others.
+  - question: Is there a fee for the initial assessment?
+    answer: No. The initial assessment and the parent consultation that follows
+      are completely free of charge. There is no obligation to enroll following
+      the assessment.
+  - question: How is the curriculum personalised for each child?
+    answer: Each student has an Individualized Education Plan (IEP) developed in
+      collaboration with parents. Goals, methodology, and therapeutic supports
+      are tailored to the unique learning style and developmental profile of each
+      child, and are reviewed regularly.
+  - question: Can my child transition to a mainstream school from LHLC?
+    answer: Yes — transitioning students to mainstream education where appropriate
+      is one of our goals. Our team provides the academic foundation, social
+      skills training, and confidence building needed for a successful transition,
+      along with recommendations and support during the process.
 ---

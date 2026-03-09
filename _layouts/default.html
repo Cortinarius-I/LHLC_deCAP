@@ -81,22 +81,6 @@
 {% if journey != "" or why != "" or vision != "" or mission != "" %}
 <section class="about-section">
 <h2 class="section-title">About us</h2>
-{% if journey != "" or why != "" %}
-<div class="about-blocks">
-{% if journey != "" %}
-<div class="about-block">
-<h3>Our Journey</h3>
-<p>{{ journey }}</p>
-</div>
-{% endif %}
-{% if why != "" %}
-<div class="about-block about-block--why">
-<h3>Why Little Hearts Learning Centre?</h3>
-<p>{{ why }}</p>
-</div>
-{% endif %}
-</div>
-{% endif %}
 {% if vision != "" or mission != "" %}
 <div class="vision-mission-grid">
 {% if vision != "" %}
@@ -113,6 +97,108 @@
 {% endif %}
 </div>
 {% endif %}
+{% if journey != "" or why != "" %}
+<div class="about-blocks">
+{% if journey != "" %}
+<div class="about-block">
+<h3>Our Journey</h3>
+<p>{{ journey }}</p>
+</div>
+{% endif %}
+{% if why != "" %}
+<div class="about-block about-block--why">
+<h3>Why Little Hearts Learning Centre?</h3>
+<p>{{ why }}</p>
+</div>
+{% endif %}
+</div>
+{% endif %}
+</section>
+{% endif %}
+{% endif %}
+
+{% if page.url == "/" %}
+<section class="admissions-section" id="admissions">
+<h2 class="section-title">Admissions</h2>
+<p class="admissions-intro">The admission process is designed to be straightforward and supportive, ensuring the best fit for your child within our learning environment. It begins with a thoughtful, non-binding initial assessment to gain a clear understanding of your child's current academic and developmental standing. Following this assessment, a detailed discussion is held with the parents to align expectations and answer any questions. There is absolutely no fee associated with this initial assessment or the subsequent consultation.</p>
+<div class="admissions-timeline">
+<div class="timeline-step">
+<div class="timeline-marker"><span>1</span></div>
+<div class="timeline-content">
+<h3>Student Information &amp; Application</h3>
+<p>Complete a detailed application form and submit essential documents including the student's birth certificate, previous school records, and any relevant medical or psychological evaluations. A comprehensive profile is created covering academic, social, and developmental details.</p>
+</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-marker"><span>2</span></div>
+<div class="timeline-content">
+<h3>In-person Observation &amp; Initial Assessment</h3>
+<p>The student is invited for an on-site observation session where our educators interact with the child in a naturalistic setting. The observation focuses on learning style, communication skills, social interaction, and current academic level — forming the basis for an individualized plan.</p>
+</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-marker"><span>3</span></div>
+<div class="timeline-content">
+<h3>IEP Review &amp; Discussion</h3>
+<p>Based on the observation, a draft Individualized Education Plan (IEP) is prepared — or an existing IEP is reviewed. A dedicated meeting with parents discusses proposed goals, accommodations, therapeutic supports, and strategies. The final IEP is agreed upon collaboratively to meet the student's unique needs.</p>
+</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-marker"><span>4</span></div>
+<div class="timeline-content">
+<h3>Finalisation &amp; Enrollment</h3>
+<p>Once the IEP is accepted and the family commits to enrollment, admission is finalized with the formal signing of the enrollment agreement and first tuition installment. The student's place is secured and a start date confirmed.</p>
+</div>
+</div>
+</div>
+<p class="admissions-cta">Ready to get started? <a href="{{ "/contact/" | relative_url }}" class="admissions-link">Contact us &rarr;</a></p>
+</section>
+
+<section class="programs-section" id="programs">
+<h2 class="section-title">Programs</h2>
+<div class="program-grid">
+{% for program in site.programs %}
+<a href="{{ program.url | relative_url }}" class="program-card">
+{% if program.icon %}{% include program-icon.html icon=program.icon %}{% endif %}
+<h3>{{ program.title }}</h3>
+{% if program.excerpt %}<p>{{ program.excerpt }}</p>{% endif %}
+</a>
+{% endfor %}
+</div>
+</section>
+
+<section class="life-section" id="life">
+<h2 class="section-title">Life at LHLC</h2>
+<div class="activities-grid">
+{% for activity in site.activities %}
+<a href="{{ activity.url | relative_url }}" class="activity-card">
+{% if activity.drive_id and activity.drive_id != "" %}
+<img src="https://drive.google.com/thumbnail?id={{ activity.drive_id }}&sz=w600" alt="{{ activity.title }}" loading="lazy">
+{% elsif activity.image and activity.image != "" %}
+<img src="{{ activity.image | relative_url }}" alt="{{ activity.title }}" loading="lazy">
+{% else %}
+<div class="activity-card-placeholder" aria-hidden="true"></div>
+{% endif %}
+<div class="activity-card-body">
+<h3>{{ activity.title }}</h3>
+{% if activity.category %}<span class="activity-tag">{{ activity.category }}</span>{% endif %}
+</div>
+</a>
+{% endfor %}
+</div>
+</section>
+
+{% if page.faqs and page.faqs.size > 0 %}
+<section class="faq-section" id="faq">
+<h2 class="section-title">Frequently Asked Questions</h2>
+<dl class="faq-list">
+{% for item in page.faqs %}
+<details class="faq-item">
+<summary>{{ item.question }}</summary>
+<p>{{ item.answer }}</p>
+</details>
+{% endfor %}
+</dl>
 </section>
 {% endif %}
 {% endif %}
