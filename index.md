@@ -17,7 +17,7 @@ stats:
     description: Began in a garage with 6 students and parent volunteers
   - label: Students
     value: 65+
-    description: 12 girls and 39 boys
+    description: and growing!
   - label: Location
     value: Chembur, Mumbai
     description: A peaceful suburb in Mumbai
@@ -37,10 +37,11 @@ about:
     professional setup catering to the educational and functional needs of
     differently-abled children and adults. Beginning in a 100 sq.ft area with a
     strength of 6 children, 2 professionals and 4 volunteers, we have grown
-    considerably and now cater to 65 children with a staff strength of 31. The
-    organisation will continue to spread its wings and we intend to expand into
-    the field of vocational training, based on a skill development programme we
-    have formulated which is geared towards employability and social inclusion.
+    considerably and now cater to 65 children with a staff strength of 31. In
+    2022 The organisation expanded into the field of vocational training, with
+    the launch of "Udaan", our vocational centre based on a skill development
+    programme we have formulated which is geared towards employability and
+    social inclusion.
   why: We constantly endeavour to provide our students with a holistic learning
     environment which is conducive to their continuous growth and progress. We
     help in aiding the development of their independence, functional skills,
