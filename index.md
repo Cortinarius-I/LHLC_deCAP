@@ -27,10 +27,11 @@ stats:
 locations:
   - name: Little Hearts Learning Centre
     ages: Ages 3–15
-    address: Atul Park, Chembur, Mumbai
+    address: Bungalow no 4, Basant Gardens, Chembur, Behind Radiant Minds Mumbai 400071
   - name: Udaan Vocational Center
     ages: Ages 15–30
-    address: Swastik Park, Chembur, Mumbai
+    address: Plot no 7, Laxmi Narain shopping complex  Sion Trombay Road, Behind Yes
+      Bank  Chembur, Mumbai 400071
 about:
   journey: Little Hearts Learning Centre was founded by Gowri Ramesh and Reshmy
     Nikith in 2009. It was established to fulfil the growing need for a local
