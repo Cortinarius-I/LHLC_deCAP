@@ -12,53 +12,6 @@
 {% include nav.html %}
 {% if page.hero %}{% include hero.html %}{% endif %}
 <main id="main">
-{% if page.stats %}
-<section class="stats-bar">
-{% for stat in page.stats %}
-<div class="stat">
-<span class="stat-value">{{ stat.value }}</span>
-<span class="stat-label">{{ stat.label }}</span>
-<span class="stat-desc">{{ stat.description }}</span>
-</div>
-{% endfor %}
-</section>
-{% endif %}
-
-{% if page.locations %}
-<section class="locations-section" id="about">
-<div class="locations-grid">
-{% for loc in page.locations %}
-<div class="location-card">
-<h3 class="location-name">{{ loc.name }}</h3>
-<p class="location-ages">{{ loc.ages }}</p>
-<p class="location-address">{{ loc.address }}</p>
-</div>
-{% endfor %}
-</div>
-</section>
-{% endif %}
-
-{% if page.about %}
-{% assign journey = page.about.journey | strip %}
-{% assign why = page.about.why | strip %}
-{% if journey != "" or why != "" %}
-<section class="about-section">
-{% if journey != "" %}
-<div class="about-block">
-<h2>Our Journey</h2>
-<p>{{ journey }}</p>
-</div>
-{% endif %}
-{% if why != "" %}
-<div class="about-block about-block--why">
-<h2>Why Little Hearts Learning Centre?</h2>
-<p>{{ why }}</p>
-</div>
-{% endif %}
-</section>
-{% endif %}
-{% endif %}
-
 {% assign all_testimonials = site.testimonials %}
 {% if page.url == "/" and all_testimonials.size > 0 %}
 <section class="testimonials-section">
@@ -91,6 +44,32 @@
 </section>
 {% endif %}
 
+{% if page.stats %}
+<section class="stats-bar">
+{% for stat in page.stats %}
+<div class="stat">
+<span class="stat-value">{{ stat.value }}</span>
+<span class="stat-label">{{ stat.label }}</span>
+<span class="stat-desc">{{ stat.description }}</span>
+</div>
+{% endfor %}
+</section>
+{% endif %}
+
+{% if page.locations %}
+<section class="locations-section" id="about">
+<div class="locations-grid">
+{% for loc in page.locations %}
+<div class="location-card">
+<h3 class="location-name">{{ loc.name }}</h3>
+<p class="location-ages">{{ loc.ages }}</p>
+<p class="location-address">{{ loc.address }}</p>
+</div>
+{% endfor %}
+</div>
+</section>
+{% endif %}
+
 {% if page.about %}
 {% assign vision = page.about.vision | strip %}
 {% assign mission = page.about.mission | strip %}
@@ -106,6 +85,27 @@
 <div class="mission-box">
 <h2>Mission</h2>
 <p>{{ mission }}</p>
+</div>
+{% endif %}
+</section>
+{% endif %}
+{% endif %}
+
+{% if page.about %}
+{% assign journey = page.about.journey | strip %}
+{% assign why = page.about.why | strip %}
+{% if journey != "" or why != "" %}
+<section class="about-section">
+{% if journey != "" %}
+<div class="about-block">
+<h2>Our Journey</h2>
+<p>{{ journey }}</p>
+</div>
+{% endif %}
+{% if why != "" %}
+<div class="about-block about-block--why">
+<h2>Why Little Hearts Learning Centre?</h2>
+<p>{{ why }}</p>
 </div>
 {% endif %}
 </section>
