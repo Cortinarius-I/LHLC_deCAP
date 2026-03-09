@@ -87,7 +87,22 @@ layout: default
     </div>
 
     <div class="context-block context-block--donations" id="ctx-donations" hidden>
-      <p>Thank you for your generosity — every contribution helps us build a more inclusive world for our students. Please visit our <a href="{{ "/support/" | relative_url }}">Support Us</a> page to explore how you can donate or contribute.</p>
+      <fieldset class="radio-fieldset">
+        <legend class="radio-legend">How would you like to contribute?</legend>
+        <div class="radio-options">
+          <label class="radio-option">
+            <input type="radio" name="don-type" value="money">
+            <span>Financial contribution</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="don-type" value="goods">
+            <span>In-kind donation</span>
+          </label>
+        </div>
+      </fieldset>
+      <div id="ctx-donations-money" hidden>
+        <p>Thank you for considering a financial contribution! Please visit our <a href="{{ "/support/" | relative_url }}">Support Us</a> page to learn how you can donate.</p>
+      </div>
     </div>
 
     <!-- Common fields -->
@@ -207,6 +222,29 @@ layout: default
       <div class="form-group form-group--full">
         <label for="col-idea">Tell us about your collaboration idea <span class="required">*</span></label>
         <textarea id="col-idea" name="idea" rows="5" required></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Donations (goods) fields -->
+    <fieldset class="form-section form-section--specific" id="section-donations" hidden>
+      <legend class="form-section-title">About Your Donation</legend>
+      <p class="form-section-info">We accept clean, gently used items in good condition. Things that make a big difference include books, educational toys, therapy equipment, art supplies, stationery, and sensory play materials.</p>
+      <div class="form-group form-group--full">
+        <label for="don-items">What would you like to donate? <span class="required">*</span></label>
+        <textarea id="don-items" name="items" rows="3" placeholder="e.g. colouring books, puzzles, therapy balls, craft supplies, stationery, board games…" required></textarea>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="don-location">Where are the items currently located? <span class="required">*</span></label>
+        <input type="text" id="don-location" name="location" placeholder="City / neighbourhood" required>
+      </div>
+      <div class="form-group form-group--full">
+        <label>Are you able to drop the items off at LHLC? <span class="required">*</span></label>
+        <p class="form-hint">Our capacity to arrange pick-ups is limited, so we especially appreciate drop-offs.</p>
+        <div class="radio-options">
+          <label class="radio-option"><input type="radio" name="don-dropoff" value="yes" required> Yes, I can drop off</label>
+          <label class="radio-option"><input type="radio" name="don-dropoff" value="maybe"> Possibly — happy to discuss</label>
+          <label class="radio-option"><input type="radio" name="don-dropoff" value="no"> No, I would need pick-up arranged</label>
+        </div>
       </div>
     </fieldset>
 

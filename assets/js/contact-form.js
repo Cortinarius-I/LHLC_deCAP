@@ -11,6 +11,9 @@
   var carRoleOther   = document.getElementById('car-role-other');
   var form           = document.getElementById('contact-form');
   var submitBtn      = document.getElementById('form-submit-btn');
+  var donTypeRadios  = document.querySelectorAll('input[name="don-type"]');
+  var donMoneyInfo   = document.getElementById('ctx-donations-money');
+  var donSection     = document.getElementById('section-donations');
 
   // Enable/disable all inputs inside a fieldset
   function setEnabled(section, enabled) {
@@ -27,6 +30,8 @@
     setEnabled(sectionCommon, false);
     sectionCommon.hidden = true;
     formActions.hidden = true;
+    donTypeRadios.forEach(function (r) { r.checked = false; r.disabled = true; });
+    if (donMoneyInfo) donMoneyInfo.hidden = true;
   }
 
   function onReasonChange() {
@@ -38,8 +43,11 @@
     var ctx = document.getElementById('ctx-' + val);
     if (ctx) ctx.hidden = false;
 
-    // Donations: show info link only, no form
-    if (val === 'donations') return;
+    // Donations: enable radio buttons, let onDonTypeChange drive the rest
+    if (val === 'donations') {
+      donTypeRadios.forEach(function (r) { r.disabled = false; });
+      return;
+    }
 
     // Show common section
     sectionCommon.hidden = false;
@@ -63,7 +71,32 @@
     specificSects.forEach(function (s) { setEnabled(s, false); });
     setEnabled(sectionCommon, false);
     if (carRoleOther) carRoleOther.disabled = true;
+    donTypeRadios.forEach(function (r) { r.disabled = true; });
   }
+
+  // Donation type radio → show money info or goods form
+  function onDonTypeChange() {
+    var selected = '';
+    donTypeRadios.forEach(function (r) { if (r.checked) selected = r.value; });
+
+    if (donMoneyInfo) donMoneyInfo.hidden = (selected !== 'money');
+
+    if (selected === 'goods') {
+      sectionCommon.hidden = false;
+      setEnabled(sectionCommon, true);
+      if (donSection) { donSection.hidden = false; setEnabled(donSection, true); }
+      formActions.hidden = false;
+    } else {
+      sectionCommon.hidden = true;
+      setEnabled(sectionCommon, false);
+      if (donSection) { donSection.hidden = true; setEnabled(donSection, false); }
+      formActions.hidden = true;
+    }
+  }
+
+  donTypeRadios.forEach(function (r) {
+    r.addEventListener('change', onDonTypeChange);
+  });
 
   // Careers role → show "Other" description field
   function onCarRoleChange() {
@@ -185,6 +218,15 @@
 
         case 'collaborations':
           payload.fields = { idea: document.getElementById('col-idea').value };
+          break;
+
+        case 'donations':
+          var checkedDropoff = document.querySelector('input[name="don-dropoff"]:checked');
+          payload.fields = {
+            items:       document.getElementById('don-items').value,
+            location:    document.getElementById('don-location').value,
+            can_drop_off: checkedDropoff ? checkedDropoff.value : ''
+          };
           break;
 
         case 'other':

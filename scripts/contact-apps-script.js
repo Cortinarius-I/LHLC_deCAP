@@ -33,6 +33,10 @@ var TAB_CONFIG = {
     name: 'Collaborations',
     headers: ['Timestamp', 'Full Name', 'Phone', 'Email', 'City', 'Idea']
   },
+  donations: {
+    name: 'Donations',
+    headers: ['Timestamp', 'Full Name', 'Phone', 'Email', 'City', 'Items', 'Location', 'Can Drop Off']
+  },
   other: {
     name: 'Other',
     headers: ['Timestamp', 'Full Name', 'Phone', 'Email', 'City', 'Message']
@@ -154,6 +158,10 @@ function writeToSheet(sheetId, tabConf, data, typeKey, timestamp, attachments) {
     case 'collaborations':
       row = [timestamp, data.full_name, data.contact_number, data.email, data.city,
              f.idea || '—'];
+      break;
+    case 'donations':
+      row = [timestamp, data.full_name, data.contact_number, data.email, data.city,
+             f.items || '—', f.location || '—', f.can_drop_off || '—'];
       break;
     default:
       row = [timestamp, data.full_name, data.contact_number, data.email, data.city,
