@@ -1,0 +1,24 @@
+---
+layout: default
+title: Stories
+---
+<section class="page stories-page">
+<h1>Stories</h1>
+<p class="stories-intro">Experiences shared by the families, donors, and volunteers who are part of the Little Hearts community.</p>
+<div class="stories-grid">
+{% for t in site.testimonials %}
+<a href="{{ t.url | relative_url }}" class="story-card">
+<span class="story-role testimonial-role--{{ t.role }}">{{ t.role | capitalize }}</span>
+<h2 class="story-name">{{ t.parent_name }}</h2>
+{% assign joined = t.date_joined | strip %}
+{% if joined != "" %}
+<p class="story-meta">{% if t.student_name and t.student_name != "" %}Parent of {{ t.student_name }} &middot; {% endif %}Joined {{ joined }}</p>
+{% elsif t.student_name and t.student_name != "" %}
+<p class="story-meta">Parent of {{ t.student_name }}</p>
+{% endif %}
+<p class="story-excerpt">{{ t.excerpt }}</p>
+<span class="story-read-more">Read full story &rarr;</span>
+</a>
+{% endfor %}
+</div>
+</section>

@@ -1099,6 +1099,81 @@ body.page-team .team-section--leadership .team-section-title {
   text-decoration: underline;
 }
 
+// ── Stories page ──
+
+.stories-page h1 {
+  margin-bottom: 0.25rem;
+}
+
+.stories-intro {
+  color: $muted;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.story-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: $card-bg;
+  border: 1.5px solid $border;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  text-decoration: none;
+  color: $text;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.story-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+  transform: translateY(-2px);
+}
+
+.story-card .story-role {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.story-name {
+  font-size: 1.2rem;
+  color: $primary;
+  margin: 0;
+}
+
+.story-meta {
+  font-size: 0.8rem;
+  color: $muted;
+  margin: 0;
+}
+
+.story-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: $text;
+  margin: 0;
+  flex: 1;
+}
+
+.story-read-more {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: $primary;
+  margin-top: 0.25rem;
+}
+
 // ── Page body content ──
 
 .page h2 {

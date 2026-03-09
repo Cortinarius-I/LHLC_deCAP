@@ -60,7 +60,7 @@
 {% endif %}
 
 {% assign all_testimonials = site.testimonials %}
-{% if all_testimonials.size > 0 %}
+{% if page.url == "/" and all_testimonials.size > 0 %}
 <section class="testimonials-section">
 <h2 class="testimonials-heading">What People Say</h2>
 <div class="testimonials-widget">
@@ -115,8 +115,7 @@
 {{ content }}
 </main>
 {% include footer.html %}
-{% assign all_testimonials = site.testimonials %}
-{% if all_testimonials.size > 0 %}
+{% if page.url == "/" and all_testimonials.size > 0 %}
 <script>
 (function () {
   var wrapper = document.querySelector('.testimonials-track-wrapper');
