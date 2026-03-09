@@ -18,9 +18,6 @@ stats:
   - label: Students
     value: 65+
     description: and growing!
-  - label: Location
-    value: Chembur, Mumbai
-    description: A peaceful suburb in Mumbai
   - label: Teacher-Student Ratio
     value: "1 : 4"
     description: Individual attention for faster learning
