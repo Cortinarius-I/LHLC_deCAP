@@ -119,37 +119,40 @@
 {% if all_testimonials.size > 0 %}
 <script>
 (function () {
+  var wrapper = document.querySelector('.testimonials-track-wrapper');
   var track = document.querySelector('.testimonials-track');
-  if (!track) return;
+  if (!wrapper || !track) return;
+  var cards = Array.from(track.children);
   var dots = Array.from(document.querySelectorAll('.testimonial-dot'));
   var prevBtn = document.querySelector('.testimonials-arrow--prev');
   var nextBtn = document.querySelector('.testimonials-arrow--next');
   var current = 0;
-  var total = dots.length;
-  var timer;
+  var total = cards.length;
+
+  function cardWidth() { return wrapper.offsetWidth; }
+
+  function setLayout() {
+    var w = cardWidth();
+    cards.forEach(function (c) { c.style.width = w + 'px'; });
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(-' + (current * w) + 'px)';
+    requestAnimationFrame(function () { track.style.transition = ''; });
+  }
 
   function go(n) {
     current = ((n % total) + total) % total;
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    track.style.transform = 'translateX(-' + (current * cardWidth()) + 'px)';
     dots.forEach(function (d, i) { d.classList.toggle('active', i === current); });
   }
 
-  function start() { timer = setInterval(function () { go(current + 1); }, 5000); }
-  function stop() { clearInterval(timer); }
-
   dots.forEach(function (d, i) {
-    d.addEventListener('click', function () { stop(); go(i); start(); });
+    d.addEventListener('click', function () { go(i); });
   });
-  if (prevBtn) prevBtn.addEventListener('click', function () { stop(); go(current - 1); start(); });
-  if (nextBtn) nextBtn.addEventListener('click', function () { stop(); go(current + 1); start(); });
+  if (prevBtn) prevBtn.addEventListener('click', function () { go(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { go(current + 1); });
 
-  var widget = document.querySelector('.testimonials-widget');
-  if (widget) {
-    widget.addEventListener('mouseenter', stop);
-    widget.addEventListener('mouseleave', start);
-  }
-
-  start();
+  window.addEventListener('resize', setLayout);
+  setLayout();
 })();
 </script>
 {% endif %}
