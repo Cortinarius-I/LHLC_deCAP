@@ -1,9 +1,17 @@
+{% assign c = site.data.contact %}
 <footer class="footer">
 <div class="footer-inner">
-<p>&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
-<p class="footer-contact">
-<a href="mailto:littlehearts2009@gmail.com">littlehearts2009@gmail.com</a>
-&middot; +91 9967707505
-</p>
+<div class="footer-contact-info">
+  <p class="footer-contact-person">{{ c.contact_person }}</p>
+  <p class="footer-contact-details">
+    <a href="mailto:{{ c.email }}">{{ c.email }}</a>
+    &middot;
+    <a href="tel:{{ c.phone | remove: ' ' }}">{{ c.phone }}</a>
+    {% assign alt = c.phone_alt | strip %}
+    {% if alt != "" %}&middot; <a href="tel:{{ alt | remove: ' ' }}">{{ alt }}</a>{% endif %}
+  </p>
+  <p class="footer-address">{{ c.address }}</p>
+</div>
+<p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}</p>
 </div>
 </footer>

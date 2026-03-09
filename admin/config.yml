@@ -78,8 +78,7 @@ collections:
         file: contact.md
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Layout, name: layout, widget: hidden, default: page }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Layout, name: layout, widget: hidden, default: contact }
 
       - label: Our Team
         name: teachers
@@ -145,6 +144,30 @@ collections:
       - { label: "Image (Drive ID)", name: drive_id, widget: string, required: false, hint: "Google Drive file ID. Right-click the file → Share → Copy link. The ID is the long string between /d/ and /view in the URL. Takes priority over uploaded image." }
       - { label: Layout, name: layout, widget: hidden, default: page }
       - { label: Body, name: body, widget: markdown }
+
+  - name: settings
+    label: Settings
+    files:
+      - label: Contact & Form Settings
+        name: contact
+        file: _data/contact.yml
+        fields:
+          - { label: Contact Person, name: contact_person, widget: string }
+          - { label: Email, name: email, widget: string, hint: "The email address that receives form submissions." }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Alternate Phone, name: phone_alt, widget: string, required: false }
+          - { label: Address, name: address, widget: string }
+          - { label: Form Endpoint (Google Apps Script URL), name: form_endpoint, widget: string, required: false, hint: "Paste the Google Apps Script web app URL here after deployment. See scripts/contact-apps-script.js for setup instructions." }
+          - { label: Admissions Info, name: admissions_info, widget: text, hint: "Short paragraph shown above the admissions form fields." }
+          - { label: Volunteer Info, name: volunteer_info, widget: text, hint: "Short paragraph shown above the volunteer form fields." }
+          - label: Volunteer Areas
+            name: volunteer_areas
+            widget: list
+            hint: "Skills and areas you are seeking volunteer help with."
+            fields:
+              - { label: Area / Skill, name: area, widget: string }
+          - { label: Careers Info, name: careers_info, widget: text, hint: "Short paragraph shown above the careers form fields." }
+          - { label: Collaborations Info, name: collaborations_info, widget: text, hint: "Short paragraph shown above the collaborations form field." }
 
   - name: testimonials
     label: Testimonials

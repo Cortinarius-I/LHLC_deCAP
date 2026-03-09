@@ -1,0 +1,243 @@
+---
+layout: default
+---
+{% assign c = site.data.contact %}
+{% assign teachers_page = site.pages | where: "path", "teachers.md" | first %}
+{% assign career_roles = "" | split: "" %}
+{% for member in teachers_page.team %}
+  {% unless career_roles contains member.role %}
+    {% assign career_roles = career_roles | push: member.role %}
+  {% endunless %}
+{% endfor %}
+
+<section class="contact-page">
+<h1 class="contact-title">{{ page.title }}</h1>
+
+<div class="contact-info-bar">
+  <div class="contact-info-grid">
+    <div class="contact-info-item">
+      <span class="contact-info-label">Contact Person</span>
+      <span class="contact-info-value">{{ c.contact_person }}</span>
+    </div>
+    <div class="contact-info-item">
+      <span class="contact-info-label">Email</span>
+      <span class="contact-info-value"><a href="mailto:{{ c.email }}">{{ c.email }}</a></span>
+    </div>
+    <div class="contact-info-item">
+      <span class="contact-info-label">Phone</span>
+      <span class="contact-info-value"><a href="tel:{{ c.phone | remove: ' ' }}">{{ c.phone }}</a></span>
+    </div>
+    {% assign alt = c.phone_alt | strip %}
+    {% if alt != "" %}
+    <div class="contact-info-item">
+      <span class="contact-info-label">Alternate Phone</span>
+      <span class="contact-info-value"><a href="tel:{{ alt | remove: ' ' }}">{{ alt }}</a></span>
+    </div>
+    {% endif %}
+    <div class="contact-info-item contact-info-item--wide">
+      <span class="contact-info-label">Address</span>
+      <span class="contact-info-value">{{ c.address }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="contact-form-wrap">
+  <form class="contact-form" id="contact-form" novalidate>
+
+    <div class="form-group form-group--full">
+      <label for="contact-reason">What brings you here?</label>
+      <select id="contact-reason" name="reason" class="form-select">
+        <option value="">— Please select —</option>
+        <option value="admissions">Admissions</option>
+        <option value="volunteer">Volunteer Work</option>
+        <option value="careers">Careers</option>
+        <option value="collaborations">Collaborations</option>
+        <option value="donations">Donations</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <!-- Context blocks (shown per selection) -->
+    <div class="context-block" id="ctx-admissions" hidden>
+      <p>{{ c.admissions_info }}</p>
+    </div>
+
+    <div class="context-block" id="ctx-volunteer" hidden>
+      <p>{{ c.volunteer_info }}</p>
+      {% if c.volunteer_areas.size > 0 %}
+      <p><strong>Areas we are currently seeking help with:</strong></p>
+      <ul class="context-list">
+        {% for item in c.volunteer_areas %}<li>{{ item.area }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <div class="context-block" id="ctx-careers" hidden>
+      <p>{{ c.careers_info }}</p>
+      {% if career_roles.size > 0 %}
+      <p><strong>Current openings:</strong></p>
+      <ul class="context-list">
+        {% for role in career_roles %}<li>{{ role }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    <div class="context-block" id="ctx-collaborations" hidden>
+      <p>{{ c.collaborations_info }}</p>
+    </div>
+
+    <div class="context-block context-block--donations" id="ctx-donations" hidden>
+      <p>Thank you for your generosity — every contribution helps us build a more inclusive world for our students. Please visit our <a href="{{ "/support/" | relative_url }}">Support Us</a> page to explore how you can donate or contribute.</p>
+    </div>
+
+    <!-- Common fields -->
+    <fieldset class="form-section form-section--common" id="section-common" hidden>
+      <legend class="form-section-title">Your Details</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-name">Full Name <span class="required">*</span></label>
+          <input type="text" id="field-name" name="full_name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="field-phone">Contact Number <span class="required">*</span></label>
+          <input type="tel" id="field-phone" name="contact_number" required autocomplete="tel">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="field-email">Email Address <span class="required">*</span></label>
+          <input type="email" id="field-email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="field-city">City of Residence <span class="required">*</span></label>
+          <input type="text" id="field-city" name="city" required>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Admissions fields -->
+    <fieldset class="form-section form-section--specific" id="section-admissions" hidden>
+      <legend class="form-section-title">About the Student</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="adm-student-name">Name of Prospective Student <span class="required">*</span></label>
+          <input type="text" id="adm-student-name" name="student_name" required>
+        </div>
+        <div class="form-group">
+          <label for="adm-student-age">Student Age <span class="required">*</span></label>
+          <input type="number" id="adm-student-age" name="student_age" min="1" max="35" required>
+        </div>
+      </div>
+      <div class="form-group form-group--full">
+        <label>Three Convenient Dates for an In-Person Visit <span class="required">*</span></label>
+        <p class="form-hint">Select three weekday (Mon–Fri) dates that work for you. We will confirm one.</p>
+        <div class="form-row form-row--three">
+          <div class="form-group">
+            <label for="adm-date1" class="form-sublabel">First choice</label>
+            <input type="date" id="adm-date1" name="date_1" required>
+          </div>
+          <div class="form-group">
+            <label for="adm-date2" class="form-sublabel">Second choice</label>
+            <input type="date" id="adm-date2" name="date_2" required>
+          </div>
+          <div class="form-group">
+            <label for="adm-date3" class="form-sublabel">Third choice</label>
+            <input type="date" id="adm-date3" name="date_3" required>
+          </div>
+        </div>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="adm-document">Relevant Documents <span class="form-optional">(optional)</span></label>
+        <p class="form-hint">Prior assessments, IEPs, school records, or medical reports.</p>
+        <input type="file" id="adm-document" name="documents" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      </div>
+    </fieldset>
+
+    <!-- Volunteer fields -->
+    <fieldset class="form-section form-section--specific" id="section-volunteer" hidden>
+      <legend class="form-section-title">About You</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="vol-age">Age <span class="required">*</span></label>
+          <input type="number" id="vol-age" name="age" min="16" max="100" required>
+        </div>
+        <div class="form-group">
+          <label for="vol-availability">When are you available? <span class="required">*</span></label>
+          <input type="text" id="vol-availability" name="availability" placeholder="e.g. Weekday mornings, Saturdays" required>
+        </div>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="vol-skills">Relevant Skills or Experience <span class="form-optional">(optional)</span></label>
+        <textarea id="vol-skills" name="skills" rows="3" placeholder="Tell us about any skills, qualifications, or experience you'd bring."></textarea>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="vol-cv">CV <span class="form-optional">(optional)</span></label>
+        <input type="file" id="vol-cv" name="cv" accept=".pdf,.doc,.docx">
+      </div>
+    </fieldset>
+
+    <!-- Careers fields -->
+    <fieldset class="form-section form-section--specific" id="section-careers" hidden>
+      <legend class="form-section-title">Application Details</legend>
+      <div class="form-group form-group--full">
+        <label for="car-role">Role You Are Applying For <span class="required">*</span></label>
+        <select id="car-role" name="role" required>
+          <option value="">— Select a role —</option>
+          {% for role in career_roles %}<option value="{{ role }}">{{ role }}</option>{% endfor %}
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group form-group--full" id="car-role-other-group" hidden>
+        <label for="car-role-other">Please describe the role <span class="required">*</span></label>
+        <input type="text" id="car-role-other" name="role_other" disabled>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="car-cv">CV <span class="required">*</span></label>
+        <input type="file" id="car-cv" name="cv" accept=".pdf,.doc,.docx" required>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="car-notes">Anything else you'd like us to know? <span class="form-optional">(optional)</span></label>
+        <textarea id="car-notes" name="notes" rows="3"></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Collaborations fields -->
+    <fieldset class="form-section form-section--specific" id="section-collaborations" hidden>
+      <legend class="form-section-title">Your Idea</legend>
+      <div class="form-group form-group--full">
+        <label for="col-idea">Tell us about your collaboration idea <span class="required">*</span></label>
+        <textarea id="col-idea" name="idea" rows="5" required></textarea>
+      </div>
+    </fieldset>
+
+    <!-- Other fields -->
+    <fieldset class="form-section form-section--specific" id="section-other" hidden>
+      <legend class="form-section-title">Your Message</legend>
+      <div class="form-group form-group--full">
+        <label for="oth-message">How can we help? <span class="required">*</span></label>
+        <textarea id="oth-message" name="message" rows="5" required></textarea>
+      </div>
+    </fieldset>
+
+    <div class="form-actions" id="form-actions" hidden>
+      <button type="submit" class="form-submit-btn" id="form-submit-btn">Send Message</button>
+    </div>
+
+  </form>
+
+  <div class="form-result form-result--success" id="form-success" hidden>
+    <div class="form-result-icon">&#10003;</div>
+    <h3>Message sent!</h3>
+    <p>Thank you for reaching out. We will get back to you as soon as possible.</p>
+  </div>
+
+  <div class="form-result form-result--error" id="form-error" hidden>
+    <div class="form-result-icon">!</div>
+    <h3>Something went wrong</h3>
+    <p>We could not send your message. Please try again, or reach us directly at <a href="mailto:{{ c.email }}">{{ c.email }}</a>.</p>
+  </div>
+</div>
+</section>
+
+<script>var CONTACT_FORM_ENDPOINT = "{{ c.form_endpoint }}";</script>
+<script src="{{ "/assets/js/contact-form.js" | relative_url }}"></script>
