@@ -21,4 +21,4 @@ Share your expertise in creating better learning experiences for the children an
 
 ---
 
-To get involved, please [contact us](/contact/).
+To get involved, please [contact us]({{ "/contact/" | relative_url }}).
