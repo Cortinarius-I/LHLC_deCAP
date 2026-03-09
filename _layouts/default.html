@@ -170,9 +170,11 @@
 <section class="life-section" id="life">
 <h2 class="section-title">Life @ LHLC</h2>
 <div class="activities-grid">
+{% assign img_shown = 0 %}
 {% for activity in site.activities %}
 {% if activity.drive_id and activity.drive_id != "" %}{% assign act_has_img = true %}{% elsif activity.image and activity.image != "" %}{% assign act_has_img = true %}{% else %}{% assign act_has_img = false %}{% endif %}
-<a href="{{ activity.url | relative_url }}" class="activity-card{% unless act_has_img %} activity-card--more{% endunless %}">
+{% if act_has_img and img_shown < 6 %}{% assign img_shown = img_shown | plus: 1 %}{% assign card_hidden = false %}{% else %}{% assign card_hidden = true %}{% endif %}
+<a href="{{ activity.url | relative_url }}" class="activity-card{% if card_hidden %} activity-card--more{% endif %}">
 {% if activity.drive_id and activity.drive_id != "" %}
 <img src="https://drive.google.com/thumbnail?id={{ activity.drive_id }}&sz=w600" alt="{{ activity.title }}" loading="lazy">
 {% elsif activity.image and activity.image != "" %}
