@@ -24,11 +24,11 @@ stats:
 locations:
   - name: Little Hearts Learning Centre
     ages: Ages 3–15
-    timing: 9:30 AM to 2 PM
+    timing: 9:30 AM to 2 PM, Mon-Fri
     address: Bungalow no 4, Basant Gardens, Chembur, Behind Radiant Minds Mumbai 400071
   - name: Udaan Vocational Center
     ages: Ages 15–30
-    timing: 9:30 AM to 3 PM
+    timing: 9:30 AM to 3 PM, Mon-Fri
     address: Plot no 7, Laxmi Narain shopping complex  Sion Trombay Road, Behind Yes
       Bank  Chembur, Mumbai 400071
 about:
@@ -65,17 +65,17 @@ faqs:
       palsy, sensory processing disorder, speech and language delays, and
       intellectual disabilities, among others.
   - question: Is there a fee for the initial assessment?
-    answer: No. The initial assessment and the parent consultation that follows
-      are completely free of charge. There is no obligation to enroll following
-      the assessment.
+    answer: No. The initial assessment and the parent consultation that follows are
+      completely free of charge. There is no obligation to enroll following the
+      assessment.
   - question: How is the curriculum personalised for each child?
     answer: Each student has an Individualized Education Plan (IEP) developed in
       collaboration with parents. Goals, methodology, and therapeutic supports
-      are tailored to the unique learning style and developmental profile of each
-      child, and are reviewed regularly.
+      are tailored to the unique learning style and developmental profile of
+      each child, and are reviewed regularly.
   - question: Can my child transition to a mainstream school from LHLC?
     answer: Yes — transitioning students to mainstream education where appropriate
       is one of our goals. Our team provides the academic foundation, social
-      skills training, and confidence building needed for a successful transition,
-      along with recommendations and support during the process.
+      skills training, and confidence building needed for a successful
+      transition, along with recommendations and support during the process.
 ---
