@@ -24,9 +24,11 @@ stats:
 locations:
   - name: Little Hearts Learning Centre
     ages: Ages 3–15
+    timing: 9:30 AM to 2 PM
     address: Bungalow no 4, Basant Gardens, Chembur, Behind Radiant Minds Mumbai 400071
   - name: Udaan Vocational Center
     ages: Ages 15–30
+    timing: 9:30 AM to 3 PM
     address: Plot no 7, Laxmi Narain shopping complex  Sion Trombay Road, Behind Yes
       Bank  Chembur, Mumbai 400071
 about:

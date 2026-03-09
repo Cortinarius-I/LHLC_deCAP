@@ -58,11 +58,14 @@
 
 {% if page.locations %}
 <section class="locations-section" id="about">
+<h2 class="section-title">Location</h2>
 <div class="locations-grid">
 {% for loc in page.locations %}
 <div class="location-card">
 <h3 class="location-name">{{ loc.name }}</h3>
 <p class="location-ages">{{ loc.ages }}</p>
+{% assign timing = loc.timing | strip %}
+{% if timing != "" %}<p class="location-timing">{{ timing }}</p>{% endif %}
 <p class="location-address">{{ loc.address }}</p>
 </div>
 {% endfor %}
@@ -71,41 +74,43 @@
 {% endif %}
 
 {% if page.about %}
-{% assign vision = page.about.vision | strip %}
-{% assign mission = page.about.mission | strip %}
-{% if vision != "" or mission != "" %}
-<section class="vision-section">
-{% if vision != "" %}
-<div class="vision-box">
-<h2>Vision</h2>
-<p>{{ vision }}</p>
-</div>
-{% endif %}
-{% if mission != "" %}
-<div class="mission-box">
-<h2>Mission</h2>
-<p>{{ mission }}</p>
-</div>
-{% endif %}
-</section>
-{% endif %}
-{% endif %}
-
-{% if page.about %}
 {% assign journey = page.about.journey | strip %}
 {% assign why = page.about.why | strip %}
-{% if journey != "" or why != "" %}
+{% assign vision = page.about.vision | strip %}
+{% assign mission = page.about.mission | strip %}
+{% if journey != "" or why != "" or vision != "" or mission != "" %}
 <section class="about-section">
+<h2 class="section-title">About us</h2>
+{% if journey != "" or why != "" %}
+<div class="about-blocks">
 {% if journey != "" %}
 <div class="about-block">
-<h2>Our Journey</h2>
+<h3>Our Journey</h3>
 <p>{{ journey }}</p>
 </div>
 {% endif %}
 {% if why != "" %}
 <div class="about-block about-block--why">
-<h2>Why Little Hearts Learning Centre?</h2>
+<h3>Why Little Hearts Learning Centre?</h3>
 <p>{{ why }}</p>
+</div>
+{% endif %}
+</div>
+{% endif %}
+{% if vision != "" or mission != "" %}
+<div class="vision-mission-grid">
+{% if vision != "" %}
+<div class="vision-box">
+<h3>Vision</h3>
+<p>{{ vision }}</p>
+</div>
+{% endif %}
+{% if mission != "" %}
+<div class="mission-box">
+<h3>Mission</h3>
+<p>{{ mission }}</p>
+</div>
+{% endif %}
 </div>
 {% endif %}
 </section>

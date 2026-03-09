@@ -281,6 +281,16 @@ main {
   color: $muted;
 }
 
+// ── Section title ──
+
+.section-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.9rem;
+  color: $primary;
+  text-align: left;
+  margin: 0 0 1.25rem;
+}
+
 // ── Locations ──
 
 .locations-section {
@@ -315,6 +325,13 @@ main {
   font-weight: 700;
   font-size: 1rem;
   color: $primary;
+  margin: 0 0 0.25rem;
+}
+
+.location-timing {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text;
   margin: 0 0 0.5rem;
 }
 
@@ -329,12 +346,18 @@ main {
 .about-section {
   padding: 3rem 0;
   border-bottom: 2px solid $border;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-blocks {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
 }
 
-.about-block h2 {
+.about-block h3 {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.6rem;
   color: $accent;
@@ -346,6 +369,12 @@ main {
   color: $muted;
   line-height: 1.75;
   margin: 0;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
 }
 
 // ── Testimonials ──
@@ -537,14 +566,6 @@ main {
 
 // ── Vision / Mission ──
 
-.vision-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  padding: 3rem 0;
-  border-bottom: 2px solid $border;
-}
-
 .vision-box,
 .mission-box {
   background: $card-bg;
@@ -557,15 +578,15 @@ main {
 .vision-box { border-top: 4px solid $primary; }
 .mission-box { border-top: 4px solid $accent; }
 
-.vision-box h2,
-.mission-box h2 {
+.vision-box h3,
+.mission-box h3 {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.4rem;
   margin: 0 0 0.65rem;
 }
 
-.vision-box h2 { color: $primary; }
-.mission-box h2 { color: $accent; }
+.vision-box h3 { color: $primary; }
+.mission-box h3 { color: $accent; }
 
 .vision-box p,
 .mission-box p {
@@ -1275,10 +1296,6 @@ body.page-team .team-section--leadership .team-section-title {
 
   .testimonial-text {
     font-size: 0.95rem;
-  }
-
-  .vision-section {
-    padding: 2rem 0;
   }
 
   .content-section {
