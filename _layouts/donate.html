@@ -301,13 +301,120 @@ layout: default
         </div>
       </div>
 
-      <!-- Receipt CTA -->
-      <div class="don-receipt-cta">
-        <p>{{ d.receipt_note }}</p>
-        <a href="{{ d.receipt_form_url }}" target="_blank" rel="noopener noreferrer" class="don-cta-btn">
-          📝 Fill in the Donation Receipt Form
-        </a>
-      </div>
+      <!-- Confirmation form -->
+      <div class="don-confirm-wrap">
+        <div class="don-confirm-divider">
+          <span>Done with your transfer?</span>
+        </div>
+        <p class="don-confirm-intro">{{ d.confirm_intro }}</p>
+
+        <form class="don-confirm-form" id="don-confirm-form" novalidate>
+
+          <div class="don-form-section-title">Your Details</div>
+          <div class="don-form-row">
+            <div class="don-form-group">
+              <label for="don-f-name">Full Name <span class="don-required">*</span></label>
+              <input type="text" id="don-f-name" name="donor_name" required autocomplete="name">
+            </div>
+            <div class="don-form-group">
+              <label for="don-f-phone">Phone Number <span class="don-required">*</span></label>
+              <input type="tel" id="don-f-phone" name="phone" required autocomplete="tel">
+            </div>
+          </div>
+          <div class="don-form-row">
+            <div class="don-form-group">
+              <label for="don-f-email">Email Address <span class="don-required">*</span></label>
+              <input type="email" id="don-f-email" name="email" required autocomplete="email">
+            </div>
+            <div class="don-form-group don-pan-group" id="don-pan-group">
+              <label for="don-f-pan">PAN Number <span class="don-required" id="don-pan-required">*</span> <span class="don-optional" id="don-pan-optional" style="display:none">(optional)</span></label>
+              <input type="text" id="don-f-pan" name="pan" placeholder="e.g. ABCDE1234F" autocomplete="off" maxlength="10">
+              <p class="don-form-hint" id="don-pan-hint">Required for 80G receipt. Not applicable for foreign donors.</p>
+            </div>
+          </div>
+          <div class="don-form-group don-form-group--full don-80g-group" id="don-address-group">
+            <label for="don-f-address">Address <span class="don-required">*</span></label>
+            <input type="text" id="don-f-address" name="address" placeholder="Required for 80G receipt" required autocomplete="street-address">
+          </div>
+
+          <div class="don-form-section-title">Donation Details</div>
+          <div class="don-form-row">
+            <div class="don-form-group">
+              <label for="don-f-amount">Amount Donated <span class="don-required">*</span></label>
+              <div class="don-input-prefix-wrap">
+                <span class="don-input-prefix" id="don-currency-prefix">&#8377;</span>
+                <input type="number" id="don-f-amount" name="amount" min="1" step="any" required>
+              </div>
+            </div>
+            <div class="don-form-group">
+              <label for="don-f-date">Date of Transfer <span class="don-required">*</span></label>
+              <input type="date" id="don-f-date" name="transfer_date" required>
+            </div>
+          </div>
+          <div class="don-form-row">
+            <div class="don-form-group">
+              <label for="don-f-mode">Payment Mode <span class="don-required">*</span></label>
+              <select id="don-f-mode" name="payment_mode" required>
+                <option value="">— Select —</option>
+                <optgroup label="Indian" id="don-mode-indian">
+                  <option value="UPI">UPI</option>
+                  <option value="NEFT">NEFT</option>
+                  <option value="IMPS">IMPS</option>
+                  <option value="Cheque">Cheque</option>
+                  <option value="Cash">Cash</option>
+                </optgroup>
+                <optgroup label="International" id="don-mode-foreign">
+                  <option value="Wire Transfer">Wire Transfer</option>
+                  <option value="SWIFT">SWIFT</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="don-form-group">
+              <label for="don-f-ref">Transaction Reference / UTR <span class="don-required">*</span></label>
+              <input type="text" id="don-f-ref" name="transaction_ref" required placeholder="e.g. 123456789012">
+            </div>
+          </div>
+
+          <div class="don-form-row">
+            <div class="don-form-group">
+              <label for="don-f-freq">Frequency Intent <span class="don-required">*</span></label>
+              <select id="don-f-freq" name="frequency" required>
+                <option value="One-time">One-time</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Yearly">Yearly</option>
+              </select>
+            </div>
+            <div class="don-form-group don-80g-group" id="don-receipt-group">
+              <label>80G Tax Receipt?</label>
+              <div class="don-radio-row">
+                <label class="don-radio-opt"><input type="radio" name="wants_receipt" value="Yes"> Yes, please</label>
+                <label class="don-radio-opt"><input type="radio" name="wants_receipt" value="No" checked> No, thank you</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden fields populated by JS from flow state -->
+          <input type="hidden" id="don-f-donor-type" name="donor_type">
+          <input type="hidden" id="don-f-purpose" name="purpose">
+
+          <div class="don-form-actions">
+            <button type="submit" class="don-cta-btn" id="don-confirm-btn">Confirm My Donation</button>
+          </div>
+        </form>
+
+        <div class="don-form-result don-form-result--success" id="don-confirm-success" style="display:none">
+          <div class="don-result-icon">&#10003;</div>
+          <h3>Thank you!</h3>
+          <p>We&rsquo;ve received your confirmation. We will verify your transfer and get back to you by email.</p>
+          <p id="don-receipt-follow-up" style="display:none">Your 80G receipt will be emailed within 5&ndash;7 working days after verification.</p>
+        </div>
+
+        <div class="don-form-result don-form-result--error" id="don-confirm-error" style="display:none">
+          <div class="don-result-icon">!</div>
+          <h3>Something went wrong</h3>
+          <p>We couldn&rsquo;t submit your confirmation. Please try again, or reach us directly at <a href="mailto:{{ site.data.contact.email }}">{{ site.data.contact.email }}</a>.</p>
+        </div>
+      </div><!-- /don-confirm-wrap -->
 
     </div><!-- /don-bank-section -->
 
@@ -315,4 +422,5 @@ layout: default
 
 </div><!-- /donate-page -->
 
+<script>var DONATION_ENDPOINT = "{{ d.apps_script_url }}";</script>
 <script src="{{ "/assets/js/donate.js" | relative_url }}"></script>

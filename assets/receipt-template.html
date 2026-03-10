@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donation Receipt {{RECEIPT_NO}}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11pt;
+      color: #1a1a1a;
+      background: #fff;
+      padding: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    /* Header */
+    .header {
+      border-bottom: 3px solid #4A0E7A;
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .org-name {
+      font-size: 18pt;
+      font-weight: bold;
+      color: #4A0E7A;
+      line-height: 1.2;
+    }
+    .org-sub {
+      font-size: 10pt;
+      color: #555;
+      margin-top: 2px;
+    }
+    .org-contact {
+      font-size: 9pt;
+      color: #555;
+      text-align: right;
+      line-height: 1.6;
+    }
+    /* Receipt title */
+    .receipt-title {
+      text-align: center;
+      margin: 16px 0 4px;
+    }
+    .receipt-title h2 {
+      font-size: 14pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #1a1a1a;
+    }
+    .receipt-title p {
+      font-size: 9pt;
+      color: #555;
+    }
+    .receipt-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      padding: 7px 0;
+      margin: 14px 0;
+    }
+    .receipt-meta span { color: #555; }
+    .receipt-meta strong { color: #1a1a1a; }
+    /* Section */
+    .section-heading {
+      font-size: 9pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #4A0E7A;
+      background: #f3eaf8;
+      padding: 4px 8px;
+      margin: 14px 0 8px;
+      border-left: 3px solid #4A0E7A;
+    }
+    /* Detail rows */
+    table.detail {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5pt;
+    }
+    table.detail td {
+      padding: 5px 6px;
+      vertical-align: top;
+      border-bottom: 1px solid #eee;
+    }
+    table.detail td:first-child {
+      color: #555;
+      font-weight: normal;
+      width: 42%;
+    }
+    table.detail td:last-child {
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    /* Amount highlight */
+    .amount-row td:last-child {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #4A0E7A;
+    }
+    /* Certification */
+    .certification {
+      margin: 18px 0;
+      padding: 14px;
+      border: 1.5px solid #c8a8d8;
+      border-radius: 6px;
+      background: #faf5ff;
+      font-size: 9.5pt;
+      line-height: 1.65;
+      color: #2a2a2a;
+    }
+    .certification strong { color: #4A0E7A; }
+    /* Signatory */
+    .signatory {
+      margin-top: 28px;
+      text-align: right;
+    }
+    .sig-line {
+      border-top: 1.5px solid #1a1a1a;
+      width: 220px;
+      margin-left: auto;
+      padding-top: 6px;
+      font-size: 9.5pt;
+      line-height: 1.5;
+    }
+    /* Footer */
+    .receipt-footer {
+      margin-top: 24px;
+      border-top: 1px dashed #ccc;
+      padding-top: 10px;
+      font-size: 8.5pt;
+      color: #888;
+      text-align: center;
+      line-height: 1.6;
+    }
+    /* Print */
+    @media print {
+      body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <div class="org-name">{{ORG_NAME}}</div>
+        <div class="org-sub">{{ORG_ADDRESS}}</div>
+      </div>
+      <div class="org-contact">
+        PAN: {{TRUST_PAN}}<br>
+        {{ORG_PHONE}}<br>
+        {{ORG_EMAIL}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div class="receipt-title">
+    <h2>Donation Receipt</h2>
+    <p>Under Section 80G of the Income Tax Act, 1961</p>
+  </div>
+
+  <!-- Receipt meta -->
+  <div class="receipt-meta">
+    <span>Receipt No: <strong>{{RECEIPT_NO}}</strong></span>
+    <span>Date: <strong>{{RECEIPT_DATE}}</strong></span>
+    <span>Financial Year: <strong>{{FINANCIAL_YEAR}}</strong></span>
+  </div>
+
+  <!-- Donor details -->
+  <div class="section-heading">Donor Details</div>
+  <table class="detail">
+    <tr>
+      <td>Name</td>
+      <td>{{DONOR_NAME}}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>{{DONOR_ADDRESS}}</td>
+    </tr>
+    <tr>
+      <td>PAN</td>
+      <td>{{DONOR_PAN}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{DONOR_EMAIL}}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td>{{DONOR_PHONE}}</td>
+    </tr>
+  </table>
+
+  <!-- Donation details -->
+  <div class="section-heading">Donation Details</div>
+  <table class="detail">
+    <tr class="amount-row">
+      <td>Amount</td>
+      <td>&#8377;{{AMOUNT_FIGURES}} ({{AMOUNT_WORDS}})</td>
+    </tr>
+    <tr>
+      <td>Date of Donation</td>
+      <td>{{DONATION_DATE}}</td>
+    </tr>
+    <tr>
+      <td>Payment Mode</td>
+      <td>{{PAYMENT_MODE}}</td>
+    </tr>
+    <tr>
+      <td>Transaction Ref / UTR</td>
+      <td>{{TRANSACTION_REF}}</td>
+    </tr>
+    <tr>
+      <td>Purpose</td>
+      <td>{{DONATION_PURPOSE}}</td>
+    </tr>
+    <tr>
+      <td>Donation Type</td>
+      <td>{{DONATION_FREQUENCY}}</td>
+    </tr>
+  </table>
+
+  <!-- Certification -->
+  <div class="certification">
+    Certified that the sum of <strong>&#8377;{{AMOUNT_FIGURES}} ({{AMOUNT_WORDS}})</strong> has been received
+    from <strong>{{DONOR_NAME}}</strong> on <strong>{{DONATION_DATE}}</strong> as a voluntary donation
+    towards the charitable activities of {{ORG_NAME}}. This donation is a genuine donation and qualifies
+    for deduction under <strong>Section 80G</strong> of the Income Tax Act, 1961.<br><br>
+    80G Registration No: <strong>{{80G_REG_NO}}</strong> &nbsp;&middot;&nbsp;
+    Valid: {{80G_VALID_FROM}} to {{80G_VALID_TO}}<br>
+    Organisation PAN: <strong>{{TRUST_PAN}}</strong>
+  </div>
+
+  <!-- Authorised signatory -->
+  <div class="signatory">
+    <div class="sig-line">
+      For <strong>{{ORG_NAME}}</strong><br>
+      <strong>{{AUTHORIZED_SIGNATORY}}</strong><br>
+      Authorised Signatory
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="receipt-footer">
+    This is a computer-generated receipt. {{ORG_NAME}} &bull; {{ORG_ADDRESS}}<br>
+    Registered under the Income Tax Act &bull; 80G Reg: {{80G_REG_NO}}
+  </div>
+
+</body>
+</html>

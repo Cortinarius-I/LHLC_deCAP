@@ -154,6 +154,21 @@ collections:
         fields:
           - { label: Page Title, name: title, widget: string }
           - { label: Page Subtitle, name: subtitle, widget: text }
+          - name: org
+            label: Organisation Details (used in receipts & emails)
+            widget: object
+            fields:
+              - { label: Organisation Name, name: name, widget: string, hint: "Legal registered name (e.g. Dhristi Foundation)" }
+              - { label: Address, name: address, widget: string }
+              - { label: Organisation PAN, name: pan, widget: string, hint: "Required for 80G receipts." }
+              - { label: Email, name: email, widget: string }
+              - { label: Phone, name: phone, widget: string }
+              - { label: Authorised Signatory, name: authorized_signatory, widget: string, hint: "Name and designation — appears on receipts." }
+              - { label: Receipt Number Prefix, name: receipt_prefix, widget: string, hint: "Update at the start of each financial year. e.g. LHLC-2526- for FY 2025-26" }
+              - { label: Receipt Email Subject, name: receipt_email_subject, widget: string }
+          - { label: Apps Script URL, name: apps_script_url, widget: string, required: false, hint: "Deployed Google Apps Script web app URL. Paste after publishing the script as a web app." }
+          - { label: Site URL, name: site_url, widget: string, hint: "Full URL of the live site, e.g. https://cortinarius-i.github.io/LHLC_deCAP — used by the Apps Script to fetch the receipt template." }
+          - { label: Confirmation Form Intro, name: confirm_intro, widget: text, hint: "Text shown above the post-transfer confirmation form." }
           - name: indian_bank
             label: Indian Bank Account
             widget: object

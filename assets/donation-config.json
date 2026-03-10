@@ -1,0 +1,22 @@
+---
+---
+{% assign d = site.data.donation -%}
+{
+  "org": {
+    "name":                 {{ d.org.name                 | jsonify }},
+    "address":              {{ d.org.address              | jsonify }},
+    "pan":                  {{ d.org.pan                  | jsonify }},
+    "email":                {{ d.org.email                | jsonify }},
+    "phone":                {{ d.org.phone                | jsonify }},
+    "authorized_signatory": {{ d.org.authorized_signatory | jsonify }},
+    "receipt_prefix":       {{ d.org.receipt_prefix       | jsonify }},
+    "receipt_email_subject":{{ d.org.receipt_email_subject| jsonify }}
+  },
+  "tax_80g": {
+    "registration_number":  {{ d.tax_80g.registration_number | jsonify }},
+    "valid_from":           {{ d.tax_80g.valid_from           | jsonify }},
+    "valid_to":             {{ d.tax_80g.valid_to             | jsonify }}
+  },
+  "fcra_registration_number": {{ d.fcra_bank.fcra_registration_number | jsonify }},
+  "site_url":               {{ d.site_url | jsonify }}
+}

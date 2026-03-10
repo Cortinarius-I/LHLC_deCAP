@@ -6,6 +6,24 @@
 title: "Support Little Hearts"
 subtitle: "Every contribution helps us create enabling spaces for our children to learn, grow, and thrive."
 
+# --- Organisation Details (used in 80G receipts and emails) ---
+org:
+  name: "Dhristi Foundation"
+  address: "Plot No 81C, Sindhi Society, Chembur, Mumbai 400071"
+  pan: "XXXXXXXXXXXXX"
+  email: "littlehearts2009@gmail.com"
+  phone: "+91 9967707505"
+  authorized_signatory: "Reshmy Nikith, Director"
+  receipt_prefix: "LHLC-2526-"   # Update at the start of each financial year
+  receipt_email_subject: "Donation Receipt — Little Hearts Learning Centre / Dhristi Foundation"
+
+# --- Apps Script & Site Config ---
+apps_script_url: ""    # Paste the deployed web app URL after publishing the Apps Script
+site_url: "https://cortinarius-i.github.io/LHLC_deCAP"  # Used by the Apps Script to fetch the receipt template
+
+# --- Confirmation form intro text ---
+confirm_intro: "Done with your transfer? Fill in your details below so we can acknowledge your donation and arrange your receipt."
+
 # --- Indian Bank Account (for domestic donations) ---
 indian_bank:
   account_name: "Dhristi Foundation"
@@ -37,9 +55,6 @@ tax_80g:
 tax_fcra:
   note: "Foreign contributions are received under our FCRA registration. A receipt will be issued for your records."
 
-# --- Receipt Form ---
-receipt_form_url: "https://forms.gle/XXXXXXXX"
-receipt_note: "After making your transfer, please fill in our short form so we can issue your receipt and acknowledge your contribution."
 
 # --- General Donation ---
 general:
