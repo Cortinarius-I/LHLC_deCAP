@@ -70,8 +70,8 @@ collections:
         file: support.md
         fields:
           - { label: Title, name: title, widget: string }
-          - { label: Layout, name: layout, widget: hidden, default: page }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Layout, name: layout, widget: hidden, default: support }
+          - { label: Financial Donation Content, name: body, widget: markdown, required: false, hint: "Optional — shown in the 'Support Us Financially' section. Leave blank to use the default placeholder text." }
 
       - label: Contact
         name: contact

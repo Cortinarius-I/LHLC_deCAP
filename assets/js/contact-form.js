@@ -255,4 +255,20 @@
       });
     });
   }
+
+  // Pre-populate from URL query params (?reason=volunteer, ?reason=donations&don=goods)
+  if (reasonSelect) {
+    var urlParams = new URLSearchParams(window.location.search);
+    var preReason = urlParams.get('reason');
+    if (preReason) {
+      reasonSelect.value = preReason;
+      onReasonChange();
+      var preDon = urlParams.get('don');
+      if (preDon) {
+        donTypeRadios.forEach(function (r) { if (r.value === preDon) r.checked = true; });
+        onDonTypeChange();
+      }
+      reasonSelect.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 })();

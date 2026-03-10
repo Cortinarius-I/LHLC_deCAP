@@ -1,0 +1,86 @@
+---
+layout: default
+---
+<section class="support-page">
+  <h1 class="support-title">{{ page.title }}</h1>
+
+  <div class="support-sections">
+
+    <!-- Financial donations -->
+    <div class="support-section" id="donate">
+      <div class="support-section-icon support-section-icon--yellow">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21C12 21 3 14.5 3 8.5a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6-9 12.5-9 12.5z" fill="currentColor" opacity=".9"/></svg>
+      </div>
+      <div class="support-section-content">
+        <h2 class="support-section-title">Support Us Financially</h2>
+        <div class="support-section-body">
+          {% if content and content != "" %}
+            {{ content }}
+          {% else %}
+            <p>Financial contributions help us maintain our facilities, retain qualified staff, and keep our services accessible to every family regardless of their circumstances. Every donation — large or small — makes a meaningful difference in our students' lives.</p>
+            <p><em>More details coming soon. Please get in touch to discuss how you can contribute.</em></p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- In-kind / material donations -->
+    <div class="support-section" id="donate-materials">
+      <div class="support-section-icon support-section-icon--blue">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" fill="currentColor" opacity=".15"/><rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 0-4 0v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 12h20" stroke="currentColor" stroke-width="1.8"/></svg>
+      </div>
+      <div class="support-section-content">
+        <h2 class="support-section-title">Donate Materials</h2>
+        <div class="support-section-body">
+          <p>Classroom and therapy materials are always in high demand. Your in-kind donations directly enrich the learning and therapy experience of our students. Items that make a real difference include:</p>
+          <ul>
+            <li>Educational books, activity kits and workbooks</li>
+            <li>Sensory and occupational therapy tools and equipment</li>
+            <li>Art and craft supplies, stationery</li>
+            <li>Puzzles, board games and educational toys</li>
+            <li>Furniture, storage and classroom essentials</li>
+          </ul>
+          <p>Please ensure items are clean and in good, usable condition.</p>
+        </div>
+        <a class="support-section-cta" href="{{ "/contact/" | relative_url }}?reason=donations&amp;don=goods">Get in touch &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Collaborations -->
+    <div class="support-section" id="collaborate">
+      <div class="support-section-icon support-section-icon--green">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="currentColor" opacity=".2"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="16" cy="8" r="3" fill="currentColor" opacity=".2"/><circle cx="16" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M2 19c0-3.314 2.686-6 6-6h8c3.314 0 6 2.686 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="support-section-content">
+        <h2 class="support-section-title">Collaborate With Us</h2>
+        <div class="support-section-body">
+          <p>We warmly welcome organisations, institutions and individuals who share our commitment to inclusive education and the well-being of children with special needs. Collaborations we are particularly interested in include:</p>
+          <ul>
+            <li>Organising workshops, activities or special events for our students</li>
+            <li>Professional development or training programmes for our staff</li>
+            <li>Joint educational programmes or curriculum support partnerships</li>
+            <li>Fundraising initiatives and community events</li>
+            <li>Corporate social responsibility and volunteering partnerships</li>
+          </ul>
+        </div>
+        <a class="support-section-cta" href="{{ "/contact/" | relative_url }}?reason=collaborations">Discuss a collaboration &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Volunteer -->
+    <div class="support-section" id="volunteer">
+      <div class="support-section-icon support-section-icon--pink">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" fill="currentColor" opacity=".2"/><path d="M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" stroke="currentColor" stroke-width="1.8"/><path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="support-section-content">
+        <h2 class="support-section-title">Volunteer</h2>
+        <div class="support-section-body">
+          <p>Volunteers are an invaluable part of our community. Whether you are a student, a professional, or simply someone who cares — your time and presence makes a genuine difference to our students every day. You can contribute by supporting teachers in the classroom, assisting with therapy sessions, helping organise events, or sharing a skill or hobby with our students.</p>
+          <p>No specialist background is required — just warmth, patience, and a willingness to show up.</p>
+        </div>
+        <a class="support-section-cta" href="{{ "/contact/" | relative_url }}?reason=volunteer">Express your interest &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</section>
