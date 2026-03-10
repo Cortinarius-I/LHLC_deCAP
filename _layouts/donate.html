@@ -1,0 +1,318 @@
+---
+layout: default
+---
+{% assign d = site.data.donation %}
+
+<div class="donate-page">
+
+  <div class="donate-header">
+    <h1>{{ d.title }}</h1>
+    <p>{{ d.subtitle }}</p>
+  </div>
+
+  <!-- Step indicators -->
+  <div class="donate-steps">
+    <div class="donate-step-ind active" id="step-ind-1">
+      <span class="don-step-num">1</span>
+      <span class="don-step-label">Donor Type</span>
+    </div>
+    <div class="don-connector" id="conn-1"></div>
+    <div class="donate-step-ind" id="step-ind-2">
+      <span class="don-step-num">2</span>
+      <span class="don-step-label">Purpose</span>
+    </div>
+    <div class="don-connector" id="conn-2"></div>
+    <div class="donate-step-ind" id="step-ind-3">
+      <span class="don-step-num">3</span>
+      <span class="don-step-label">Details</span>
+    </div>
+  </div>
+
+  <!-- ── STEP 1: Donor Type ── -->
+  <div class="don-section active" id="step-1">
+    <p class="don-section-label">I am donating from</p>
+    <div class="don-choice-grid">
+      <div class="don-choice-card" data-donor="indian" onclick="donSelectDonorType('indian')">
+        <span class="don-card-emoji">🇮🇳</span>
+        <h3>India</h3>
+        <p>Indian citizen or organisation donating in INR</p>
+        <span class="don-card-tag">80G Tax Benefit Available</span>
+      </div>
+      <div class="don-choice-card" data-donor="foreign" onclick="donSelectDonorType('foreign')">
+        <span class="don-card-emoji">🌏</span>
+        <h3>Outside India</h3>
+        <p>Foreign national or organisation donating via wire transfer</p>
+        <span class="don-card-tag">FCRA Registered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: Purpose ── -->
+  <div class="don-section" id="step-2">
+    <button class="don-back-link" onclick="donGoToStep(1)">&#8592; Back</button>
+    <p class="don-section-label">I&rsquo;d like to support</p>
+    <div class="don-purpose-grid">
+      <div class="don-purpose-card" onclick="donSelectPurpose('general', event)">
+        <span class="don-card-emoji">💝</span>
+        <h3>General Donation</h3>
+      </div>
+      <div class="don-purpose-card" onclick="donSelectPurpose('student', event)">
+        <span class="don-card-emoji">🎓</span>
+        <h3>Sponsor a Student</h3>
+      </div>
+      <div class="don-purpose-card" onclick="donSelectPurpose('event', event)">
+        <span class="don-card-emoji">🎉</span>
+        <h3>Sponsor an Event</h3>
+      </div>
+      <div class="don-purpose-card" onclick="donSelectPurpose('corpus', event)">
+        <span class="don-card-emoji">🏦</span>
+        <h3>Corpus Fund</h3>
+      </div>
+      <div class="don-purpose-card" onclick="donSelectPurpose('infra', event)">
+        <span class="don-card-emoji">🏗️</span>
+        <h3>Infrastructure</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: Details ── -->
+  <div class="don-section" id="step-3">
+    <button class="don-back-link" onclick="donGoToStep(2)">&#8592; Back to options</button>
+
+    <!-- General -->
+    <div class="don-info-panel" id="panel-general" style="display:none">
+      <h3>💝 {{ d.general.title }}</h3>
+      <p>{{ d.general.description }}</p>
+      <p class="don-section-label">Suggested amounts</p>
+      <div class="don-pill-row">
+        {% for s in d.general.suggested_amounts %}
+        <div class="don-pill">
+          <span class="don-pill-amount">&#8377;{{ s.amount }}</span>
+          <span class="don-pill-label">{{ s.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Sponsor a Student -->
+    <div class="don-info-panel" id="panel-student" style="display:none">
+      <h3>🎓 {{ d.sponsor_student.title }}</h3>
+      <p>{{ d.sponsor_student.description }}</p>
+      <p class="don-section-label">Annual cost breakdown per student</p>
+      <table class="don-breakdown-table">
+        <thead><tr><th>Item</th><th>Annual Cost</th></tr></thead>
+        <tbody>
+          {% assign student_total = 0 %}
+          {% for b in d.sponsor_student.breakdown %}
+          <tr>
+            <td>{{ b.item }}</td>
+            <td>&#8377;{{ b.amount }}</td>
+          </tr>
+          {% assign student_total = student_total | plus: b.amount %}
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr><td>Total per student per year</td><td>&#8377;{{ student_total }}</td></tr>
+        </tfoot>
+      </table>
+      <div class="don-pill-row">
+        <div class="don-pill">
+          <span class="don-pill-amount">&#8377;{{ d.sponsor_student.suggested_amount }}/month</span>
+          <span class="don-pill-label">{{ d.sponsor_student.suggested_label }}</span>
+        </div>
+        <div class="don-pill">
+          <span class="don-pill-amount">&#8377;{{ d.sponsor_student.annual_cost }}/year</span>
+          <span class="don-pill-label">Full annual sponsorship</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sponsor an Event -->
+    <div class="don-info-panel" id="panel-event" style="display:none">
+      <h3>🎉 {{ d.sponsor_event.title }}</h3>
+      <p>{{ d.sponsor_event.description }}</p>
+      <p class="don-section-label">Typical event costs</p>
+      <div class="don-event-list">
+        {% for e in d.sponsor_event.sample_events %}
+        <div class="don-event-item">
+          <span class="don-event-name">{{ e.name }}</span>
+          <span class="don-event-cost">~&#8377;{{ e.typical_cost }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="don-phone-cta">
+        <span class="don-phone-icon">📞</span>
+        <div>
+          <strong>{{ d.sponsor_event.note }}</strong><br>
+          Call {{ d.sponsor_event.contact_person }}: <a href="tel:{{ d.sponsor_event.contact_phone }}">{{ d.sponsor_event.contact_phone }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Corpus Fund -->
+    <div class="don-info-panel" id="panel-corpus" style="display:none">
+      <h3>🏦 {{ d.corpus_fund.title }}</h3>
+      <p>{{ d.corpus_fund.description }}</p>
+      <p class="don-section-label">Annual operating expenses</p>
+      <table class="don-breakdown-table">
+        <thead><tr><th>Expense</th><th>Annual Cost</th></tr></thead>
+        <tbody>
+          {% assign corpus_total = 0 %}
+          {% for b in d.corpus_fund.breakdown %}
+          <tr>
+            <td>{{ b.item }}</td>
+            <td>&#8377;{{ b.amount }}</td>
+          </tr>
+          {% assign corpus_total = corpus_total | plus: b.amount %}
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr><td>Total annual operating cost</td><td>&#8377;{{ corpus_total }}</td></tr>
+        </tfoot>
+      </table>
+      <p class="don-section-label">Suggested contributions</p>
+      <div class="don-pill-row">
+        {% for s in d.corpus_fund.suggested_amounts %}
+        <div class="don-pill">
+          <span class="don-pill-amount">&#8377;{{ s.amount }}</span>
+          <span class="don-pill-label">{{ s.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Infrastructure -->
+    <div class="don-info-panel" id="panel-infra" style="display:none">
+      <h3>🏗️ {{ d.infrastructure.title }}</h3>
+      <p>{{ d.infrastructure.description }}</p>
+      <p class="don-section-label">Current needs</p>
+      <div class="don-needs-grid">
+        {% for n in d.infrastructure.current_needs %}
+        <div class="don-need-card">
+          <div class="don-need-header">
+            <span class="don-need-name">{{ n.item }}</span>
+            <span class="don-need-amt">&#8377;{{ n.amount }}</span>
+          </div>
+          <p>{{ n.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="don-section-label">Suggested contributions</p>
+      <div class="don-pill-row">
+        {% for s in d.infrastructure.suggested_amounts %}
+        <div class="don-pill">
+          <span class="don-pill-amount">&#8377;{{ s.amount }}</span>
+          <span class="don-pill-label">{{ s.label }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Bank details (shown for all purposes) -->
+    <div id="don-bank-section" style="display:none">
+
+      <!-- Indian bank -->
+      <div id="don-bank-indian" style="display:none">
+        <div class="don-bank-details">
+          <h4>🏦 Bank Transfer / NEFT / IMPS</h4>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Account Name</span>
+            <span class="don-bank-value">{{ d.indian_bank.account_name }}<button class="don-copy-btn" onclick="donCopyText('{{ d.indian_bank.account_name }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Bank</span>
+            <span class="don-bank-value">{{ d.indian_bank.bank_name }}</span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Account No.</span>
+            <span class="don-bank-value">{{ d.indian_bank.account_number }}<button class="don-copy-btn" onclick="donCopyText('{{ d.indian_bank.account_number }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">IFSC Code</span>
+            <span class="don-bank-value">{{ d.indian_bank.ifsc_code }}<button class="don-copy-btn" onclick="donCopyText('{{ d.indian_bank.ifsc_code }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Branch</span>
+            <span class="don-bank-value don-bank-value--text">{{ d.indian_bank.branch }}</span>
+          </div>
+          {% assign upi = d.indian_bank.upi_id | strip %}
+          {% if upi != "" %}
+          <div class="don-bank-row">
+            <span class="don-bank-label">UPI ID</span>
+            <span class="don-bank-value">{{ upi }}<button class="don-copy-btn" onclick="donCopyText('{{ upi }}', this)">Copy</button></span>
+          </div>
+          {% endif %}
+        </div>
+        {% assign qr = d.indian_bank.upi_qr_image | strip %}
+        {% if qr != "" %}
+        <div class="don-upi-qr">
+          <img src="{{ qr | relative_url }}" alt="UPI QR Code" class="don-upi-qr-img">
+          <p class="don-upi-qr-label">Scan to pay via UPI</p>
+        </div>
+        {% endif %}
+        <div class="don-tax-box">
+          <h4>🧾 Tax Benefit &mdash; Section 80G</h4>
+          <p>{{ d.tax_80g.note }}</p>
+          <p>Registration No: <span class="don-tax-reg">{{ d.tax_80g.registration_number }}</span> &nbsp;&middot;&nbsp; Valid: {{ d.tax_80g.valid_from }} to {{ d.tax_80g.valid_to }}</p>
+        </div>
+      </div>
+
+      <!-- Foreign / FCRA bank -->
+      <div id="don-bank-foreign" style="display:none">
+        <div class="don-bank-details">
+          <h4>🌏 Wire Transfer Details (FCRA Account)</h4>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Account Name</span>
+            <span class="don-bank-value">{{ d.fcra_bank.account_name }}<button class="don-copy-btn" onclick="donCopyText('{{ d.fcra_bank.account_name }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Bank</span>
+            <span class="don-bank-value">{{ d.fcra_bank.bank_name }}</span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Account No.</span>
+            <span class="don-bank-value">{{ d.fcra_bank.account_number }}<button class="don-copy-btn" onclick="donCopyText('{{ d.fcra_bank.account_number }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">IFSC Code</span>
+            <span class="don-bank-value">{{ d.fcra_bank.ifsc_code }}<button class="don-copy-btn" onclick="donCopyText('{{ d.fcra_bank.ifsc_code }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">SWIFT Code</span>
+            <span class="don-bank-value">{{ d.fcra_bank.swift_code }}<button class="don-copy-btn" onclick="donCopyText('{{ d.fcra_bank.swift_code }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Branch</span>
+            <span class="don-bank-value don-bank-value--text">{{ d.fcra_bank.branch }}</span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">FCRA Reg. No.</span>
+            <span class="don-bank-value">{{ d.fcra_bank.fcra_registration_number }}<button class="don-copy-btn" onclick="donCopyText('{{ d.fcra_bank.fcra_registration_number }}', this)">Copy</button></span>
+          </div>
+          <div class="don-bank-row">
+            <span class="don-bank-label">Purpose Code</span>
+            <span class="don-bank-value">{{ d.fcra_bank.purpose_code }}</span>
+          </div>
+        </div>
+        <div class="don-tax-box">
+          <h4>📋 FCRA Compliance</h4>
+          <p>{{ d.tax_fcra.note }}</p>
+          <p>FCRA Registration: <span class="don-tax-reg">{{ d.fcra_bank.fcra_registration_number }}</span></p>
+        </div>
+      </div>
+
+      <!-- Receipt CTA -->
+      <div class="don-receipt-cta">
+        <p>{{ d.receipt_note }}</p>
+        <a href="{{ d.receipt_form_url }}" target="_blank" rel="noopener noreferrer" class="don-cta-btn">
+          📝 Fill in the Donation Receipt Form
+        </a>
+      </div>
+
+    </div><!-- /don-bank-section -->
+
+  </div><!-- /step-3 -->
+
+</div><!-- /donate-page -->
+
+<script src="{{ "/assets/js/donate.js" | relative_url }}"></script>

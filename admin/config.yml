@@ -148,6 +148,131 @@ collections:
   - name: settings
     label: Settings
     files:
+      - label: Donation Page
+        name: donation
+        file: _data/donation.yml
+        fields:
+          - { label: Page Title, name: title, widget: string }
+          - { label: Page Subtitle, name: subtitle, widget: text }
+          - name: indian_bank
+            label: Indian Bank Account
+            widget: object
+            fields:
+              - { label: Account Name, name: account_name, widget: string }
+              - { label: Bank Name, name: bank_name, widget: string }
+              - { label: Account Number, name: account_number, widget: string }
+              - { label: IFSC Code, name: ifsc_code, widget: string }
+              - { label: Branch, name: branch, widget: string }
+              - { label: UPI ID, name: upi_id, widget: string, required: false }
+              - { label: UPI QR Image, name: upi_qr_image, widget: image, required: false, hint: "Upload UPI QR code image. Leave blank if not applicable." }
+          - name: fcra_bank
+            label: FCRA Bank Account (Foreign Donations)
+            widget: object
+            fields:
+              - { label: Account Name, name: account_name, widget: string }
+              - { label: Bank Name, name: bank_name, widget: string }
+              - { label: Account Number, name: account_number, widget: string }
+              - { label: IFSC Code, name: ifsc_code, widget: string }
+              - { label: Branch, name: branch, widget: string }
+              - { label: SWIFT Code, name: swift_code, widget: string }
+              - { label: FCRA Registration Number, name: fcra_registration_number, widget: string }
+              - { label: Purpose Code, name: purpose_code, widget: string, default: "P1302" }
+          - name: tax_80g
+            label: 80G Tax Benefit
+            widget: object
+            fields:
+              - { label: 80G Registration Number, name: registration_number, widget: string }
+              - { label: Valid From, name: valid_from, widget: string, hint: "e.g. 2024-04-01" }
+              - { label: Valid To, name: valid_to, widget: string, hint: "e.g. 2029-03-31" }
+              - { label: Description, name: note, widget: text }
+          - name: tax_fcra
+            label: FCRA Receipt Note
+            widget: object
+            fields:
+              - { label: Note, name: note, widget: text }
+          - { label: Receipt Form URL, name: receipt_form_url, widget: string, hint: "Google Form URL for donation receipt requests." }
+          - { label: Receipt Note, name: receipt_note, widget: text, hint: "Instruction shown below bank details." }
+          - name: general
+            label: General Donation
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - name: suggested_amounts
+                label: Suggested Amounts
+                widget: list
+                fields:
+                  - { label: Amount (₹), name: amount, widget: number }
+                  - { label: Label, name: label, widget: string }
+          - name: sponsor_student
+            label: Sponsor a Student
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Annual Cost (₹), name: annual_cost, widget: number }
+              - { label: Suggested Monthly Amount (₹), name: suggested_amount, widget: number }
+              - { label: Suggested Amount Label, name: suggested_label, widget: string }
+              - name: breakdown
+                label: Cost Breakdown
+                widget: list
+                fields:
+                  - { label: Item, name: item, widget: string }
+                  - { label: Annual Cost (₹), name: amount, widget: number }
+          - name: sponsor_event
+            label: Sponsor an Event
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Call-to-Action Note, name: note, widget: text }
+              - { label: Contact Person, name: contact_person, widget: string }
+              - { label: Contact Phone, name: contact_phone, widget: string }
+              - name: sample_events
+                label: Sample Events
+                widget: list
+                fields:
+                  - { label: Event Name, name: name, widget: string }
+                  - { label: Typical Cost (₹), name: typical_cost, widget: number }
+          - name: corpus_fund
+            label: Corpus Fund
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Annual Operating Cost (₹), name: annual_operating_cost, widget: number }
+              - name: suggested_amounts
+                label: Suggested Amounts
+                widget: list
+                fields:
+                  - { label: Amount (₹), name: amount, widget: number }
+                  - { label: Tier Label, name: label, widget: string }
+              - name: breakdown
+                label: Expense Breakdown
+                widget: list
+                fields:
+                  - { label: Expense Item, name: item, widget: string }
+                  - { label: Annual Cost (₹), name: amount, widget: number }
+          - name: infrastructure
+            label: Infrastructure Fund
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - name: suggested_amounts
+                label: Suggested Amounts
+                widget: list
+                fields:
+                  - { label: Amount (₹), name: amount, widget: number }
+                  - { label: Label, name: label, widget: string }
+              - name: current_needs
+                label: Current Infrastructure Needs
+                widget: list
+                fields:
+                  - { label: Need, name: item, widget: string }
+                  - { label: Estimated Cost (₹), name: amount, widget: number }
+                  - { label: Description, name: description, widget: string }
+
       - label: Contact & Form Settings
         name: contact
         file: _data/contact.yml

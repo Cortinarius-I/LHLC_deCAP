@@ -2063,3 +2063,581 @@ body.page-team .team-section--leadership .team-section-title {
     grid-template-columns: 1fr;
   }
 }
+
+// ── Donate page ──────────────────────────────────────────────────────────────
+
+$don-accent:      $accent;          // deep purple — headings, table totals
+$don-accent-lt:   rgba($accent, 0.08);
+$don-primary:     $primary;         // pink — CTAs, selected states
+$don-primary-lt:  rgba($primary, 0.10);
+$don-text:        $text;
+$don-muted:       #6b7280;
+$don-border:      #e5e7eb;
+$don-card-bg:     #ffffff;
+$don-cream:       #fffdf7;
+$don-radius:      12px;
+$don-shadow:      0 2px 12px rgba(0,0,0,.07);
+$don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
+
+.donate-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  color: $don-text;
+}
+
+// Header
+.donate-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    color: $don-accent;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: $don-muted;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+}
+
+// Step indicator
+.donate-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+}
+
+.donate-step-ind {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: $don-muted;
+  transition: color 0.25s;
+
+  .don-step-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: $don-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    transition: all 0.25s;
+  }
+
+  &.active {
+    color: $don-accent;
+    .don-step-num { background: $don-accent; color: #fff; }
+  }
+
+  &.done {
+    color: $don-primary;
+    .don-step-num { background: $don-primary; color: #fff; }
+  }
+}
+
+.don-connector {
+  width: 36px;
+  height: 2px;
+  background: $don-border;
+  align-self: center;
+  transition: background 0.25s;
+
+  &.done { background: $don-primary; }
+}
+
+// Sections (steps)
+.don-section {
+  display: none;
+  animation: donFadeIn 0.35s ease-out;
+
+  &.active { display: block; }
+}
+
+@keyframes donFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.don-section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $don-muted;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+// Back link
+.don-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: $don-muted;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+  font-family: inherit;
+  transition: color 0.2s;
+
+  &:hover { color: $don-accent; }
+}
+
+// Choice cards (donor type)
+.don-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.don-choice-card {
+  background: $don-card-bg;
+  border: 2px solid $don-border;
+  border-radius: $don-radius;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.22s ease;
+
+  &:hover {
+    border-color: $don-accent;
+    box-shadow: $don-shadow-hover;
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    border-color: $don-primary;
+    background: $don-primary-lt;
+    box-shadow: 0 0 0 3px rgba($primary, 0.18);
+  }
+
+  h3 {
+    color: $don-accent;
+    margin: 0 0 0.35rem;
+    font-size: 1.15rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: $don-muted;
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+.don-card-emoji {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.don-card-tag {
+  display: inline-block;
+  background: $don-primary-lt;
+  color: $don-primary;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  margin-top: 0.6rem;
+}
+
+// Purpose grid
+.don-purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.don-purpose-card {
+  background: $don-card-bg;
+  border: 2px solid $don-border;
+  border-radius: $don-radius;
+  padding: 1.25rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.22s ease;
+
+  &:hover {
+    border-color: $don-accent;
+    box-shadow: $don-shadow;
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    border-color: $don-primary;
+    background: $don-primary-lt;
+  }
+
+  h3 {
+    font-size: 0.92rem;
+    color: $don-accent;
+    margin: 0;
+  }
+}
+
+// Info panel
+.don-info-panel {
+  background: $don-card-bg;
+  border: 1px solid $don-border;
+  border-radius: $don-radius;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: $don-shadow;
+
+  h3 {
+    color: $don-accent;
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+  }
+
+  > p {
+    color: $don-muted;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+}
+
+// Breakdown table
+.don-breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.93rem;
+
+  th {
+    text-align: left;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: $don-muted;
+    padding: 0.4rem 0;
+    border-bottom: 2px solid $don-border;
+  }
+
+  td {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid $don-border;
+
+    &:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: $don-accent;
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
+  tfoot td {
+    border-bottom: none;
+    border-top: 2px solid $don-accent;
+    font-weight: 800;
+    font-size: 1rem;
+    padding-top: 0.6rem;
+  }
+}
+
+// Suggested amount pills
+.don-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.75rem 0;
+}
+
+.don-pill {
+  background: $don-accent-lt;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  padding: 0.45rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.don-pill-amount {
+  font-weight: 800;
+  color: $don-accent;
+  font-size: 0.95rem;
+}
+
+.don-pill-label {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: $don-muted;
+}
+
+// Event list
+.don-event-list {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.don-event-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $don-cream;
+  border: 1px solid $don-border;
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  font-size: 0.92rem;
+}
+
+.don-event-name { font-weight: 600; }
+.don-event-cost { font-weight: 700; color: $don-accent; font-variant-numeric: tabular-nums; }
+
+// Phone CTA (event sponsorship)
+.don-phone-cta {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: $don-primary-lt;
+  border: 1px solid rgba($primary, 0.25);
+  border-radius: $don-radius;
+  padding: 1.1rem 1.4rem;
+  margin: 1rem 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+
+  strong { display: block; margin-bottom: 0.15rem; color: $don-accent; }
+  a { color: $don-primary; font-weight: 700; text-decoration: none; }
+}
+
+.don-phone-icon { font-size: 1.8rem; flex-shrink: 0; }
+
+// Infrastructure needs
+.don-needs-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1.25rem;
+}
+
+.don-need-card {
+  background: $don-cream;
+  border: 1px solid $don-border;
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+
+  p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: $don-muted;
+  }
+}
+
+.don-need-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.don-need-name { font-weight: 600; font-size: 0.93rem; }
+.don-need-amt  { font-weight: 700; color: $don-accent; font-variant-numeric: tabular-nums; font-size: 0.93rem; }
+
+// Bank details
+.don-bank-details {
+  background: $don-cream;
+  border: 1px solid $don-border;
+  border-radius: $don-radius;
+  padding: 1.6rem;
+  margin: 1.5rem 0 0;
+
+  h4 {
+    color: $don-accent;
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+}
+
+.don-bank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed $don-border;
+  font-size: 0.9rem;
+  gap: 1rem;
+
+  &:last-child { border-bottom: none; }
+}
+
+.don-bank-label {
+  color: $don-muted;
+  font-weight: 600;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.don-bank-value {
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: right;
+
+  &--text {
+    font-family: inherit;
+    letter-spacing: 0;
+    font-weight: 500;
+  }
+}
+
+.don-copy-btn {
+  background: $don-accent-lt;
+  border: none;
+  border-radius: 4px;
+  padding: 0.18rem 0.5rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: $don-accent;
+  font-weight: 700;
+  font-family: inherit;
+  transition: background 0.18s, color 0.18s;
+  white-space: nowrap;
+
+  &:hover,
+  &--done { background: $don-primary; color: #fff; }
+}
+
+// UPI QR
+.don-upi-qr {
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.don-upi-qr-img {
+  max-width: 180px;
+  border: 2px solid $don-border;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+.don-upi-qr-label {
+  font-size: 0.83rem;
+  color: $don-muted;
+  margin: 0;
+}
+
+// Tax / FCRA info box
+.don-tax-box {
+  background: $don-accent-lt;
+  border: 1px solid rgba($accent, 0.2);
+  border-radius: $don-radius;
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+
+  h4 {
+    color: $don-accent;
+    margin: 0 0 0.4rem;
+    font-size: 0.97rem;
+  }
+
+  p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: $don-text;
+    margin: 0 0 0.35rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+.don-tax-reg {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  background: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+// Receipt CTA
+.don-receipt-cta {
+  text-align: center;
+  margin: 2rem 0 0;
+
+  p {
+    color: $don-muted;
+    font-size: 0.93rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.don-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: $don-primary;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background: $primary-dark;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba($primary, 0.4);
+  }
+}
+
+// Responsive — donate page
+@media (max-width: 600px) {
+  .don-choice-grid {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+
+  .don-purpose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .don-bank-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .donate-steps {
+    transform: scale(0.82);
+    transform-origin: center top;
+  }
+
+  .don-phone-cta {
+    flex-direction: column;
+  }
+}
