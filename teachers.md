@@ -6,17 +6,12 @@ team:
   - name: Reshmy Nikith
     role: Founder & Director
     section: leadership
-    bio: "Reshmy Nikith is Ipsa aspernatur aut eum qui. Non aspernatur et sunt
-      rerum. Omnis suscipit repellat dolores. Ut est laborum velit dolorem
-      inventore. Dolorem illum qui recusandae dolores. Mollitia et consequatur
-      fuga sed "
+    bio: "A founding director of Little Hearts and a passionate advocate for children with disabilities, Reshmy's own journey as a parent brought her together with Gowri Ramesh. Together, they turned a shared vision into a school serving over 65 children across two centres."
     photo: /assets/media/staff/reshmy-nikith.jpg
   - name: Gowri Ramesh
     role: Founder & Director
     section: leadership
-    bio: "Gowri Ramesh is Ipsa aspernatur aut eum qui. Non aspernatur et sunt rerum.
-      Omnis suscipit repellat dolores. Ut est laborum velit dolorem inventore.
-      Dolorem illum qui recusandae dolores. Mollitia et consequatur fuga sed "
+    bio: "Entrepreneur, certified special educator, and mother to a child with autism, Gowri travelled the world searching for a school that truly met her son's needs. Finding none, she trained as a special educator and co-founded Little Hearts alongside Reshmy Nikith."
     photo: /assets/media/staff/gowri-ramesh.jpg
   - name: Mamta Arora
     role: Admin

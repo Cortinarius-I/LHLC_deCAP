@@ -40,12 +40,12 @@ about:
     considerably and now cater to 65 children with a staff strength of 31. In
     2022 The organisation expanded into the field of vocational training, with
     the launch of "Udaan", our vocational centre based on a skill development
-    programme we have formulated which is geared towards employability and
+    program we have formulated which is geared towards employability and
     social inclusion.
   why: We constantly endeavour to provide our students with a holistic learning
     environment which is conducive to their continuous growth and progress. We
     help in aiding the development of their independence, functional skills,
-    educational skills, social skills, and vocational skills. Our programmes are
+    educational skills, social skills, and vocational skills. Our programs are
     catered to the unique needs of our students, as a result of which we work
     towards achieving individual milestones for each of our students. Through
     our work, we aim towards shaping an inclusive society, and additionally, we
@@ -90,7 +90,7 @@ faqs:
   - question: What therapy services are available?
     answer: We provide physiotherapy, occupational therapy (including sensory
       integration), speech therapy, and special education as part of each
-      student's individualised programme.
+      student's individualised program.
   - question: How many students are enrolled?
     answer: We currently support 65+ students across our two centres.
   - question: What is the average class size?

@@ -189,7 +189,7 @@ gallery_sections:
         <div class="gallery-card">
           <img src="https://drive.google.com/thumbnail?id={{ image.id }}&sz=w600"
                alt="{{ image.caption | default: section.title }}" loading="lazy">
-          <p class="gallery-card-caption">{{ image.caption }}</p>
+          {% assign cap = image.caption | strip %}{% if cap != "" %}<p class="gallery-card-caption">{{ image.caption }}</p>{% endif %}
         </div>
       </a>
     </figure>
@@ -246,6 +246,7 @@ gallery_sections:
     lbImg.src = entry.src;
     lbImg.alt = entry.caption;
     lbCap.textContent = entry.caption;
+    lbCap.style.display = entry.caption ? '' : 'none';
     lbCount.textContent = (curIndex + 1) + '\u00a0/\u00a0' + sec.length;
     lbPrev.style.visibility = curIndex > 0 ? 'visible' : 'hidden';
     lbNext.style.visibility = curIndex < sec.length - 1 ? 'visible' : 'hidden';

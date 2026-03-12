@@ -158,11 +158,11 @@
 <h2 class="section-title">Programs</h2>
 <div class="program-grid">
 {% for program in site.programs %}
-<a href="{{ program.url | relative_url }}" class="program-card">
+<div class="program-card">
 {% if program.icon %}{% include program-icon.html icon=program.icon %}{% endif %}
 <h3>{{ program.title }}</h3>
 {% if program.excerpt %}<p>{{ program.excerpt }}</p>{% endif %}
-</a>
+</div>
 {% endfor %}
 </div>
 </section>
@@ -206,6 +206,17 @@
 {% endfor %}
 </dl>
 </section>
+<script>
+document.querySelectorAll('.faq-item').forEach(function(el) {
+  el.addEventListener('toggle', function() {
+    if (el.open) {
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        if (other !== el) other.open = false;
+      });
+    }
+  });
+});
+</script>
 {% endif %}
 {% endif %}
 
