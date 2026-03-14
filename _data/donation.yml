@@ -1,169 +1,154 @@
-# ============================================================
-# Donation Page Configuration
-# Edit via Decap CMS → Settings → Donation Page
-# ============================================================
-
-title: "Support Little Hearts"
-subtitle: "Every contribution helps us create enabling spaces for our children to learn, grow, and thrive."
-
-# --- Organisation Details (used in 80G receipts and emails) ---
+title: Support Little Hearts
+subtitle: Every contribution helps us create enabling spaces for our children to
+  learn, grow, and thrive.
 org:
-  name: "Dhristi Foundation"
-  address: "Plot No 81C, Sindhi Society, Chembur, Mumbai 400071"
-  pan: "XXXXXXXXXXXXX"
-  email: "littlehearts2009@gmail.com"
-  phone: "+91 9967707505"
-  authorized_signatory: "Reshmy Nikith, Director"
-  receipt_prefix: "LHLC-2526-"   # Update at the start of each financial year
-  receipt_email_subject: "Donation Receipt — Little Hearts Learning Centre / Dhristi Foundation"
-
-# --- Apps Script & Site Config ---
-apps_script_url: ""    # Paste the deployed web app URL after publishing the Apps Script
-site_url: "https://cortinarius-i.github.io/LHLC_deCAP"  # Used by the Apps Script to fetch the receipt template
-
-# --- Confirmation form intro text ---
-confirm_intro: "Done with your transfer? Fill in your details below so we can acknowledge your donation and arrange your receipt."
-
-# --- Indian Bank Account (for domestic donations) ---
+  name: Dhristi Foundation
+  address: Plot No 81C, Sindhi Society, Chembur, Mumbai 400071
+  pan: XXXXXXXXXXXXX
+  email: littlehearts2009@gmail.com
+  phone: +91 9967707505
+  authorized_signatory: Reshmy Nikith, Director
+  receipt_prefix: LHLC-2526-
+  receipt_email_subject: Donation Receipt — Little Hearts Learning Centre / Dhristi Foundation
+apps_script_url: ""
+site_url: https://cortinarius-i.github.io/LHLC_deCAP
+confirm_intro: Done with your transfer? Fill in your details below so we can
+  acknowledge your donation and arrange your receipt.
 indian_bank:
-  account_name: "Dhristi Foundation"
-  bank_name: "Bank Name Here"
-  account_number: "XXXXXXXXXXXX"
-  ifsc_code: "XXXX0XXXXXX"
-  branch: "Branch Name, Mumbai"
-  upi_id: "dhristifoundation@upi"
-  upi_qr_image: ""   # Path to UPI QR image, e.g. /assets/media/upi-qr.png
-
-# --- FCRA Bank Account (for foreign donations) ---
+  account_name: Dhristi Foundation
+  bank_name: Bank Name Here
+  account_number: XXXXXXXXXXXX
+  ifsc_code: XXXX0XXXXXX
+  branch: Branch Name, Mumbai
+  upi_id: littlehlc@icici
+  upi_qr_image: /assets/media/lhlc-qr
 fcra_bank:
-  account_name: "Dhristi Foundation"
-  bank_name: "State Bank of India"
-  account_number: "XXXXXXXXXXXX"
-  ifsc_code: "SBIN0000691"
-  branch: "New Delhi Main Branch, Parliament Street, New Delhi"
-  swift_code: "SBININBB104"
-  fcra_registration_number: "XXXXXXXXXX"
-  purpose_code: "P1302"
-
-# --- Tax Benefits ---
+  account_name: Dhristi Foundation
+  bank_name: State Bank of India
+  account_number: XXXXXXXXXXXX
+  ifsc_code: SBIN0000691
+  branch: New Delhi Main Branch, Parliament Street, New Delhi
+  swift_code: SBININBB104
+  fcra_registration_number: XXXXXXXXXX
+  purpose_code: P1302
 tax_80g:
-  registration_number: "XXXXXXXXXXXX"
-  valid_from: "2024-04-01"
-  valid_to: "2029-03-31"
-  note: "Donations to Dhristi Foundation are eligible for tax deduction under Section 80G of the Income Tax Act, 1961."
-
+  registration_number: XXXXXXXXXXXX
+  valid_from: 2024-04-01
+  valid_to: 2029-03-31
+  note: Donations to Dhristi Foundation are eligible for tax deduction under
+    Section 80G of the Income Tax Act, 1961.
 tax_fcra:
-  note: "Foreign contributions are received under our FCRA registration. A receipt will be issued for your records."
-
-
-# --- General Donation ---
+  note: Foreign contributions are received under our FCRA registration. A receipt
+    will be issued for your records.
 general:
-  title: "General Donation"
-  description: "Your donation goes where it's needed most — whether that's classroom supplies, therapist salaries, nutritious meals, or facility maintenance."
+  title: General Donation
+  description: Your donation goes where it's needed most — whether that's
+    classroom supplies, therapist salaries, nutritious meals, or facility
+    maintenance.
   suggested_amounts:
     - amount: 500
-      label: "A day's meals for a child"
+      label: A day's meals for a child
     - amount: 2000
-      label: "A month's art supplies"
+      label: A month's art supplies
     - amount: 5000
-      label: "A month's therapy sessions for a child"
+      label: A month's therapy sessions for a child
     - amount: 10000
-      label: "A month's salary support for a teacher"
-
-# --- Sponsor a Student ---
+      label: A month's salary support for a teacher
 sponsor_student:
-  title: "Sponsor a Student"
-  description: "Cover the annual cost of one child's education, therapy, meals, and care at Little Hearts."
+  title: Sponsor a Student
+  description: Cover the annual cost of one child's education, therapy, meals, and
+    care at Little Hearts.
   annual_cost: 72000
   suggested_amount: 6000
-  suggested_label: "per month (₹72,000/year)"
+  suggested_label: per month (₹72,000/year)
   breakdown:
-    - item: "Special education & academics"
+    - item: Special education & academics
       amount: 24000
-    - item: "Therapy (OT, Speech, ABA)"
+    - item: Therapy (OT, Speech, ABA)
       amount: 18000
-    - item: "Meals & nutrition"
+    - item: Meals & nutrition
       amount: 12000
-    - item: "Learning materials & supplies"
+    - item: Learning materials & supplies
       amount: 6000
-    - item: "Transport assistance"
+    - item: Transport assistance
       amount: 6000
-    - item: "Activities & field trips"
+    - item: Activities & field trips
       amount: 6000
-
-# --- Sponsor an Event ---
 sponsor_event:
-  title: "Sponsor an Event"
-  description: "Our children look forward to celebrations and events throughout the year — from Diwali and Sports Day to picnics and sensory weeks. Sponsor one and make it special."
-  note: "Event costs vary. Please call us to discuss which upcoming event you'd like to sponsor and the budget involved."
-  contact_person: "Reshmy Nikith"
-  contact_phone: "+91 9967707505"
+  title: Sponsor an Event
+  description: Our children look forward to celebrations and events throughout the
+    year — from Diwali and Sports Day to picnics and sensory weeks. Sponsor one
+    and make it special.
+  note: Event costs vary. Please call us to discuss which upcoming event you'd
+    like to sponsor and the budget involved.
+  contact_person: Reshmy Nikith
+  contact_phone: +91 9967707505
   sample_events:
-    - name: "Annual Sports Day"
+    - name: Annual Sports Day
       typical_cost: 25000
-    - name: "Festival Celebration (Diwali, Holi, etc.)"
+    - name: Festival Celebration (Diwali, Holi, etc.)
       typical_cost: 15000
-    - name: "Student Picnic / Outing"
+    - name: Student Picnic / Outing
       typical_cost: 20000
-    - name: "Sensory Week"
+    - name: Sensory Week
       typical_cost: 10000
-    - name: "Summer Camp"
+    - name: Summer Camp
       typical_cost: 30000
-
-# --- Corpus Fund ---
 corpus_fund:
-  title: "Corpus Fund"
-  description: "Help us build a financial reserve that ensures Little Hearts can continue operating sustainably, even in difficult times. Corpus contributions are invested and the returns fund ongoing operations."
+  title: Corpus Fund
+  description: Help us build a financial reserve that ensures Little Hearts can
+    continue operating sustainably, even in difficult times. Corpus
+    contributions are invested and the returns fund ongoing operations.
   annual_operating_cost: 3600000
   suggested_amounts:
     - amount: 25000
-      label: "Supporter"
+      label: Supporter
     - amount: 50000
-      label: "Patron"
+      label: Patron
     - amount: 100000
-      label: "Pillar"
+      label: Pillar
     - amount: 500000
-      label: "Cornerstone"
+      label: Cornerstone
   breakdown:
-    - item: "Staff salaries (31 members)"
+    - item: Staff salaries (31 members)
       amount: 2400000
-    - item: "Therapist services"
+    - item: Therapist services
       amount: 480000
-    - item: "Rent & utilities"
+    - item: Rent & utilities
       amount: 360000
-    - item: "Student meals & nutrition"
+    - item: Student meals & nutrition
       amount: 180000
-    - item: "Learning materials & equipment"
+    - item: Learning materials & equipment
       amount: 120000
-    - item: "Events & activities"
+    - item: Events & activities
       amount: 60000
-
-# --- Infrastructure Fund ---
 infrastructure:
-  title: "Infrastructure Fund"
-  description: "Help us improve and maintain our learning spaces — from therapy rooms and sensory equipment to accessible facilities and safety improvements."
+  title: Infrastructure Fund
+  description: Help us improve and maintain our learning spaces — from therapy
+    rooms and sensory equipment to accessible facilities and safety
+    improvements.
   suggested_amounts:
     - amount: 10000
-      label: "Classroom furniture & supplies"
+      label: Classroom furniture & supplies
     - amount: 25000
-      label: "Therapy room equipment"
+      label: Therapy room equipment
     - amount: 50000
-      label: "Sensory integration setup"
+      label: Sensory integration setup
     - amount: 100000
-      label: "Facility renovation"
+      label: Facility renovation
   current_needs:
-    - item: "Sensory integration room upgrade"
+    - item: Sensory integration room upgrade
       amount: 150000
-      description: "New sensory swings, crash mats, tactile walls, and lighting"
-    - item: "Accessible washroom renovation"
+      description: New sensory swings, crash mats, tactile walls, and lighting
+    - item: Accessible washroom renovation
       amount: 200000
-      description: "Making washrooms wheelchair-accessible with grab rails and ramps"
-    - item: "Computer lab setup"
+      description: Making washrooms wheelchair-accessible with grab rails and ramps
+    - item: Computer lab setup
       amount: 100000
-      description: "5 computers with educational software for digital literacy"
-    - item: "Kitchen & dining area improvement"
+      description: 5 computers with educational software for digital literacy
+    - item: Kitchen & dining area improvement
       amount: 75000
-      description: "Better cooking equipment and child-friendly dining furniture"
-    - item: "Safety & fire equipment"
+      description: Better cooking equipment and child-friendly dining furniture
+    - item: Safety & fire equipment
       amount: 50000
-      description: "Fire extinguishers, emergency exits, first aid stations"
+      description: Fire extinguishers, emergency exits, first aid stations
