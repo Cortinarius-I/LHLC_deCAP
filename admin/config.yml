@@ -205,8 +205,6 @@ collections:
             widget: object
             fields:
               - { label: Note, name: note, widget: text }
-          - { label: Receipt Form URL, name: receipt_form_url, widget: string, hint: "Google Form URL for donation receipt requests." }
-          - { label: Receipt Note, name: receipt_note, widget: text, hint: "Instruction shown below bank details." }
           - name: general
             label: General Donation
             widget: object
