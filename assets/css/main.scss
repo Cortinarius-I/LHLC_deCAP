@@ -2933,6 +2933,22 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
+.udaan-card--img {
+  padding: 0;
+  overflow: hidden;
+}
+
+.udaan-card--img img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.udaan-card--img .udaan-card-body {
+  padding: 1.25rem 1.5rem;
+}
+
 .udaan-card h3 {
   font-family: 'Fredoka', sans-serif;
   font-size: 1.15rem;

@@ -14,24 +14,36 @@ permalink: /udaan/
 
 <div class="udaan-grid">
 
-<div class="udaan-card">
+<div class="udaan-card udaan-card--img">
+<img src="https://drive.google.com/thumbnail?id=1LOtDNs6_tWi278WOMkQsG7qgJTW1RUp6&sz=w600" alt="Handicrafts at Udaan" loading="lazy">
+<div class="udaan-card-body">
 <h3>Handicrafts &amp; Product Making</h3>
 <p>Students learn to create handmade products — candles, paper crafts, decorative items, and more — developing fine motor skills and creative expression along the way.</p>
 </div>
+</div>
 
-<div class="udaan-card">
+<div class="udaan-card udaan-card--img">
+<img src="https://drive.google.com/thumbnail?id=1SN3IMPwDwd3svLPDWdY7McXJsUSfLCBk&sz=w600" alt="Cooking at Udaan" loading="lazy">
+<div class="udaan-card-body">
 <h3>Cooking &amp; Baking Basics</h3>
 <p>Practical kitchen skills from basic meal preparation to baking, building independence and the foundation for potential employment in the food industry.</p>
 </div>
+</div>
 
-<div class="udaan-card">
+<div class="udaan-card udaan-card--img">
+<img src="https://drive.google.com/thumbnail?id=1niXoOHuT1aMYC6tuiJXyyO_SInU44UcM&sz=w600" alt="Packaging at Udaan" loading="lazy">
+<div class="udaan-card-body">
 <h3>Packaging &amp; Labeling</h3>
 <p>Hands-on training in product packaging, labeling, and quality checking — skills directly applicable to manufacturing and retail job settings.</p>
 </div>
+</div>
 
-<div class="udaan-card">
+<div class="udaan-card udaan-card--img">
+<img src="https://drive.google.com/thumbnail?id=183AI_xpNRXZ1jFB4K0146EukXpC8Yf0u&sz=w600" alt="Life skills training at Udaan" loading="lazy">
+<div class="udaan-card-body">
 <h3>Life Skills &amp; Home Management</h3>
 <p>Activities of daily living, personal grooming, banking basics, financial literacy, and household management — everything needed to live with greater independence.</p>
+</div>
 </div>
 
 <div class="udaan-card">
@@ -44,9 +56,12 @@ permalink: /udaan/
 <p>Structured practice in conversation, teamwork, workplace etiquette, and collaborative working with peers and adults in real-world settings.</p>
 </div>
 
-<div class="udaan-card">
+<div class="udaan-card udaan-card--img">
+<img src="https://drive.google.com/thumbnail?id=1z7J3yu7XS911l6yyZh55k2LY47ov-MnJ&sz=w600" alt="Functional academics at Udaan" loading="lazy">
+<div class="udaan-card-body">
 <h3>Functional Academics</h3>
 <p>Practical reading, writing, and math applied to everyday situations — reading signs, filling forms, handling money, and telling time.</p>
+</div>
 </div>
 
 <div class="udaan-card">
