@@ -2890,6 +2890,10 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
 
 // ── Udaan page ──
 
+.page:has(.udaan-intro) h1 {
+  text-align: center;
+}
+
 .udaan-intro {
   max-width: 780px;
   margin: 0 auto 2.5rem;
@@ -2954,7 +2958,8 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   margin-bottom: 1rem;
 }
 
-.udaan-contact-btn {
+.udaan-contact-btn,
+.udaan-contact-btn:visited {
   display: inline-block;
   background: $primary;
   color: #fff;
@@ -2966,6 +2971,8 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   transition: background 0.2s;
 }
 
-.udaan-contact-btn:hover {
+.udaan-contact-btn:hover,
+.udaan-contact-btn:focus {
   background: darken($primary, 8%);
+  color: #fff;
 }
