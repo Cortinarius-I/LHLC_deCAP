@@ -123,16 +123,6 @@ collections:
                   - { label: Drive File ID, name: id, widget: string, hint: "Google Drive file ID from the sharing link" }
                   - { label: Caption, name: caption, widget: string, required: false }
 
-  - name: programs
-    label: Programs
-    folder: _programs
-    create: true
-    fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Excerpt, name: excerpt, widget: string }
-      - { label: Layout, name: layout, widget: hidden, default: program }
-      - { label: Body, name: body, widget: markdown }
-
   - name: activities
     label: Activities
     folder: _activities

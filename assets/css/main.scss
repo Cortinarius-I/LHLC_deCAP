@@ -1144,7 +1144,6 @@ body.page-team .team-section--leadership .team-section-title {
   font-size: 0.82rem;
   color: $muted;
   text-align: center;
-  min-height: 2rem;
 }
 
 // ── Lightbox ──
@@ -2847,4 +2846,126 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   .don-confirm-form {
     padding: 1.25rem;
   }
+}
+
+// ── About Udaan (homepage) ──
+
+.about-udaan {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: lighten($primary, 38%);
+  border-radius: 12px;
+  border: 1.5px solid $border;
+}
+
+.about-udaan h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  color: $accent;
+  margin-bottom: 0.75rem;
+}
+
+.about-udaan p {
+  font-size: 0.97rem;
+  color: $muted;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.about-udaan-btn {
+  display: inline-block;
+  background: $primary;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.about-udaan-btn:hover {
+  background: darken($primary, 8%);
+}
+
+// ── Udaan page ──
+
+.udaan-intro {
+  max-width: 780px;
+  margin: 0 auto 2.5rem;
+}
+
+.udaan-intro p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: $muted;
+}
+
+.udaan-courses h2 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: $accent;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.udaan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.udaan-card {
+  background: $card-bg;
+  border: 1.5px solid $border;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.udaan-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.udaan-card h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.15rem;
+  color: $primary;
+  margin-bottom: 0.5rem;
+}
+
+.udaan-card p {
+  font-size: 0.92rem;
+  color: $muted;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.udaan-cta {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.udaan-cta p {
+  font-size: 1rem;
+  color: $muted;
+  margin-bottom: 1rem;
+}
+
+.udaan-contact-btn {
+  display: inline-block;
+  background: $primary;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.udaan-contact-btn:hover {
+  background: darken($primary, 8%);
 }
