@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<section class="page">
+<h1>{{ page.title }}</h1>
+
+<section class="udaan-intro">
+<p>{{ page.intro }}</p>
+</section>
+
+<section class="udaan-courses">
+<h2>What We Offer</h2>
+<div class="udaan-grid">
+{% for course in page.courses %}
+{% assign did = course.drive_id | strip %}
+<div class="udaan-card{% if did != '' %} udaan-card--img{% endif %}">
+{% if did != '' %}
+<img src="https://drive.google.com/thumbnail?id={{ did }}&sz=w600" alt="{{ course.title }}" loading="lazy">
+<div class="udaan-card-body">
+{% endif %}
+<h3>{{ course.title }}</h3>
+<p>{{ course.description }}</p>
+{% if did != '' %}
+</div>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+</section>
+
+<section class="udaan-cta">
+<p>{{ page.cta }}</p>
+<p><a href="{{ "/contact/" | relative_url }}" class="udaan-contact-btn">Get in touch to learn more &rarr;</a></p>
+</section>
+</section>

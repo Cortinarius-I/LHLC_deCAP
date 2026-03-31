@@ -2974,8 +2974,8 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   margin-bottom: 1rem;
 }
 
-.udaan-contact-btn,
-.udaan-contact-btn:visited {
+.page a.udaan-contact-btn,
+.page a.udaan-contact-btn:visited {
   display: inline-block;
   background: $primary;
   color: #fff;
@@ -2987,8 +2987,8 @@ $don-shadow-hover: 0 8px 28px rgba(0,0,0,.12);
   transition: background 0.2s;
 }
 
-.udaan-contact-btn:hover,
-.udaan-contact-btn:focus {
+.page a.udaan-contact-btn:hover,
+.page a.udaan-contact-btn:focus {
   background: darken($primary, 8%);
   color: #fff;
 }

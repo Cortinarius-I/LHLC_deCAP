@@ -73,6 +73,23 @@ collections:
           - { label: Layout, name: layout, widget: hidden, default: support }
           - { label: Financial Donation Content, name: body, widget: markdown, required: false, hint: "Optional — shown in the 'Support Us Financially' section. Leave blank to use the default placeholder text." }
 
+      - label: Udaan
+        name: udaan
+        file: udaan.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Layout, name: layout, widget: hidden, default: udaan }
+          - { label: Permalink, name: permalink, widget: hidden, default: "/udaan/" }
+          - { label: Intro Text, name: intro, widget: text }
+          - { label: Footer Text, name: cta, widget: text, hint: "Shown above the 'Get in touch' button." }
+          - label: Courses
+            name: courses
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: "Image (Drive ID)", name: drive_id, widget: string, required: false, hint: "Google Drive file ID. The card will show this image above the text. Leave blank for text-only." }
+
       - label: Contact
         name: contact
         file: contact.md

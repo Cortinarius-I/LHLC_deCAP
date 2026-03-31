@@ -171,19 +171,6 @@ gallery_sections:
         caption: ""
       - id: "1hRaNBkT8o6SOGkhFDjxS47Z4AQ2s8fbf"
         caption: ""
-
-  - title: "Udaan Vocational Center"
-    images:
-      - id: "1SN3IMPwDwd3svLPDWdY7McXJsUSfLCBk"
-        caption: ""
-      - id: "1LOtDNs6_tWi278WOMkQsG7qgJTW1RUp6"
-        caption: ""
-      - id: "183AI_xpNRXZ1jFB4K0146EukXpC8Yf0u"
-        caption: ""
-      - id: "1niXoOHuT1aMYC6tuiJXyyO_SInU44UcM"
-        caption: ""
-      - id: "1z7J3yu7XS911l6yyZh55k2LY47ov-MnJ"
-        caption: ""
 ---
 
 {% for section in page.gallery_sections %}
