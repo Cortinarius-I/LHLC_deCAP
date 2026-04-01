@@ -11,7 +11,7 @@ org:
   receipt_prefix: LHLC-2526-
   receipt_email_subject: Donation Receipt — Little Hearts Learning Centre / Dhristi Foundation
 apps_script_url: ""
-site_url: ""
+site_url: https://www.dhrishtifoundation.org
 confirm_intro: Done with your transfer? Fill in your details below so we can
   acknowledge your donation and arrange your receipt.
 indian_bank:
