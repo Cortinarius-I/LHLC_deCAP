@@ -6,6 +6,7 @@
 <title>{{ page.title }} · {{ site.title }}</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -277,5 +278,16 @@ document.querySelectorAll('.faq-item').forEach(function(el) {
 })();
 </script>
 {% endif %}
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>

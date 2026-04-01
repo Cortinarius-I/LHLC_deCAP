@@ -1,7 +1,7 @@
 title: Little Hearts Learning Centre
 description: Creating enabling spaces to realize the educational and functional needs of children
-url: "https://cortinarius-i.github.io"
-baseurl: "/LHLC_deCAP"
+url: ""
+baseurl: ""
 
 markdown: kramdown
 permalink: pretty

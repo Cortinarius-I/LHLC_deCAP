@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: Cortinarius-I/LHLC_deCAP
+  name: git-gateway
   branch: master
-  base_url: https://lhlc-decap-oauth.deoreishanx.workers.dev
-  auth_endpoint: /auth
 
 media_folder: "assets/media"
 public_folder: "/assets/media"
